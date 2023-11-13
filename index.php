@@ -25,13 +25,14 @@
     {
         $result = "";
         $found = false;
-        for ($i = 0; $i < strlen($str); $i++) {
-            $item = $str[$i];
-            if ($item != 0) {
+
+        for ($i = 0; $i < strlen($str); $i++) { # loop from index 0 to length of the string - 1
+            $item = $str[$i]; # $item is holding the number at the current position
+            if ($item != 0) { # if we found a number other than 0, set $found variable to true
                 $found = true;
             }
-            if ($found) {
-                $result .= $item;
+            if ($found) { # if $found is true, that means we skipped all the zeros on the left
+                $result .= $item; # add the remaining numbers to the $result variable
             }
         }
         return $result;
@@ -51,7 +52,7 @@
 
 
     // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
-    // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
+    echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
     ?>
 </body>
 

@@ -50,7 +50,7 @@
         return $result;
     }
 
-    function findMinMax($arr)
+    function minMax($arr)
     {
         $min = 0;
         $max = 0;
@@ -65,8 +65,8 @@
     }
     // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
-    list($min, $max) = findMinMax([10, 1000, 2000, -1, 0, 100]);
-    echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . "</h1>");
+    // list($min, $max) = minMax([10, 1000, 2000, -1, 0, 100]);
+    // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . "</h1>");
     ?>
 </body>
 

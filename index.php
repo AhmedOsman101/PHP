@@ -18,28 +18,41 @@
             <button type="submit" class="btn btn-success" value="submit">Submit</button>
         </form>
     </div>
+    <?php
+    $value = $_POST["value"];
+
+    function removeZeros(string $str)
+    {
+        $result = "";
+        $found = false;
+        for ($i = 0; $i < strlen($str); $i++) {
+            $item = $str[$i];
+            if ($item != 0) {
+                $found = true;
+            }
+            if ($found) {
+                $result .= $item;
+            }
+        }
+        return $result;
+    }
+
+    function primeNum($num)
+    {
+        $result = "{$num} is prime";
+        for ($i = 2; $i < $num; $i++) {
+            if ($num % $i == 0) {
+                $result = "{$num} is not prime";
+                break;
+            }
+        }
+        return $result;
+    }
+
+
+    // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
+    // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
+    ?>
 </body>
 
 </html>
-<?php
-$value = $_POST["value"];
-
-function removeZeros(string $str)
-{
-    $result = "";
-    $found = false;
-    for ($i = 0; $i < strlen($str); $i++) {
-        $item = $str[$i];
-        if ($item != 0) {
-            $found = true;
-        }
-        if ($found) {
-            $result .= $item;
-        }
-    }
-    return $result;
-}
-
-// echo removeZeros("001101415");
-echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
-?>

@@ -12,7 +12,7 @@
     <div class="container">
         <form action="index.php" method="post">
             <div class="mt-5 mb-3">
-                <label class="form-label">Value:</label>
+                <label class="form-label">Input:</label>
                 <input type="text" class="form-control" name="value" placeholder="Enter a value">
             </div>
             <button type="submit" class="btn btn-success" value="submit">Submit</button>
@@ -21,7 +21,6 @@
 </body>
 
 </html>
-
 <?php
 $value = $_POST["value"];
 
@@ -42,5 +41,5 @@ function removeZeros(string $str)
 }
 
 // echo removeZeros("001101415");
-echo ("<h1 class='text-center'> value: " . removeZeros('0001101415') . "</h1>");
+echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
 ?>

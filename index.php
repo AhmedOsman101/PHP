@@ -53,8 +53,11 @@
     function minMaxAvg($arr)
     {
         $min = 0;
-        $max = 0;
+        $max = null;
         $total = 0;
+        // for ($item = 0; $item < sizeof($arr); $item++) {
+
+        // }
         foreach ($arr as $item) {
             if ($item > $max) {
                 $max = $item;
@@ -66,7 +69,7 @@
         $avg = $total / sizeof($arr);
         return [$min, $max, $avg];
     }
-    list($min, $max, $avg) = minMaxAvg([5, -5, 30, 0, 20 ]);
+    list($min, $max, $avg) = minMaxAvg([100, 10, -20, -2, -20]);
 
     function strMethods($str)
     {
@@ -82,9 +85,34 @@
             }
         }
     }
+
+    function missingNumber($start, $end, $arr)
+    {
+        $res = [];
+        $fullArr = [];
+        for ($i = $start; $i <= $end; $i++) {
+            array_push($fullArr, $i);
+        }
+
+        foreach ($fullArr as $num) {
+            $missing = true;
+            foreach ($arr as $val) {
+                if ($num == $val) {
+                    $missing = false;
+                    break;
+                }
+            }
+            if ($missing) {
+                array_push($res, $num);
+            }
+        }
+        return $res;
+    }
+    echo "res: ";
+    echo implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10]));
     // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
-    echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
+    // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
     // list($sub, $rep, $pos, $trim) = strMethods($value);
     // echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");

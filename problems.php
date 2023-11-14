@@ -77,6 +77,34 @@ function miniMaxSum($arr)
     print "{$minSum} {$maxSum}";
 }
 
+function timeConversion($s)
+{
+    $time = "";
+    list($hrs, $mins, $sec) = explode(":", $s);
+    if ($sec[-2] == "A") {
+        if ($hrs == 12) {
+            $hrs = "00";
+        }
+        $sec = trim($sec, "AM");
+    }elseif($sec[-2] == "P"){
+        if ($hrs == 12) {
+            $hrs = "12";
+        }else{
+            $hrs += 12;
+        }
+        $sec = trim($sec, "PM");
+    }
+    $time .= "{$hrs}:{$mins}:{$sec}\n";
+    return $time;
+}
+
+function findMedian($arr)
+{
+    sort($arr);
+    return $arr[sizeOf($arr) / 2];
+
+}
+
 // echo minTime([4, 1, 3, 2, 8], 4, 1);
 // mostActive([
 //     "Bigcorp",
@@ -104,5 +132,8 @@ function miniMaxSum($arr)
 //     "Nadircorp"
 // ]);
 // plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
-miniMaxSum([1, 3, 5, 7, 9]);
-
+// miniMaxSum([1, 3, 5, 7, 9]);
+// echo timeConversion("12:00:00AM");
+// echo timeConversion("01:00:00PM");
+// echo timeConversion("07:05:45PM");
+// echo findMedian([1, 3, 50, 7, 0]);

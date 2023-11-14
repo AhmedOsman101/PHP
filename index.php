@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PHP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -55,9 +55,7 @@
         $min = 0;
         $max = null;
         $total = 0;
-        // for ($item = 0; $item < sizeof($arr); $item++) {
 
-        // }
         foreach ($arr as $item) {
             if ($item > $max) {
                 $max = $item;
@@ -75,6 +73,7 @@
     {
         return [substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
     }
+    list($sub, $rep, $pos, $trim) = strMethods($value);
 
     function removeZeros2($str)
     {
@@ -108,10 +107,9 @@
         }
         return $res;
     }
-    echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
+    // echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
-    // list($sub, $rep, $pos, $trim) = strMethods($value);
     // echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");
     ?>

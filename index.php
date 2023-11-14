@@ -63,10 +63,16 @@
         }
         return [$min, $max];
     }
+
+    function strMethods($str){
+        return[substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
+    }
     // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
     // list($min, $max) = minMax([10, 1000, 2000, -1, 0, 100]);
     // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . "</h1>");
+    list($sub, $rep, $pos, $trim) = strMethods($value);
+    echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
     ?>
 </body>
 

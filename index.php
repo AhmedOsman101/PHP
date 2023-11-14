@@ -50,29 +50,44 @@
         return $result;
     }
 
-    function minMax($arr)
+    function minMaxAvg($arr)
     {
         $min = 0;
         $max = 0;
+        $total = 0;
         foreach ($arr as $item) {
             if ($item > $max) {
                 $max = $item;
             } elseif ($item < $min) {
                 $min = $item;
             }
+            $total += $item;
         }
-        return [$min, $max];
+        $avg = $total / sizeof($arr);
+        return [$min, $max, $avg];
+    }
+    list($min, $max, $avg) = minMaxAvg([5, -5, 30, 0, 20 ]);
+
+    function strMethods($str)
+    {
+        return [substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
     }
 
-    function strMethods($str){
-        return[substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
+    function removeZeros2($str)
+    {
+        $len = strlen($str);
+        for ($i = 0; $i < $len; $i++) {
+            if ($str[$i] != 0) {
+                return substr($str, $i, $len);
+            }
+        }
     }
     // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
-    // list($min, $max) = minMax([10, 1000, 2000, -1, 0, 100]);
-    // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . "</h1>");
-    list($sub, $rep, $pos, $trim) = strMethods($value);
-    echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
+    echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
+    // list($sub, $rep, $pos, $trim) = strMethods($value);
+    // echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
+    // echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");
     ?>
 </body>
 

@@ -4,9 +4,7 @@ function mostActive($customers)
     $n = count($customers);
     $res = [];
     $counts = array_count_values($customers);
-    // echo print_r( array_count_values($customers));
     foreach ($counts as $customer => $count) {
-        // echo "user: {$customer} count: {$count} \n";
         if (5 < ($count / $n) * 100) {
             array_push($res, $customer);
         }
@@ -59,7 +57,7 @@ function plusMinus($arr)
     $minus = number_format(($minus / sizeof($arr)), 6);
     $zeros = number_format(($zeros / sizeof($arr)), 6);
     $plus = number_format(($plus / sizeof($arr)), 6);
-    echo "{$plus}\n{$minus}\n{$zeros}";
+    echo "{$plus}\n{$minus}\n{$zeros}\n";
 }
 
 function miniMaxSum($arr)
@@ -74,7 +72,7 @@ function miniMaxSum($arr)
     for ($i = 0; $i < 4; $i++) {
         $maxSum += $arr[$i];
     }
-    print "{$minSum} {$maxSum}";
+    print "{$minSum} {$maxSum}\n";
 }
 
 function timeConversion($s)
@@ -86,10 +84,10 @@ function timeConversion($s)
             $hrs = "00";
         }
         $sec = trim($sec, "AM");
-    }elseif($sec[-2] == "P"){
+    } elseif ($sec[-2] == "P") {
         if ($hrs == 12) {
             $hrs = "12";
-        }else{
+        } else {
             $hrs += 12;
         }
         $sec = trim($sec, "PM");
@@ -102,38 +100,37 @@ function findMedian($arr)
 {
     sort($arr);
     return $arr[sizeOf($arr) / 2];
-
 }
 
-// echo minTime([4, 1, 3, 2, 8], 4, 1);
-// mostActive([
-//     "Bigcorp",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Zork",
-//     "Zork",
-//     "Abc",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Bigcorp",
-//     "Zork",
-//     "Bigcorp",
-//     "Zork",
-//     "Zork",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Acme",
-//     "Littlecorp",
-//     "Nadircorp"
-// ]);
-// plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
-// miniMaxSum([1, 3, 5, 7, 9]);
-// echo timeConversion("12:00:00AM");
-// echo timeConversion("01:00:00PM");
-// echo timeConversion("07:05:45PM");
-// echo findMedian([1, 3, 50, 7, 0]);
+mostActive([
+    "Bigcorp",
+    "Bigcorp",
+    "Acme",
+    "Bigcorp",
+    "Zork",
+    "Zork",
+    "Abc",
+    "Bigcorp",
+    "Acme",
+    "Bigcorp",
+    "Bigcorp",
+    "Zork",
+    "Bigcorp",
+    "Zork",
+    "Zork",
+    "Bigcorp",
+    "Acme",
+    "Bigcorp",
+    "Acme",
+    "Bigcorp",
+    "Acme",
+    "Littlecorp",
+    "Nadircorp"
+]);
+echo "minTime: " . minTime([4, 1, 3, 2, 8], 4, 1) . "\n";
+plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
+miniMaxSum([1, 3, 5, 7, 9]);
+echo timeConversion("12:00:00AM");
+echo timeConversion("01:00:00PM");
+echo timeConversion("07:05:45PM");
+echo findMedian([1, 3, 50, 7, 0]);

@@ -62,6 +62,21 @@ function plusMinus($arr)
     echo "{$plus}\n{$minus}\n{$zeros}";
 }
 
+function miniMaxSum($arr)
+{
+    $minSum = 0;
+    $maxSum = 0;
+    sort($arr);
+    for ($i = 0; $i < 4; $i++) {
+        $minSum += $arr[$i];
+    }
+    rsort($arr);
+    for ($i = 0; $i < 4; $i++) {
+        $maxSum += $arr[$i];
+    }
+    print "{$minSum} {$maxSum}";
+}
+
 // echo minTime([4, 1, 3, 2, 8], 4, 1);
 // mostActive([
 //     "Bigcorp",
@@ -89,5 +104,5 @@ function plusMinus($arr)
 //     "Nadircorp"
 // ]);
 // plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
-
+miniMaxSum([1, 3, 5, 7, 9]);
 

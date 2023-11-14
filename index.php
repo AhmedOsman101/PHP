@@ -108,9 +108,7 @@
         }
         return $res;
     }
-    echo "res: ";
-    echo implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10]));
-    // echo ("<h1 class='text-center'> Output: " . removeZeros($value) . "</h1>");
+    echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
     // list($sub, $rep, $pos, $trim) = strMethods($value);

@@ -253,7 +253,24 @@ function selectionSort($arr, $mode)
     return $arr;
 }
 
+function reverse_words_order_and_swap_cases($str)
+{
+    $str = explode(" ", $str);
+    for ($i = 0; $i < sizeof($str); $i++) {
+        for ($j = 0; $j < strlen($str[$i]); $j++) {
+            if (ctype_lower($str[$i][$j])) {
+                $str[$i][$j] = strtoupper($str[$i][$j]);
+            } elseif (ctype_upper($str[$i][$j])) {
+                $str[$i][$j] = strtolower($str[$i][$j]);
+            }
+        }
+    }
+    $str = implode(" ", array_reverse($str));
+    return $str;
+}
 
+
+// reverse_words_order_and_swap_cases("rUns dOg");
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";
 // echo "[" . implode(",", selectionSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";

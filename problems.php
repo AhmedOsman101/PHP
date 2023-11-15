@@ -284,7 +284,20 @@ function transformSentence($str)
     $str = implode(" ", $str);
     return $str;
 }
-print_r(transformSentence("coOL dog")); // output: "cOOl dOg"
+
+function diagonalDifference($arr)
+{
+    // $firstDiagonal = $arr[0][0] + $arr[1][1] + $arr[2][2];
+    // $secondDiagonal = $arr[0][2] + $arr[1][1] + $arr[2][0];
+    $firstDiagonal = 0;
+    $secondDiagonal = 0;
+    $absDiff = abs($firstDiagonal - $secondDiagonal);
+    
+    return $absDiff;
+}
+diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
+
+// print_r(transformSentence("coOL dog")); // output: "cOOl dOg"
 // reverse_words_order_and_swap_cases("rUns dOg");
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";

@@ -114,15 +114,12 @@ function replaceVar()
 function lonelyInteger($a)
 {
     $count = array_count_values($a);
-    // print_r($count);
-    $res = [];
     foreach ($count as $key => $value) {
-        // echo "key: {$key} value:{$value}";
         if ($value == 1) {
-            // array_push($res, $key);
             return $key;
         }
     }
+    return "none";
 }
 
 function challenge($s)
@@ -193,17 +190,17 @@ function sorting($arr, $mode)
         } else {
             if ($mode == "desc") {
                 // echo(maxi($arr));
-                array_splice($sortedArray, 0, 0, maxi($arr) );
+                array_splice($sortedArray, 0, 0, maxi($arr));
                 unset($arr[array_search(maxi($arr), $arr)]);
                 // print_r($arr);
                 print_r($sortedArray);
             } else {
             }
-            
+
         }
     }
 }
-sorting([1, 5, 8, 0, -1, 5], "desc");
+// sorting([1, 5, 8, 0, -1, 5], "desc");
 
 $x = [1, 2, 3, 4];
 array_splice($x, 0, 0, "a");
@@ -219,7 +216,7 @@ array_splice($x, 0, 0, "a");
 // echo timeConversion("01:00:00PM");
 // echo timeConversion("07:05:45PM");
 // echo findMedian([1, 3, 50, 7, 0]);
-// print (lonelyInteger([1, 1, 2, 2, 3, 3, 4, 5, 5]));
+// print (lonelyInteger([1, 1, 2, 2, 3, 4, 4, 5, 5]));
 
 // mostActive([
 //     "Bigcorp",

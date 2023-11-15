@@ -50,22 +50,25 @@
         return $result;
     }
 
-    function minMaxAvg($arr)
+    function mini($arr)
     {
         $min = 0;
+        foreach ($arr as $item) {
+            if ($item < $min) {
+                $min = $item;
+            }
+        }
+        return $min;
+    }
+    function maxi($arr)
+    {
         $max = null;
-        $total = 0;
-
         foreach ($arr as $item) {
             if ($item > $max) {
                 $max = $item;
-            } elseif ($item < $min) {
-                $min = $item;
             }
-            $total += $item;
         }
-        $avg = $total / sizeof($arr);
-        return [$min, $max, $avg];
+        return $max;
     }
     // list($min, $max, $avg) = minMaxAvg([100, 10, -20, -2, -20]);
 
@@ -110,20 +113,29 @@
 
     function mathss($num)
     {
-        return [number_format($num * pi(), 2),
-        number_format(deg2rad($num), 2), 
-        number_format(rad2deg($num), 2),
-        round($num, 1, PHP_ROUND_HALF_UP)
-    ];
+        return [
+            number_format($num * pi(), 2),
+            number_format(deg2rad($num), 2),
+            number_format(rad2deg($num), 2),
+            round($num, 1, PHP_ROUND_HALF_UP)
+        ];
     }
 
-    // echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
+    function workshop2()
+    {
+        echo ("<h1 class='text-center'> Output: " . substr("hotmail.com", -3, 3) . "</h1>");
+        echo ("<h1 class='text-center'> Output: " . str_replace("o", "hotmail", 0) . "</h1>");
+    }
+
+
+    
+    // workshop2();
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
-    // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
+    // echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");
-    list($PI, $RAD, $DEG, $roundd) = mathss(5.55);
-    echo ("<h1 class='text-center'> Output: " . $PI . " <br> " . $RAD . " <br> ". $DEG . " <br> ". $roundd . "</h1>");
+    // list($PI, $RAD, $DEG, $roundd) = mathss(5.55);
+    // echo ("<h1 class='text-center'> Output: " . $PI . " <br> " . $RAD . " <br> ". $DEG . " <br> ". $roundd . "</h1>");
     // print_r (explode(",", "1,2,3,4,5"));
     ?>
 </body>

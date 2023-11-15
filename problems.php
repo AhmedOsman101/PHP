@@ -111,7 +111,8 @@ function replaceVar()
     echo "x: {$x} y: {$y}";
 }
 
-function lonelyinteger($a) {
+function lonelyinteger($a)
+{
     $count = array_count_values($a);
     // print_r($count);
     $res = [];
@@ -122,9 +123,83 @@ function lonelyinteger($a) {
             return $key;
         }
     }
+}
+
+function challenge($s)
+{
+    @$res = explode($s[(strlen($s) / 2)], $s);
+    if ($res[0] == strrev($res[1])) {
+        return "true";
+    } else {
+        return "false";
+    }
+    // if (strlen($s) % 2 != 0) {
+    // } 
+    // else {
+    //     $right = "";
+    //     $left = "";
+    //     for ($i=0; $i < strlen($s); $i++) { 
+    //         if ($i<(strlen($s)/2)) {
+    //             $left .= $s[$i];
+    //         }else{
+    //             $right .= $s[$i];
+    //         }
+    //     }
+    //     if ($left == strrev($right)) {
+    //         return "true";
+    //     }else {
+    //         return "false";
+    //     }
+    // }
 
 }
 
+function mini($arr)
+{
+    $min = 0;
+    foreach ($arr as $item) {
+        if ($item < $min) {
+            $min = $item;
+        }
+    }
+    return $min;
+}
+// echo min([1, 5, 8, 0, -1, 5]);
+function maxi($arr)
+{
+    $max = null;
+    foreach ($arr as $item) {
+        if ($item > $max) {
+            $max = $item;
+        }
+    }
+    return $max;
+}
+
+function sorting($arr, $mode)
+{
+    $sortedArray = [];
+    $sorted = false;
+    while (!$sorted) {
+        if (sizeOf($arr) == 0) {
+            break;
+        }else{
+            if ($mode == "desc") {
+                // echo(maxi($arr));
+                array_push($sortedArray, maxi($arr));
+                unset($arr[array_search(maxi($arr), $arr)]);
+                // print_r($arr);
+                print_r($sortedArray);
+            } else {
+            }
+        }
+    }
+}
+sorting([1, 5, 8, 0, -1, 5], "desc");
+
+
+
+// echo challenge("12m21");
 // replaceVar();
 // echo "minTime: " . minTime([4, 1, 3, 2, 8], 4, 1) . "\n";
 // plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000

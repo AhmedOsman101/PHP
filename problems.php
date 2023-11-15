@@ -178,25 +178,36 @@ function maxi($arr)
 
 function sorting($arr, $mode)
 {
+    $arrLen = sizeof($arr);
     $sortedArray = [];
     $sorted = false;
+    if ($mode == "desc"){
+        array_push($sortedArray, mini($arr));
+        print_r($sortedArray);
+    }else{
+        array_push($sortedArray, maxi($arr));
+    }
     while (!$sorted) {
-        if (sizeOf($arr) == 0) {
+        if ($arrLen == sizeof($sortedArray)) {
             break;
-        }else{
+        } else {
             if ($mode == "desc") {
                 // echo(maxi($arr));
-                array_push($sortedArray, maxi($arr));
+                array_splice($sortedArray, 0, 0, maxi($arr) );
                 unset($arr[array_search(maxi($arr), $arr)]);
                 // print_r($arr);
                 print_r($sortedArray);
             } else {
             }
+            
         }
     }
 }
 sorting([1, 5, 8, 0, -1, 5], "desc");
 
+$x = [1, 2, 3, 4];
+array_splice($x, 0, 0, "a");
+// print_r($x);
 
 
 // echo challenge("12m21");

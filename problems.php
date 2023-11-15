@@ -181,12 +181,12 @@ function sorting($arr, $mode)
     $arrLen = sizeof($arr);
     $sortedArray = [];
     $sorted = false;
-    if ($mode == "desc"){
-        array_push($sortedArray, mini($arr));
-        print_r($sortedArray);
-    }else{
-        array_push($sortedArray, maxi($arr));
-    }
+    // if ($mode == "desc"){
+    //     array_push($sortedArray, mini($arr));
+    //     print_r($sortedArray);
+    // }else{
+    //     array_push($sortedArray, maxi($arr));
+    // }
     while (!$sorted) {
         if ($arrLen == sizeof($sortedArray)) {
             break;

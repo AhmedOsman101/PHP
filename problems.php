@@ -111,7 +111,7 @@ function replaceVar()
     echo "x: {$x} y: {$y}";
 }
 
-function lonelyinteger($a)
+function lonelyInteger($a)
 {
     $count = array_count_values($a);
     // print_r($count);
@@ -219,7 +219,7 @@ array_splice($x, 0, 0, "a");
 // echo timeConversion("01:00:00PM");
 // echo timeConversion("07:05:45PM");
 // echo findMedian([1, 3, 50, 7, 0]);
-// print (lonelyinteger([1, 1, 2, 2, 3, 3, 4, 5, 5]));
+// print (lonelyInteger([1, 1, 2, 2, 3, 3, 4, 5, 5]));
 
 // mostActive([
 //     "Bigcorp",

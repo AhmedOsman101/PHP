@@ -269,7 +269,22 @@ function reverse_words_order_and_swap_cases($str)
     return $str;
 }
 
-
+function transformSentence($str)
+{
+    $str = explode(" ", $str);
+    for ($i = 0; $i < sizeof($str); $i++) {
+        for ($j = 1; $j < strlen($str[$i]); $j++) {
+            if (strtolower($str[$i][$j - 1]) < strtolower($str[$i][$j])) {
+                $str[$i][$j] = strtoupper($str[$i][$j]);
+            } elseif (strtolower($str[$i][$j - 1]) > strtolower($str[$i][$j])) {
+                $str[$i][$j] = strtolower($str[$i][$j]);
+            }
+        }
+    }
+    $str = implode(" ", $str);
+    return $str;
+}
+print_r(transformSentence("coOL dog")); // output: "cOOl dOg"
 // reverse_words_order_and_swap_cases("rUns dOg");
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";

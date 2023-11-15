@@ -19,7 +19,7 @@
         </form>
     </div>
     <?php
-    $value = $_POST["value"];
+    // $value = $_POST["value"];
 
     function removeZeros(string $str)
     {
@@ -67,13 +67,13 @@
         $avg = $total / sizeof($arr);
         return [$min, $max, $avg];
     }
-    list($min, $max, $avg) = minMaxAvg([100, 10, -20, -2, -20]);
+    // list($min, $max, $avg) = minMaxAvg([100, 10, -20, -2, -20]);
 
     function strMethods($str)
     {
         return [substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
     }
-    list($sub, $rep, $pos, $trim) = strMethods($value);
+    // list($sub, $rep, $pos, $trim) = strMethods($value);
 
     function removeZeros2($str)
     {
@@ -108,8 +108,13 @@
         return $res;
     }
 
-    function pandalurium($str) {
-        
+    function mathss($num)
+    {
+        return [number_format($num * pi(), 2),
+        number_format(deg2rad($num), 2), 
+        number_format(rad2deg($num), 2),
+        round($num, 1, PHP_ROUND_HALF_UP)
+    ];
     }
 
     // echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
@@ -117,6 +122,9 @@
     // echo ("<h1 class='text-center'> Output: " . "Min: " . $min . ", Max: " . $max . ", Avg: " . $avg . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");
+    list($PI, $RAD, $DEG, $roundd) = mathss(5.55);
+    echo ("<h1 class='text-center'> Output: " . $PI . " <br> " . $RAD . " <br> ". $DEG . " <br> ". $roundd . "</h1>");
+    // print_r (explode(",", "1,2,3,4,5"));
     ?>
 </body>
 

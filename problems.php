@@ -100,37 +100,63 @@ function findMedian($arr)
 {
     sort($arr);
     return $arr[sizeOf($arr) / 2];
+    // [1, 2, 3, 4, 5]
 }
 
-mostActive([
-    "Bigcorp",
-    "Bigcorp",
-    "Acme",
-    "Bigcorp",
-    "Zork",
-    "Zork",
-    "Abc",
-    "Bigcorp",
-    "Acme",
-    "Bigcorp",
-    "Bigcorp",
-    "Zork",
-    "Bigcorp",
-    "Zork",
-    "Zork",
-    "Bigcorp",
-    "Acme",
-    "Bigcorp",
-    "Acme",
-    "Bigcorp",
-    "Acme",
-    "Littlecorp",
-    "Nadircorp"
-]);
-echo "minTime: " . minTime([4, 1, 3, 2, 8], 4, 1) . "\n";
-plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
-miniMaxSum([1, 3, 5, 7, 9]);
-echo timeConversion("12:00:00AM");
-echo timeConversion("01:00:00PM");
-echo timeConversion("07:05:45PM");
-echo findMedian([1, 3, 50, 7, 0]);
+function replaceVar()
+{
+    $x = 5;
+    $y = 8;
+    [$x, $y] = [$y, $x];
+    echo "x: {$x} y: {$y}";
+}
+
+function lonelyinteger($a) {
+    $count = array_count_values($a);
+    // print_r($count);
+    $res = [];
+    foreach ($count as $key => $value) {
+        // echo "key: {$key} value:{$value}";
+        if ($value == 1) {
+            // array_push($res, $key);
+            return $key;
+        }
+    }
+
+}
+
+// replaceVar();
+// echo "minTime: " . minTime([4, 1, 3, 2, 8], 4, 1) . "\n";
+// plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
+// miniMaxSum([1, 3, 5, 7, 9]);
+// echo timeConversion("12:00:00AM");
+// echo timeConversion("01:00:00PM");
+// echo timeConversion("07:05:45PM");
+// echo findMedian([1, 3, 50, 7, 0]);
+// print (lonelyinteger([1, 1, 2, 2, 3, 3, 4, 5, 5]));
+
+// mostActive([
+//     "Bigcorp",
+//     "Bigcorp",
+//     "Acme",
+//     "Bigcorp",
+//     "Zork",
+//     "Zork",
+//     "Abc",
+//     "Bigcorp",
+//     "Acme",
+//     "Bigcorp",
+//     "Bigcorp",
+//     "Zork",
+//     "Bigcorp",
+//     "Zork",
+//     "Zork",
+//     "Bigcorp",
+//     "Acme",
+//     "Bigcorp",
+//     "Acme",
+//     "Bigcorp",
+//     "Acme",
+//     "Littlecorp",
+//     "Nadircorp"
+// ]);

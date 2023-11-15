@@ -184,29 +184,82 @@ function sorting($arr, $mode)
     // }else{
     //     array_push($sortedArray, maxi($arr));
     // }
-    while (!$sorted) {
-        if ($arrLen == sizeof($sortedArray)) {
-            break;
+    if ($arrLen == sizeof($sortedArray)) {
+    } else {
+        if ($mode == "desc") {
+            // echo(maxi($arr));
+            array_splice($sortedArray, 0, 0, maxi($arr));
+            unset($arr[array_search(maxi($arr), $arr)]);
+            // print_r($arr);
+            print_r($sortedArray);
         } else {
-            if ($mode == "desc") {
-                // echo(maxi($arr));
-                array_splice($sortedArray, 0, 0, maxi($arr));
-                unset($arr[array_search(maxi($arr), $arr)]);
-                // print_r($arr);
-                print_r($sortedArray);
-            } else {
-            }
-
         }
+
     }
 }
 // sorting([1, 5, 8, 0, -1, 5], "desc");
 
-$x = [1, 2, 3, 4];
-array_splice($x, 0, 0, "a");
-// print_r($x);
+function quickSort($arr, $mode)
+{
+    if (sizeof($arr) <= 1) {
+        return $arr;
+    }
+    $pointer = $arr[sizeof($arr) - 1];
+    $left = [];
+    $middle = [];
+    $right = [];
+    foreach ($arr as $val) {
+        if ($val < $pointer) {
+            array_push($left, $val);
+        } elseif ($val > $pointer) {
+            array_push($right, $val);
+        } else {
+            array_push($middle, $val);
+        }
+    }
+    if ($mode == "desc") {
+        return array_reverse(array_merge(quickSort($left, "asc"), $middle, quickSort($right, "asc")));
+    } elseif ($mode == "asc") {
+        return array_merge(quickSort($left, "asc"), $middle, quickSort($right, "asc"));
+    } else {
+        return "invalid input";
+    }
+}
 
 
+
+function selectionSort($arr, $mode)
+{
+    if ($mode == "desc") {
+        for ($i = 0; $i < sizeof($arr); $i++) {
+            for ($j = ($i + 1); $j < sizeof($arr); $j++) {
+                if ($arr[$j] > $arr[$i]) {
+                    [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
+                }
+            }
+        }
+    } elseif ($mode == "asc") {
+        for ($i = 0; $i < sizeof($arr); $i++) {
+            for ($j = ($i + 1); $j < sizeof($arr); $j++) {
+                if ($arr[$j] < $arr[$i]) {
+                    [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
+                }
+            }
+        }
+    } else {
+        return "invalid input";
+    }
+
+    return $arr;
+}
+
+
+// echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
+// echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";
+// echo "[" . implode(",", selectionSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
+// echo "[" . implode(",", selectionSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";
+// print implode(",", selectionSort([1, 5, 8, 0, -1, 5], "des"));
+// array_splice($array, index, (0=> add, number=> how many items to remove), $value);
 // echo challenge("12m21");
 // replaceVar();
 // echo "minTime: " . minTime([4, 1, 3, 2, 8], 4, 1) . "\n";
@@ -217,7 +270,6 @@ array_splice($x, 0, 0, "a");
 // echo timeConversion("07:05:45PM");
 // echo findMedian([1, 3, 50, 7, 0]);
 // print (lonelyInteger([1, 1, 2, 2, 3, 4, 4, 5, 5]));
-
 // mostActive([
 //     "Bigcorp",
 //     "Bigcorp",

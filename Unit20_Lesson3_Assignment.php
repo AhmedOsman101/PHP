@@ -16,7 +16,6 @@ function selectionSort($arr, $mode) {
                 if ($arr[$j] > $arr[$i]) {
                     // Swap elements if the current element is greater than the next element
                     [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
-                    break;
                 }
             }
         }
@@ -27,7 +26,6 @@ function selectionSort($arr, $mode) {
                 if ($arr[$j] < $arr[$i]) {
                     // Swap elements if the current element is smaller than the next element
                     [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
-                    break;
                 }
             }
         }

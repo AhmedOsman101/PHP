@@ -1,12 +1,14 @@
-function countingSort($arr) {
+<?php
+function countingSort($arr)
+{
     $arrayWithNoDuplications = array_keys(array_count_values($arr));
     $res = array();
-    for ($i=0; $i <= max($arrayWithNoDuplications); $i++) { 
-        $res[$i]= 0;
+    for ($i = min($arrayWithNoDuplications) - 1; $i <= max($arrayWithNoDuplications); $i++) {
+        $res[$i] = 0;
     }
-    foreach ($arr as $val){
-        for ($i=0; $i < sizeof($res); $i++) { 
-            if ($i == $val){
+    foreach ($arr as $val) {
+        for ($i = 0; $i < sizeof($res); $i++) {
+            if ($i == $val) {
                 $res[$i]++;
             }
         }
@@ -19,3 +21,4 @@ $arr2 = [63, 25, 73, 1, 98, 73, 56, 84, 86, 57, 16, 83, 8, 25, 81, 56, 9, 53, 98
 $arr = array_keys(array_count_values($arr));
 // print_r($arr);
 print_r(countingSort($arr2));
+print_r(sizeOf(countingSort($arr2)));

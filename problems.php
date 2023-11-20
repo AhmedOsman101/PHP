@@ -194,7 +194,6 @@ function sorting($arr, $mode)
             print_r($sortedArray);
         } else {
         }
-
     }
 }
 // sorting([1, 5, 8, 0, -1, 5], "desc");
@@ -292,10 +291,40 @@ function diagonalDifference($arr)
     $firstDiagonal = 0;
     $secondDiagonal = 0;
     $absDiff = abs($firstDiagonal - $secondDiagonal);
-    
+
     return $absDiff;
 }
-diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
+
+
+
+function insertVal2(&$arr, $val, $index)
+{
+    $right = [];
+    $left = [];
+    $middle = [$val];
+    for ($i = 0; $i < $index; $i++) {
+        $left[] = $arr[$i];
+    }
+    for ($i = $index; $i < sizeof($arr); $i++) {
+        $right[] = $arr[$i];
+    }
+
+    $arr = [...$left, ...$middle, ...$right];
+    return $arr;
+}
+
+
+
+$x = [1, 2, 3, 4, 6, 7, 8];
+$y = [1, 2, 3, 4, 6, 7, 8];
+
+insertVal2($x, "value", 4);
+print_r($x);
+
+
+
+
+// diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
 
 // print_r(transformSentence("coOL dog")); // output: "cOOl dOg"
 // reverse_words_order_and_swap_cases("rUns dOg");

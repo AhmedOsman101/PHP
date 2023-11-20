@@ -7,7 +7,8 @@
  * @param string $mode The sorting mode, either "asc" for ascending or "desc" for descending
  * @return array The sorted array
  */
-function selectionSort($arr, $mode) {
+function selectionSort(array &$arr, String $mode)
+{
     // Check the sorting mode
     if ($mode == "desc") {
         // Sort the array in descending order
@@ -36,15 +37,16 @@ function selectionSort($arr, $mode) {
 
     return $arr;
 }
-
+// selectionSort(['V' => "Aloooo", 'C' => "asdfh", 'B' => "fdad"], "asc");
 /**
  * Function to sort an associative array by key using selection sort algorithm.
  *
  * @param array $arr The associative array to be sorted
  * @param string $mode The sorting mode, either "asc" for ascending or "desc" for descending
  * @return array The sorted array
- */ 
-function sortArrayByKey($arr, $mode) {
+ */
+function sortArrayByKey(array &$arr, String $mode)
+{
     // Get the sorted keys using selectionSort function
     $keys = selectionSort(array_keys($arr), $mode);
     $res = array();
@@ -58,8 +60,8 @@ function sortArrayByKey($arr, $mode) {
     foreach ($keys as $key) {
         $res[$key] = $arr[$key];
     }
-
-    return $res;
+    $res = $arr;
+    return $arr;
 }
 
 /**
@@ -68,8 +70,9 @@ function sortArrayByKey($arr, $mode) {
  * @param array $arr The associative array to be sorted
  * @param string $mode The sorting mode, either "asc" for ascending or "desc" for descending
  * @return array The sorted array
- */ 
-function sortArrayByValue($arr, $mode) {
+ */
+function sortArrayByValue(array &$arr, String $mode)
+{
     $keys = array_keys($arr);
     // Get the sorted values using selectionSort function
     $values = selectionSort(array_values($arr), $mode);
@@ -90,7 +93,8 @@ function sortArrayByValue($arr, $mode) {
         }
     }
 
-    return $res;
+    $res = $arr;
+    return $arr;
 }
 
 // Sample associative array

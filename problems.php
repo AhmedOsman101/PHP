@@ -434,13 +434,30 @@ function digital_root($number)
         $res += $number[$i];
     }
     $number = $res;
-    if (sizeof(str_split("$res"))>1) {
+    if (sizeof(str_split("$res")) > 1) {
         return digital_root($res);
-    }else{
+    } else {
         return $number;
     }
 }
-print_r(digital_root(1236));
+// print_r(digital_root(1236));
+
+function moveZeros(array $arr): array
+{
+    for ($i = 0; $i < sizeof($arr); $i++) {
+        for ($j = $i + 1; $j < sizeof($arr); $j++) {
+            if ($arr[$i] == 0 and $arr[$i] !== null and $arr[$i] !==false) {
+                [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
+            }
+        }
+    }
+    return $arr;
+}
+echo 0 == false . "\n";
+// // echo null == 0.0 . "\n";
+// echo 0.0000 == 0 . "\n";
+
+print_r(moveZeros([9, 0.0, null, 0, 9, 1, 2, 0, 1, 0, 1, 0.0, 3, 0, 1, 9, 0, 0, 0, 0, 9]));
 function removeDuplicateIds($arr)
 {
 

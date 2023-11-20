@@ -356,7 +356,19 @@ function DNA_strand($dna)
     }
     return implode($dna);
 }
-print_r() ;
+
+function binaryArrayToNumber($arr)
+{
+    $arr = array_reverse($arr);
+    $res = 0;
+    $multiplier = 1;
+    for ($i = 0; $i < sizeof($arr); $i++) {
+        $res += $arr[$i] * $multiplier;
+        $multiplier *= 2;
+    }
+    return $res;
+}
+print_r(binaryArrayToNumber([0, 0, 0, 1])); //15
 echo "\n";
 // print_r() ; 
 // print_r() ;

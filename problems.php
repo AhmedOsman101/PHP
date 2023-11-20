@@ -444,16 +444,22 @@ function digital_root($number)
 
 function moveZeros(array $arr): array
 {
+    $left = array();
+    $right= array();
     for ($i = 0; $i < sizeof($arr); $i++) {
-        for ($j = $i + 1; $j < sizeof($arr); $j++) {
-            if ($arr[$i] == 0 and $arr[$i] !== null and $arr[$i] !==false) {
-                [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
+        // for ($j = $i + 1; $j < sizeof($arr); $j++) {
+            if ($arr[$i] === 0 or $arr[$i] === floatval(0.0)) {
+                $right[] = 0;
+                // [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
+            }else{
+                $left[] = $arr[$i];
             }
-        }
+        // }
     }
-    return $arr;
+    return array_merge($left, $right);
 }
-echo 0 == false . "\n";
+// echo false . "\n";
+if (floatval(0.0) === 0.00){echo "true";}
 // // echo null == 0.0 . "\n";
 // echo 0.0000 == 0 . "\n";
 

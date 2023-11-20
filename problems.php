@@ -368,9 +368,17 @@ function binaryArrayToNumber($arr)
     }
     return $res;
 }
-print_r(binaryArrayToNumber([0, 0, 0, 1])); //15
+
+function duplicateCount($str)
+{
+    return count(array_filter(array_count_values(str_split(strtolower($str))), function ($item) {
+        return $item > 1;
+    }));
+}
+
+// print_r(binaryArrayToNumber([0, 0, 0, 1])); //15
+print_r(duplicateCount("abccde"));
 echo "\n";
-// print_r() ; 
 // print_r() ;
 // print_r() ; 
 // print_r() ;

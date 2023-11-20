@@ -424,7 +424,23 @@ function odd_or_even(array $a): string
     });
     return $total % 2 == 0 ? "even" : "odd";
 }
-print_r(odd_or_even([0]));
+// print_r(odd_or_even([0]));
+
+function digital_root($number)
+{
+    $res = 0;
+    $number = str_split("$number");
+    for ($i = 0; $i < count($number); $i++) {
+        $res += $number[$i];
+    }
+    $number = $res;
+    if (sizeof(str_split("$res"))>1) {
+        return digital_root($res);
+    }else{
+        return $number;
+    }
+}
+print_r(digital_root(1236));
 function removeDuplicateIds($arr)
 {
 

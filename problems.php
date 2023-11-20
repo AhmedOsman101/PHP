@@ -405,9 +405,17 @@ function onlyDuplicates($str)
     return $res;
 }
 
+function isIsogram($str)
+{
+    foreach (array_count_values(str_split(strtolower($str))) as $val) {
+        if ($val > 1) {
+            return false;
+        }
+    }
+    return true;
+}
 
-
-print_r(onlyDuplicates('abccdefee'));
+print_r(isIsogram("Dermatoglyphics"));
 echo "\n";
 // print_r() ;
 echo "\n";
@@ -415,6 +423,7 @@ echo "\n";
 echo "\n";
 
 
+// print_r(onlyDuplicates('abccdefee'));
 // print_r(endsWith("samurai", "ai")) ; 
 // print_r(toCamelCase("the-stealth_warrior"));
 // function DNA_strand2($dna)

@@ -388,14 +388,22 @@ function toCamelCase($str)
     return implode($str);
 }
 
+function endsWith($str, $ending)
+{
+    return (substr($str, -strlen($ending)) == $ending or $ending == "") ? "true" : "false";
+}
+
+
+// print_r() ; 
 echo "\n";
-print_r(toCamelCase("the-stealth_warrior"));
-// print_r() ; 
 // print_r() ;
-// print_r() ; 
+echo "\n";
 // print_r() ;
+echo "\n";
 
 
+// print_r(endsWith("samurai", "ai")) ; 
+// print_r(toCamelCase("the-stealth_warrior"));
 // function DNA_strand2($dna)
 // {
 //     return strtr($dna, ['A' => 'T', 'T' => 'A', 'C' => 'G', 'G' => 'C']);

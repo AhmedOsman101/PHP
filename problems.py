@@ -35,7 +35,13 @@ def best_friend(txt, a, b):
 
 def best_friends(t,a,b):
     return t.count(a)==t.count(a+b)
+# print(best_friends("he headed to the tea store", "h", "e"))
+# print(best_friends('i found an ounce with my hound', 'o', 'u'))
 
+def maskify(str):
+    str = list(str)
+    for i in range(0, len(str)-4):
+        str[i] = "#"
+    return "".join(str)
 
-print(best_friends("he headed to the tea store", "h", "e"))
-print(best_friends('i found an ounce with my hound', 'o', 'u'))
+print(maskify("stores"))

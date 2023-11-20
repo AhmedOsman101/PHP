@@ -318,12 +318,31 @@ function insertVal2(&$arr, $val, $index)
 $x = [1, 2, 3, 4, 6, 7, 8];
 $y = [1, 2, 3, 4, 6, 7, 8];
 
-insertVal2($x, "value", 4);
-print_r($x);
+// insertVal2($x, "value", 4);
+// print_r($x);
 
 
-
-
+function spinWords(string $str): string
+{
+    $str = explode(" ", $str);
+    foreach ($str as &$word) {
+        if (strlen($word) >= 5) {
+            $word = strrev($word);
+        }
+    }
+    return implode(" ", $str);
+}
+// print_r(spinWords("Welcome"));
+print_r(spinWords("Hey fellow warriors"));
+// print_r() ;
+// print_r() ; 
+// print_r() ;
+// print_r() ; 
+// print_r() ;
+// print_r() ; 
+// print_r() ;
+// print_r() ; 
+// print_r() ;
 // diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
 
 // print_r(transformSentence("coOL dog")); // output: "cOOl dOg"

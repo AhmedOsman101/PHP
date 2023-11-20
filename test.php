@@ -1,5 +1,5 @@
 <?php
-function countingSort($arr)
+/* function countingSort($arr)
 {
     $arrayWithNoDuplications = array_keys(array_count_values($arr));
     $res = array();
@@ -22,3 +22,11 @@ $arr = array_keys(array_count_values($arr));
 // print_r($arr);
 print_r(countingSort($arr2));
 print_r(sizeOf(countingSort($arr2)));
+*/
+
+$m = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11],
+    [12, 13, 14, 15]
+];

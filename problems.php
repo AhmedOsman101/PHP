@@ -376,14 +376,25 @@ function duplicateCount($str)
     }));
 }
 
-// print_r(binaryArrayToNumber([0, 0, 0, 1])); //15
-print_r(duplicateCount("abccde"));
+function toCamelCase($str)
+{
+    $str = str_split($str);
+    for ($i = 0; $i < sizeof($str); $i++) {
+        if ($str[$i] == "_" or $str[$i] == "-") {
+            unset($str[$i]);
+            $str[$i + 1] = strtoupper($str[$i + 1]);
+        }
+    }
+    return implode($str);
+}
+
 echo "\n";
-// print_r() ;
+print_r(toCamelCase("the-stealth_warrior"));
 // print_r() ; 
 // print_r() ;
 // print_r() ; 
 // print_r() ;
+
 
 // function DNA_strand2($dna)
 // {
@@ -395,11 +406,9 @@ echo "\n";
 // }
 
 // print_r(DNA_strand("AAAA"));
-
 // print_r(DNA_strand("ATTGC"));
-//TAACG
-
-
+// print_r(binaryArrayToNumber([0, 0, 0, 1])); //15
+// print_r(duplicateCount("abccde"));
 // diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
 // print_r(spinWords("Welcome"));
 // print_r(spinWords("Hey fellow warriors"));

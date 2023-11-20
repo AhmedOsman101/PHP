@@ -128,7 +128,7 @@
     }
 
 
-    
+
     // workshop2();
     // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
     // echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");

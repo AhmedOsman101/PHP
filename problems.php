@@ -415,7 +415,20 @@ function isIsogram($str)
     return true;
 }
 
-print_r(isIsogram("Dermatoglyphics"));
+function removeDuplicateIds($arr)
+{
+
+}
+$matrix = [
+    "1" => ["C", "F", "G"],
+    "2" => ["A", "B", "C"],
+    "3" => ["A", "B", "D"]
+];
+/* output: 
+    "1" => ["F", "G"],
+    "2" => ["C"],
+    "3" => ["A", "B", "D"] */
+print_r(removeDuplicateIds($matrix));
 echo "\n";
 // print_r() ;
 echo "\n";
@@ -423,6 +436,7 @@ echo "\n";
 echo "\n";
 
 
+// print_r(isIsogram("Dermatoglyphics"));
 // print_r(onlyDuplicates('abccdefee'));
 // print_r(endsWith("samurai", "ai")) ; 
 // print_r(toCamelCase("the-stealth_warrior"));

@@ -332,19 +332,57 @@ function spinWords(string $str): string
     }
     return implode(" ", $str);
 }
-// print_r(spinWords("Welcome"));
-print_r(spinWords("Hey fellow warriors"));
-// print_r() ;
-// print_r() ; 
-// print_r() ;
-// print_r() ; 
-// print_r() ;
-// print_r() ; 
-// print_r() ;
-// print_r() ; 
-// print_r() ;
-// diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
 
+function DNA_strand($dna)
+{
+    $dna = str_split($dna);
+    foreach ($dna as &$val) {
+        switch ($val) {
+            case 'T':
+                $val = "A";
+                break;
+            case 'A':
+                $val = "T";
+                break;
+            case 'C':
+                $val = "G";
+                break;
+            case 'G':
+                $val = "C";
+                break;
+            default:
+                break;
+        }
+    }
+    return implode($dna);
+}
+print_r() ;
+echo "\n";
+// print_r() ; 
+// print_r() ;
+// print_r() ; 
+// print_r() ;
+// print_r() ; 
+// print_r() ;
+
+// function DNA_strand2($dna)
+// {
+//     return strtr($dna, ['A' => 'T', 'T' => 'A', 'C' => 'G', 'G' => 'C']);
+// }
+// function DNA_strand3($dna)
+// {
+//     return strtr($dna, 'ACGT', 'TGCA');
+// }
+
+// print_r(DNA_strand("AAAA"));
+
+// print_r(DNA_strand("ATTGC"));
+//TAACG
+
+
+// diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
+// print_r(spinWords("Welcome"));
+// print_r(spinWords("Hey fellow warriors"));
 // print_r(transformSentence("coOL dog")); // output: "cOOl dOg"
 // reverse_words_order_and_swap_cases("rUns dOg");
 // echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";

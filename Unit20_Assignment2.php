@@ -40,5 +40,5 @@ function countPrimes($n)
     return sizeof($res) == 0 ? "no primes found" : $res;
 }
 
-print_r(countPrimes(20));
-print_r(countPrimes(1));
+// print_r(countPrimes(20));
+// print_r(countPrimes(1));

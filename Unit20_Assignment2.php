@@ -32,13 +32,13 @@ function isPrime($n)
 function countPrimes($n)
 {
     $res = array();
-    for ($i = 1; $i <= $n; $i++) {
-        if (isPrime($i) and $i <= $n) {
+    for ($i = 2; $i <= $n; $i++) {
+        if (isPrime($i)) {
             array_push($res, $i);
         }
     }
     return sizeof($res) == 0 ? "no primes found" : $res;
 }
 
-// print_r(countPrimes(20));
+print_r(countPrimes(20));
 // print_r(countPrimes(1));

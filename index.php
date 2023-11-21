@@ -10,134 +10,171 @@
 
 <body class="bg-dark text-light">
     <div class="container">
-        <form action="index.php" method="post">
+        <table class="table table-dark table-bordered">
+            <tbody>
+                <?php
+                function Table($end)
+                {
+                    for ($i = 1; $i <= $end; $i++) {
+                        echo '<tr>';
+                        for ($j = 1; $j <= $end; $j++) {
+                            echo "<td>{$i}*{$j}= " . $i * $j . "</td>";
+                        }
+                        echo '</tr>';
+                    }
+                }
+                Table(5);
+                ?>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- <div class="container">
+        <form method="get">
             <div class="mt-5 mb-3">
                 <label class="form-label">Input:</label>
-                <input type="text" class="form-control" name="value" placeholder="Enter a value">
+                <input type="text" class="form-control" name="f1_value" placeholder="Enter a value">
             </div>
-            <button type="submit" class="btn btn-success" value="submit">Submit</button>
+            <button type="submit" class="btn btn-success" value="f1_submit">Submit</button>
         </form>
     </div>
+    <div class="container">
+        <form method="post">
+            <div class="mt-5 mb-3">
+                <label class="form-label">Input:</label>
+                <input type="text" class="form-control" name="f2_value" placeholder="Enter a value">
+            </div>
+            <button type="submit" class="btn btn-success" value="f2_submit">Submit</button>
+        </form>
+    </div> -->
     <?php
-    // $value = $_POST["value"];
+    if (!empty($_GET["f1_submit"])) {
+        $f2_value = $_GET["f1_value"];
+        echo $f1_value . "\n";
+    } elseif (!empty($_POST["f2_submit"])) {
+        $f1_value = $_POST["f2_value"];
+        echo $f2_value . "\n";
+    }
+    ?>
+</body>
+<?php
 
-    function removeZeros(string $str)
-    {
-        $result = "";
-        $found = false;
 
-        for ($i = 0; $i < strlen($str); $i++) { # loop from index 0 to length of the string - 1
-            $item = $str[$i]; # $item is holding the number at the current position
-            if ($item != 0) { # if we found a number other than 0, set $found variable to true
-                $found = true;
-            }
-            if ($found) { # if $found is true, that means we skipped all the zeros on the left
-                $result .= $item; # add the remaining numbers to the $result variable
-            }
+function removeZeros(string $str)
+{
+    $result = "";
+    $found = false;
+
+    for ($i = 0; $i < strlen($str); $i++) { # loop from index 0 to length of the string - 1
+        $item = $str[$i]; # $item is holding the number at the current position
+        if ($item != 0) { # if we found a number other than 0, set $found variable to true
+            $found = true;
         }
-        return $result;
+        if ($found) { # if $found is true, that means we skipped all the zeros on the left
+            $result .= $item; # add the remaining numbers to the $result variable
+        }
+    }
+    return $result;
+}
+
+function primeNum($num)
+{
+    $result = "{$num} is prime";
+    for ($i = 2; $i < $num; $i++) {
+        if ($num % $i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function mini($arr)
+{
+    $min = 0;
+    foreach ($arr as $item) {
+        if ($item < $min) {
+            $min = $item;
+        }
+    }
+    return $min;
+}
+function maxi($arr)
+{
+    $max = null;
+    foreach ($arr as $item) {
+        if ($item > $max) {
+            $max = $item;
+        }
+    }
+    return $max;
+}
+// list($min, $max, $avg) = minMaxAvg([100, 10, -20, -2, -20]);
+
+function strMethods($str)
+{
+    return [substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
+}
+// list($sub, $rep, $pos, $trim) = strMethods($value);
+
+function removeZeros2($str)
+{
+    $len = strlen($str);
+    for ($i = 0; $i < $len; $i++) {
+        if ($str[$i] != 0) {
+            return substr($str, $i, $len);
+        }
+    }
+}
+
+function missingNumber($start, $end, $arr)
+{
+    $res = [];
+    $fullArr = [];
+    for ($i = $start; $i <= $end; $i++) {
+        array_push($fullArr, $i);
     }
 
-    function primeNum($num)
-    {
-        $result = "{$num} is prime";
-        for ($i = 2; $i < $num; $i++) {
-            if ($num % $i == 0) {
-                $result = "{$num} is not prime";
+    foreach ($fullArr as $num) {
+        $missing = true;
+        foreach ($arr as $val) {
+            if ($num == $val) {
+                $missing = false;
                 break;
             }
         }
-        return $result;
-    }
-
-    function mini($arr)
-    {
-        $min = 0;
-        foreach ($arr as $item) {
-            if ($item < $min) {
-                $min = $item;
-            }
-        }
-        return $min;
-    }
-    function maxi($arr)
-    {
-        $max = null;
-        foreach ($arr as $item) {
-            if ($item > $max) {
-                $max = $item;
-            }
-        }
-        return $max;
-    }
-    // list($min, $max, $avg) = minMaxAvg([100, 10, -20, -2, -20]);
-
-    function strMethods($str)
-    {
-        return [substr($str, 0, 6), str_replace("ohman", "Othman", $str), strpos($str, "t"), trim($str, "n")];
-    }
-    // list($sub, $rep, $pos, $trim) = strMethods($value);
-
-    function removeZeros2($str)
-    {
-        $len = strlen($str);
-        for ($i = 0; $i < $len; $i++) {
-            if ($str[$i] != 0) {
-                return substr($str, $i, $len);
-            }
+        if ($missing) {
+            array_push($res, $num);
         }
     }
+    return $res;
+}
 
-    function missingNumber($start, $end, $arr)
-    {
-        $res = [];
-        $fullArr = [];
-        for ($i = $start; $i <= $end; $i++) {
-            array_push($fullArr, $i);
-        }
+function mathss($num)
+{
+    return [
+        number_format($num * pi(), 2),
+        number_format(deg2rad($num), 2),
+        number_format(rad2deg($num), 2),
+        round($num, 1, PHP_ROUND_HALF_UP)
+    ];
+}
 
-        foreach ($fullArr as $num) {
-            $missing = true;
-            foreach ($arr as $val) {
-                if ($num == $val) {
-                    $missing = false;
-                    break;
-                }
-            }
-            if ($missing) {
-                array_push($res, $num);
-            }
-        }
-        return $res;
-    }
-
-    function mathss($num)
-    {
-        return [
-            number_format($num * pi(), 2),
-            number_format(deg2rad($num), 2),
-            number_format(rad2deg($num), 2),
-            round($num, 1, PHP_ROUND_HALF_UP)
-        ];
-    }
-
-    function workshop2()
-    {
-        echo ("<h1 class='text-center'> Output: " . substr("hotmail.com", -3, 3) . "</h1>");
-        echo ("<h1 class='text-center'> Output: " . str_replace("o", "hotmail", 0) . "</h1>");
-    }
+function workshop2()
+{
+    echo ("<h1 class='text-center'> Output: " . substr("hotmail.com", -3, 3) . "</h1>");
+    echo ("<h1 class='text-center'> Output: " . str_replace("o", "hotmail", 0) . "</h1>");
+}
 
 
 
-    // workshop2();
-    // echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
-    // echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
-    // echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
-    // echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");
-    // list($PI, $RAD, $DEG, $roundd) = mathss(5.55);
-    // echo ("<h1 class='text-center'> Output: " . $PI . " <br> " . $RAD . " <br> ". $DEG . " <br> ". $roundd . "</h1>");
-    // print_r (explode(",", "1,2,3,4,5"));
-    ?>
-</body>
+// workshop2();
+// echo ("<h1 class='text-center'> Output: " . primeNum($value) . "</h1>");
+// echo ("<h1 class='text-center'> Output: " . implode("...", missingNumber(1, 10, [2, 4, 6, 8, 10])) . "</h1>");
+// echo ("<h1 class='text-center'> Output: " . "sub: " .  $sub . "<br>rep: " . $rep . "<br>pos: " . $pos . "<br>trim: " . $trim . "</h1>");
+// echo ("<h1 class='text-center'> Output: " . removeZeros2($value) . "</h1>");
+// list($PI, $RAD, $DEG, $roundd) = mathss(5.55);
+// echo ("<h1 class='text-center'> Output: " . $PI . " <br> " . $RAD . " <br> ". $DEG . " <br> ". $roundd . "</h1>");
+// print_r (explode(",", "1,2,3,4,5"));
+?>
 
 </html>

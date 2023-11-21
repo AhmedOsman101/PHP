@@ -456,27 +456,104 @@ function moveZeros(array $arr): array
     return array_merge($left, $right);
 }
 // echo false . "\n";
-if (floatval(0.0) === 0.00) {
-    echo "true";
-}
+
 // // echo null == 0.0 . "\n";
 // echo 0.0000 == 0 . "\n";
 
-print_r(moveZeros([9, 0.0, null, 0, 9, 1, 2, 0, 1, 0, 1, 0.0, 3, 0, 1, 9, 0, 0, 0, 0, 9]));
+// print_r(moveZeros([9, 0.0, null, 0, 9, 1, 2, 0, 1, 0, 1, 0.0, 3, 0, 1, 9, 0, 0, 0, 0, 9]));
+
+function highestrank($arr)
+{
+    $countValues = array_count_values($arr);
+    arsort($countValues);
+    $maxValues = array();
+    foreach ($countValues as $key => $value) {
+        if ($value == max(array_values($countValues))) {
+            array_push($maxValues, $key);
+        }
+    }
+    return max($maxValues);
+}
+// print_r(highestrank([10, 12, 12, 12, 3, 3, 3, 10, 2, 4]));
 function removeDuplicateIds($arr)
 {
-
 }
 $matrix = [
     "1" => ["C", "F", "G"],
     "2" => ["A", "B", "C"],
     "3" => ["A", "B", "D"]
 ];
+// print_r(removeDuplicateIds($matrix));
 /* output: 
     "1" => ["F", "G"],
     "2" => ["C"],
     "3" => ["A", "B", "D"] */
-print_r(removeDuplicateIds($matrix));
+
+function factorial($n)
+{
+    if ($n - 1 == 0) {
+        return $n;
+    }
+    // $n *= ($n-1);
+    return $n * factorial($n - 1);
+}
+
+function q1($n)
+{
+    return (abs($n - 100) <= 10 or abs($n - 200) <= 10) ? true : false;
+}
+function primeNum($n)
+{
+    if ($n <= 1) return false;
+    if ($n == 2) return true;
+    if ($n % 2 == 0) return false;
+    $m = sqrt($n);
+    for ($i = 3; $i <= $m; $i += 2) {
+        if ($n % $i == 0) return false;
+    }
+    return true;
+}
+
+function find_emirp($n)
+{
+    $n = "$n";
+    $items = [];
+    for ($i = 2; $i < $n; $i++) {
+        if ($i == strrev($i)) {
+            continue;
+        } elseif ($i != strrev($i) and primeNum($i) and primeNum(strrev($i))) {
+            array_push($items, +$i);
+        }
+    }
+    $max = (count($items) > 0) ? max($items) : 0;
+    return [count($items), $max, array_sum($items)]; //[amount of emirps in the range(13, n + 1), largest emirp smaller than n, sum of all the emirps of this range.
+}
+
+// print_r(find_emirp(10));
+// print_r(find_emirp(9999));
+
+function get_dividers($values, $powers)
+{
+    $total = 1;
+    $res = array();
+    for ($i = 0; $i < sizeof($values); $i++) {
+        // echo $total . "\n";
+        $total *= pow($values[$i], $powers[$i]);
+    }
+    echo $total . "\n";
+    for ($i = 1; $i <= $total; $i++) {
+        if ($total % $i == 0) {
+            // echo $i . "\n";
+        }
+    }
+    return $res;
+}
+get_dividers([2, 5, 11], [2, 1, 1]);
+// [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110, 220]
+// echo(q1(190));
+// echo(q1(170));
+// print_r(factorial(5));
+
 echo "\n";
 // print_r() ;
 echo "\n";

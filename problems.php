@@ -295,8 +295,6 @@ function diagonalDifference($arr)
     return $absDiff;
 }
 
-
-
 function insertVal2(&$arr, $val, $index)
 {
     $right = [];
@@ -312,15 +310,6 @@ function insertVal2(&$arr, $val, $index)
     $arr = [...$left, ...$middle, ...$right];
     return $arr;
 }
-
-
-
-$x = [1, 2, 3, 4, 6, 7, 8];
-$y = [1, 2, 3, 4, 6, 7, 8];
-
-// insertVal2($x, "value", 4);
-// print_r($x);
-
 
 function spinWords(string $str): string
 {
@@ -502,6 +491,7 @@ function q1($n)
 {
     return (abs($n - 100) <= 10 or abs($n - 200) <= 10) ? true : false;
 }
+
 function primeNum($n)
 {
     if ($n <= 1) return false;
@@ -537,90 +527,12 @@ function get_dividers($values, $powers)
     $total = 1;
     $res = array();
     for ($i = 0; $i < sizeof($values); $i++) {
-        // echo $total . "\n";
         $total *= pow($values[$i], $powers[$i]);
     }
-    echo $total . "\n";
     for ($i = 1; $i <= $total; $i++) {
         if ($total % $i == 0) {
-            // echo $i . "\n";
+            array_push($res, $i);
         }
     }
     return $res;
 }
-get_dividers([2, 5, 11], [2, 1, 1]);
-// [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110, 220]
-// echo(q1(190));
-// echo(q1(170));
-// print_r(factorial(5));
-
-echo "\n";
-// print_r() ;
-echo "\n";
-// print_r() ;
-echo "\n";
-
-
-// print_r(isIsogram("Dermatoglyphics"));
-// print_r(onlyDuplicates('abccdefee'));
-// print_r(endsWith("samurai", "ai")) ; 
-// print_r(toCamelCase("the-stealth_warrior"));
-// function DNA_strand2($dna)
-// {
-//     return strtr($dna, ['A' => 'T', 'T' => 'A', 'C' => 'G', 'G' => 'C']);
-// }
-// function DNA_strand3($dna)
-// {
-//     return strtr($dna, 'ACGT', 'TGCA');
-// }
-
-// print_r(DNA_strand("AAAA"));
-// print_r(DNA_strand("ATTGC"));
-// print_r(binaryArrayToNumber([0, 0, 0, 1])); //15
-// print_r(duplicateCount("abccde"));
-// diagonalDifference([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]);
-// print_r(spinWords("Welcome"));
-// print_r(spinWords("Hey fellow warriors"));
-// print_r(transformSentence("coOL dog")); // output: "cOOl dOg"
-// reverse_words_order_and_swap_cases("rUns dOg");
-// echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
-// echo "[" . implode(",", quickSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";
-// echo "[" . implode(",", selectionSort([1, 5, 8, 0, -1, 5], "asc")) . "] <br>";
-// echo "[" . implode(",", selectionSort([1, 5, 8, 0, -1, 5], "desc")) . "] <br>";
-// print implode(",", selectionSort([1, 5, 8, 0, -1, 5], "des"));
-// array_splice($array, index, (0=> add, number=> how many items to remove), $value);
-// echo challenge("12m21");
-// replaceVar();
-// echo "minTime: " . minTime([4, 1, 3, 2, 8], 4, 1) . "\n";
-// plusMinus([1, 1, 0, -1, -1]); // 0.400000, 0.400000, 0.200000
-// miniMaxSum([1, 3, 5, 7, 9]);
-// echo timeConversion("12:00:00AM");
-// echo timeConversion("01:00:00PM");
-// echo timeConversion("07:05:45PM");
-// echo findMedian([1, 3, 50, 7, 0]);
-// print (lonelyInteger([1, 1, 2, 2, 3, 4, 4, 5, 5]));
-// mostActive([
-//     "Bigcorp",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Zork",
-//     "Zork",
-//     "Abc",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Bigcorp",
-//     "Zork",
-//     "Bigcorp",
-//     "Zork",
-//     "Zork",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Acme",
-//     "Bigcorp",
-//     "Acme",
-//     "Littlecorp",
-//     "Nadircorp"
-// ]);

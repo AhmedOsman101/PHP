@@ -444,14 +444,10 @@ function moveZeros(array $arr): array
     }
     return array_merge($left, $right);
 }
-// echo false . "\n";
-
-// // echo null == 0.0 . "\n";
-// echo 0.0000 == 0 . "\n";
 
 // print_r(moveZeros([9, 0.0, null, 0, 9, 1, 2, 0, 1, 0, 1, 0.0, 3, 0, 1, 9, 0, 0, 0, 0, 9]));
 
-function highestrank($arr)
+function highestRank($arr)
 {
     $countValues = array_count_values($arr);
     arsort($countValues);
@@ -463,7 +459,7 @@ function highestrank($arr)
     }
     return max($maxValues);
 }
-// print_r(highestrank([10, 12, 12, 12, 3, 3, 3, 10, 2, 4]));
+// print_r(highestRank([10, 12, 12, 12, 3, 3, 3, 10, 2, 4]));
 function removeDuplicateIds($arr)
 {
 }
@@ -483,27 +479,25 @@ function factorial($n)
     if ($n - 1 == 0) {
         return $n;
     }
-    // $n *= ($n-1);
     return $n * factorial($n - 1);
 }
-
+// print_r(factorial(5)); // 5! => 5*4*3*2*1=120
 function q1($n)
 {
     return (abs($n - 100) <= 10 or abs($n - 200) <= 10) ? true : false;
 }
 
-function primeNum($n)
+function isPrime($n)
 {
     if ($n <= 1) return false;
     if ($n == 2) return true;
     if ($n % 2 == 0) return false;
-    $m = sqrt($n);
-    for ($i = 3; $i <= $m; $i += 2) {
+    for ($i = 3; $i < $n; $i += 2) {
         if ($n % $i == 0) return false;
     }
     return true;
 }
-
+// echo isPrime(19);
 function find_emirp($n)
 {
     $n = "$n";
@@ -536,3 +530,29 @@ function get_dividers($values, $powers)
     }
     return $res;
 }
+
+function persistence(int $num)
+{
+    if (strlen("$num") == 1) {
+        return 0;
+    }
+    $counter = 0;
+    $res = 1;
+    while (true) {
+        $num = str_split("$num");
+        for ($i = 0; $i < sizeof($num); $i++) {
+            $res *= $num[$i];
+        }
+        if (strlen("$res") > 1) {
+            $counter++;
+            $num = $res;
+            $res = 1;
+        } else if (strlen("$res") == 1) {
+            $counter++;
+            return $counter;
+        }
+    }
+}
+echo "\n";
+print_r(persistence(999));
+echo "\n";

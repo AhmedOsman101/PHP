@@ -765,14 +765,55 @@ function findShort($str)
 
 function duplicate_encode($word)
 {
-    $word = array_count_values(str_split($word));
-    print_r($word);
+    $word = str_split(strtolower($word));
+    $charCount = array_count_values(($word));
     $res = "";
     foreach ($word as $char) {
-        print_r($char);
-        // ($count < 1) ? $res .= "(" : $res .= ")";
+        ($charCount[$char] <= 1) ? $res .= "(" : $res .= ")";
     }
-    // print_r($res);
+    return $res;
 }
-print_r(duplicate_encode('din'));
-print_r(duplicate_encode('recede'));
+// var_dump(duplicate_encode('din'));
+// var_dump(duplicate_encode('recede'));
+
+function format_duration($seconds)
+{
+    $oneMinute = 60;
+    $oneHour = 3600;
+    $oneDay = 86400;
+    $oneYear = 31536000;
+    #################################
+    $yearsCount = 0;
+    $daysCount = 0;
+    $hoursCount = 0;
+    $minutesCount = 0;
+    #################################
+    $res = "";
+    while (true) {
+        if ($seconds >= $oneYear) {
+            $yearsCount++;
+            $seconds -= $oneYear;
+        } elseif ($seconds - $oneDay >= 0) {
+            $daysCount++;
+            $seconds -= $oneDay;
+        } elseif ($seconds - $oneHour >= 0) {
+            $hoursCount++;
+            $seconds -= $oneHour;
+        } elseif ($seconds - $oneMinute >= 0) {
+            $minutesCount++;
+            $seconds -= $oneMinute;
+        } elseif ($seconds < $oneMinute) {
+            break;
+        }
+    }
+    return [
+        "years" => $yearsCount,
+        "days" => $daysCount,
+        "hours" => $hoursCount,
+        "minutes" => $minutesCount,
+        "seconds" => $seconds
+    ];
+    // return $res;
+}
+
+print_r(format_duration(31626060));

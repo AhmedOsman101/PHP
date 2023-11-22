@@ -1028,3 +1028,95 @@ function alphanumeric(string $s): bool
 }
 
 // var_dump(alphanumeric("            "));
+function uniqueInOrder($str)
+{
+    if (!is_array($str)) $str = str_split($str);
+    if (sizeof($str) < 1) return [];
+    if (sizeof($str) == 1) return $str;
+    $ret = [];
+    for ($i = 0; $i < sizeof($str); $i++) {
+        if (empty($ret)) array_push($ret, $str[$i]);
+        if ($str[$i] != $ret[sizeof($ret) - 1]) {
+            array_push($ret, $str[$i]);
+        }
+    }
+    return $ret;
+}
+// var_dump(uniqueInOrder([1, 2, 2, 3]));
+function basicOp($op, $val1, $val2)
+{
+
+    switch ($op) {
+        case '+':
+            return $val1 + $val2;
+        case '-':
+            return $val1 - $val2;
+        case '*':
+            return $val1 * $val2;
+        case '/':
+            return $val1 / $val2;
+        default:
+            return "error";
+    }
+}
+// basicOp('+', 4, 7);
+
+// var_dump(password_hash('123', ));
+// var_dump(md5("123"));
+// echo "\n";
+// var_dump(md5("123"));
+// echo "\n";
+// var_dump(md5("12345"));
+// echo "\n";
+// // var_dump(md5("123") == "202cb962ac59075b964b07152d234b70");
+//Don't echo anything, will take to much time
+function crack($hash)
+{
+    for ($a = 0; $a < 10; $a++) {
+        for ($b = 0; $b < 10; $b++) {
+            for ($c = 0; $c < 10; $c++) {
+                for ($d = 0; $d < 10; $d++) {
+                    for ($e = 0; $e < 10; $e++) {
+                        // echo $a . $b . $c . $d . $e . "\n";
+                        if (md5($a . $b . $c . $d . $e) == $hash) {
+                            return $a . $b . $c . $d . $e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// echo ;
+// var_dump(crack(md5(strval(99999))));
+
+function is_prime($number)
+{
+    if ($number == 1) return false;
+    if ($number == 2) return true;
+    if ($number % 2 == 0) return false;
+    $sqrt = sqrt($number);
+    for ($i = 3; $i <= $sqrt; $i += 2) {
+        if ($number % $i == 0) return false;
+    }
+    return true;
+}
+
+function numPrimorial($n)
+{
+    $res = 1;
+    $i = 0;
+    $num = 1;
+    while ($i < $n) {
+        if (is_prime($num)) {
+            $res *= $num;
+            $num++;
+            $i++;
+        }else{
+            $num++;
+        }
+    }
+    return $res;
+}
+var_dump(numPrimorial(3));
+// echo is_prime(3);

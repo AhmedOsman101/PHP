@@ -938,3 +938,93 @@ function human_readable($seconds)
 }
 
 // print_r(human_readable(359999));
+
+
+function generateHashtag($str)
+{
+    if (empty($str)) return false;
+    $res = "";
+    foreach (explode(" ", trim($str)) as $word) {
+        if (!empty($word)) $res .= ucfirst($word);
+    }
+    if (empty($res)) return false;
+    return strlen("#$res") > 140 ? false : "#$res";
+}
+// print_r(generateHashtag("    hello     world   "));
+// print_r(generateHashtag(str_repeat("a", 139)));
+// echo strlen("#Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+function orderWeight($str)
+{
+    $nums = explode(" ", $str);
+    sort($nums);
+    $weights = [];
+    foreach ($nums as $value) {
+        // print_r(array_sum(str_split("$value")));
+        // echo "\n";
+        array_push($weights, array_sum(str_split("$value")));
+    }
+    $res = array_combine($nums, $weights);
+    krsort($res);
+    asort($res);
+    // print_r($res);
+    // echo "\n";
+    // rsort($nums);
+    // sort($weights);
+    // print_r($nums);
+    $temp = [];
+    foreach (array_keys($res) as $value) {
+        while (in_array($value, $nums)) {
+            array_push($temp, $value);
+            unset($nums[array_search($value, $nums)]);
+        }
+    }
+    // print_r($temp);
+    return implode(' ', array_keys($res));
+}
+// (orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
+// print_r(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
+//          sorted: "11 11 22 123 2000 9999 10003 1234000 44444444"
+//             out: "11 11 2000 10003 22 123 1234000 44444444 9999"
+//               w: "2  2  2     4     4   6    10     32      36"
+
+// print_r(orderWeight("56 65 74 100 99 68 86 180 90"));
+//                  "100 180 90 56 65 74 68 86 99"
+//                  "56 65 68 74 86 90 99 100 180"
+//                  "11 11 14 11 14 09 18 001 009"
+
+$x = [
+    "56" => 11,
+    "65" => 11,
+    "68" => 14,
+    "74" => 11,
+    "86" => 14,
+    "90" => 9,
+    "99" => 18,
+    "100" => 1,
+    "180" => 9,
+];
+krsort($x);
+asort($x);
+// print_r(($x));
+// $y = [strval(180), strval(90)];
+// sort($y);
+// sort($z);
+// print_r($y);
+// print_r($z);
+$z = [10, 2, 100, 22, 30];
+function lexicographical($arr)
+{
+    // Convert the numbers to strings
+    $stringNumbers = array_map('strval', $arr);
+    // Sort the array in lexicographical order
+    sort($stringNumbers);
+    print_r($stringNumbers);
+}
+// lexicographical($z);
+
+function alphanumeric(string $s): bool
+{
+    return ctype_alnum($s);
+}
+
+// var_dump(alphanumeric("            "));

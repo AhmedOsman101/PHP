@@ -915,3 +915,26 @@ function Mumbling($s)
     }, array_keys(str_split(strtolower($s))), str_split(strtolower($s))));
 }
 
+function find($integers)
+{
+    $odds = [];
+    $evens = [];
+    foreach ($integers as $value) {
+        $value % 2 == 0 ? array_push($evens, $value) : array_push($odds, $value);
+    }
+    return sizeof($odds) == 1 ? $odds[0] : $evens[0];
+}
+
+// echo find([101, 101, 102]);
+
+function human_readable($seconds)
+{
+    $oneHour = 3600;
+    $oneMinute = 60;
+    $hoursCount = (floor($seconds / $oneHour));
+    $minutesCount = (floor($seconds / $oneMinute) % 60);
+    $seconds = floor($seconds) % 60;
+    return ($hoursCount < 10 ? "0$hoursCount:" : "$hoursCount:") . ($minutesCount < 10 ? "0$minutesCount:" : "$minutesCount:") . ($seconds < 10 ? "0$seconds" : "$seconds");
+}
+
+// print_r(human_readable(359999));

@@ -691,14 +691,14 @@ function sum_string($a, $b)
     return ltrim(strrev($res), "0");
 }
 // echo "\n\n";
-echo sum_string(
-    "712569312664357328695151392",
-         "8100824045303269669937"
-) == "712577413488402631964821329" ? "true" : sum_string(
-    "712569312664357328695151392",
-    "8100824045303269669937"
-);
-echo "\n\n";
+// echo sum_string(
+//     "712569312664357328695151392",
+//          "8100824045303269669937"
+// ) == "712577413488402631964821329" ? "true" : sum_string(
+//     "712569312664357328695151392",
+//     "8100824045303269669937"
+// );
+// echo "\n\n";
 // echo sum_string("712569312664357328695151392",
 //                      "8100824045303269669937") == "712577413488402631964821329" ? "true" : "false";
 // echo "\n\n";
@@ -762,3 +762,17 @@ function findShort($str)
     return $minWord;
 }
 // print_r(findShort("turns out random test cases are easier than writing out basic ones"));
+
+function duplicate_encode($word)
+{
+    $word = array_count_values(str_split($word));
+    print_r($word);
+    $res = "";
+    foreach ($word as $char) {
+        print_r($char);
+        // ($count < 1) ? $res .= "(" : $res .= ")";
+    }
+    // print_r($res);
+}
+print_r(duplicate_encode('din'));
+print_r(duplicate_encode('recede'));

@@ -895,3 +895,23 @@ function format_duration($seconds)
 // print_r(format_duration(31626060));
 // format_duration(121);
 // echo 060;
+
+function mix($s1, $s2)
+{
+    $s1 = str_split(preg_replace('/[A-Z]/', '', str_replace([" ", ",", ".", "?"], "", $s1)));
+    $s2 = str_split(preg_replace('/[A-Z]/', '', str_replace([" ", ",", ".", "?"], "", $s2)));
+    $s1Count = array_count_values($s1);
+    $s2Count = array_count_values($s2);
+    return [$s1Count, $s2Count];
+}
+
+// print_r(mix("Are they here", "yes, they are here")); 
+// 2:eeeee/2:yy/=:hh/=:rr
+
+function Mumbling($s)
+{
+    return implode("-", array_map(function ($index, $value) {
+        return ucfirst(str_repeat($value, ($index + 1)));
+    }, array_keys(str_split(strtolower($s))), str_split(strtolower($s))));
+}
+

@@ -44,4 +44,6 @@ def maskify(str):
         str[i] = "#"
     return "".join(str)
 
-print(maskify("stores"))
+# print(maskify("stores"))
+
+    

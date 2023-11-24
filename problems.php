@@ -1118,7 +1118,7 @@ function numPrimorial($n)
     }
     return $res;
 }
-var_dump(numPrimorial(3));
+// var_dump(numPrimorial(3));
 // echo is_prime(3);
 //// Start the timer
 // $start_time = microtime(true);
@@ -1133,3 +1133,23 @@ var_dump(numPrimorial(3));
 // $execution_time = $end_time - $start_time;
 
 // echo "The function took " . $execution_time . " seconds to execute.";
+function longest($a, $b)
+{
+    $res = (array_keys(array_count_values(str_split($a . $b))));
+    sort($res);
+    return implode($res);
+}
+// echo longest("aretheyhere", "yestheyarehere"); // aehrsty;
+function detect_pangram($string)
+{
+    $string = str_split(strtoupper($string));
+    $alphabet = range("A", "Z");
+    foreach ($alphabet as $char) {
+        if (!in_array($char, $string)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+var_dump(detect_pangram("The quick brown fox jumps over the lazy dog"));

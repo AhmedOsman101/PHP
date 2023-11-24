@@ -1,6 +1,5 @@
 <?php
-function mostActive($customers)
-{
+function mostActive($customers) {
     $n = count($customers);
     $res = [];
     $counts = array_count_values($customers);
@@ -13,8 +12,7 @@ function mostActive($customers)
     print_r($res);
 }
 
-function minTime(array $files, int $numCores, int $limit)
-{
+function minTime(array $files, int $numCores, int $limit) {
     if ($numCores == 0) {
         return; // or throw an exception
     }
@@ -38,8 +36,7 @@ function minTime(array $files, int $numCores, int $limit)
     return $executeTime;
 }
 
-function plusMinus($arr)
-{
+function plusMinus($arr) {
     // Write your code here
     $minus = 0;
     $zeros = 0;
@@ -60,8 +57,7 @@ function plusMinus($arr)
     echo "{$plus}\n{$minus}\n{$zeros}\n";
 }
 
-function miniMaxSum($arr)
-{
+function miniMaxSum($arr) {
     $minSum = 0;
     $maxSum = 0;
     sort($arr);
@@ -75,8 +71,7 @@ function miniMaxSum($arr)
     print "{$minSum} {$maxSum}\n";
 }
 
-function timeConversion($s)
-{
+function timeConversion($s) {
     $time = "";
     list($hrs, $mins, $sec) = explode(":", $s);
     if ($sec[-2] == "A") {
@@ -96,23 +91,20 @@ function timeConversion($s)
     return $time;
 }
 
-function findMedian($arr)
-{
+function findMedian($arr) {
     sort($arr);
     return $arr[sizeOf($arr) / 2];
     // [1, 2, 3, 4, 5]
 }
 
-function replaceVar()
-{
+function replaceVar() {
     $x = 5;
     $y = 8;
     [$x, $y] = [$y, $x];
     echo "x: {$x} y: {$y}";
 }
 
-function lonelyInteger($a)
-{
+function lonelyInteger($a) {
     $count = array_count_values($a);
     foreach ($count as $key => $value) {
         if ($value == 1) {
@@ -122,8 +114,7 @@ function lonelyInteger($a)
     return "none";
 }
 
-function challenge($s)
-{
+function challenge($s) {
     @$res = explode($s[(strlen($s) / 2)], $s);
     if ($res[0] == strrev($res[1])) {
         return "true";
@@ -151,8 +142,7 @@ function challenge($s)
 
 }
 
-function mini($arr)
-{
+function mini($arr) {
     $min = 0;
     foreach ($arr as $item) {
         if ($item < $min) {
@@ -162,8 +152,7 @@ function mini($arr)
     return $min;
 }
 // echo min([1, 5, 8, 0, -1, 5]);
-function maxi($arr)
-{
+function maxi($arr) {
     $max = null;
     foreach ($arr as $item) {
         if ($item > $max) {
@@ -173,33 +162,7 @@ function maxi($arr)
     return $max;
 }
 
-function sorting($arr, $mode)
-{
-    $arrLen = sizeof($arr);
-    $sortedArray = [];
-    $sorted = false;
-    // if ($mode == "desc"){
-    //     array_push($sortedArray, mini($arr));
-    //     print_r($sortedArray);
-    // }else{
-    //     array_push($sortedArray, maxi($arr));
-    // }
-    if ($arrLen == sizeof($sortedArray)) {
-    } else {
-        if ($mode == "desc") {
-            // echo(maxi($arr));
-            array_splice($sortedArray, 0, 0, maxi($arr));
-            unset($arr[array_search(maxi($arr), $arr)]);
-            // print_r($arr);
-            print_r($sortedArray);
-        } else {
-        }
-    }
-}
-// sorting([1, 5, 8, 0, -1, 5], "desc");
-
-function quickSort($arr, $mode)
-{
+function quickSort($arr, $mode) {
     if (sizeof($arr) <= 1) {
         return $arr;
     }
@@ -225,10 +188,7 @@ function quickSort($arr, $mode)
     }
 }
 
-
-
-function selectionSort($arr, $mode)
-{
+function selectionSort($arr, $mode) {
     if ($mode == "desc") {
         for ($i = 0; $i < sizeof($arr); $i++) {
             for ($j = ($i + 1); $j < sizeof($arr); $j++) {
@@ -252,8 +212,7 @@ function selectionSort($arr, $mode)
     return $arr;
 }
 
-function reverse_words_order_and_swap_cases($str)
-{
+function reverse_words_order_and_swap_cases($str) {
     $str = explode(" ", $str);
     for ($i = 0; $i < sizeof($str); $i++) {
         for ($j = 0; $j < strlen($str[$i]); $j++) {
@@ -268,8 +227,7 @@ function reverse_words_order_and_swap_cases($str)
     return $str;
 }
 
-function transformSentence($str)
-{
+function transformSentence($str) {
     $str = explode(" ", $str);
     for ($i = 0; $i < sizeof($str); $i++) {
         for ($j = 1; $j < strlen($str[$i]); $j++) {
@@ -284,8 +242,7 @@ function transformSentence($str)
     return $str;
 }
 
-function diagonalDifference($arr)
-{
+function diagonalDifference($arr) {
     // $firstDiagonal = $arr[0][0] + $arr[1][1] + $arr[2][2];
     // $secondDiagonal = $arr[0][2] + $arr[1][1] + $arr[2][0];
     $firstDiagonal = 0;
@@ -295,8 +252,7 @@ function diagonalDifference($arr)
     return $absDiff;
 }
 
-function insertVal2(&$arr, $val, $index)
-{
+function insertVal2(&$arr, $val, $index) {
     $right = [];
     $left = [];
     $middle = [$val];
@@ -311,8 +267,7 @@ function insertVal2(&$arr, $val, $index)
     return $arr;
 }
 
-function spinWords(string $str): string
-{
+function spinWords(string $str): string {
     $str = explode(" ", $str);
     foreach ($str as &$word) {
         if (strlen($word) >= 5) {
@@ -322,8 +277,7 @@ function spinWords(string $str): string
     return implode(" ", $str);
 }
 
-function DNA_strand($dna)
-{
+function DNA_strand($dna) {
     $dna = str_split($dna);
     foreach ($dna as &$val) {
         switch ($val) {
@@ -346,8 +300,7 @@ function DNA_strand($dna)
     return implode($dna);
 }
 
-function binaryArrayToNumber($arr)
-{
+function binaryArrayToNumber($arr) {
     $arr = array_reverse($arr);
     $res = 0;
     $multiplier = 1;
@@ -358,15 +311,13 @@ function binaryArrayToNumber($arr)
     return $res;
 }
 
-function duplicateCount($str)
-{
+function duplicateCount($str) {
     return count(array_filter(array_count_values(str_split(strtolower($str))), function ($item) {
         return $item > 1;
     }));
 }
 
-function toCamelCase($str)
-{
+function toCamelCase($str) {
     $str = str_split($str);
     for ($i = 0; $i < sizeof($str); $i++) {
         if ($str[$i] == "_" or $str[$i] == "-") {
@@ -377,13 +328,11 @@ function toCamelCase($str)
     return implode($str);
 }
 
-function endsWith($str, $ending)
-{
+function endsWith($str, $ending) {
     return (substr($str, -strlen($ending)) == $ending or $ending == "") ? "true" : "false";
 }
 
-function onlyDuplicates($str)
-{
+function onlyDuplicates($str) {
     $count = array_count_values(str_split(strtolower($str)));
     $res = '';
     for ($i = 0; $i < strlen($str); $i++) {
@@ -394,8 +343,7 @@ function onlyDuplicates($str)
     return $res;
 }
 
-function isIsogram($str)
-{
+function isIsogram($str) {
     foreach (array_count_values(str_split(strtolower($str))) as $val) {
         if ($val > 1) {
             return false;
@@ -405,8 +353,7 @@ function isIsogram($str)
 }
 
 
-function odd_or_even(array $a): string
-{
+function odd_or_even(array $a): string {
     $total = array_reduce($a, function ($prev, $current) {
         $prev += $current;
         return $prev;
@@ -415,8 +362,7 @@ function odd_or_even(array $a): string
 }
 // print_r(odd_or_even([0]));
 
-function digital_root($number)
-{
+function digital_root($number) {
     $res = 0;
     $number = str_split("$number");
     for ($i = 0; $i < count($number); $i++) {
@@ -431,8 +377,7 @@ function digital_root($number)
 }
 // print_r(digital_root(1236));
 
-function moveZeros(array $arr): array
-{
+function moveZeros(array $arr): array {
     $left = array();
     $right = array();
     for ($i = 0; $i < sizeof($arr); $i++) {
@@ -447,8 +392,7 @@ function moveZeros(array $arr): array
 
 // print_r(moveZeros([9, 0.0, null, 0, 9, 1, 2, 0, 1, 0, 1, 0.0, 3, 0, 1, 9, 0, 0, 0, 0, 9]));
 
-function highestRank($arr)
-{
+function highestRank($arr) {
     $countValues = array_count_values($arr);
     arsort($countValues);
     $maxValues = array();
@@ -460,8 +404,7 @@ function highestRank($arr)
     return max($maxValues);
 }
 // print_r(highestRank([10, 12, 12, 12, 3, 3, 3, 10, 2, 4]));
-function removeDuplicateIds($arr)
-{
+function removeDuplicateIds($arr) {
 }
 $matrix = [
     "1" => ["C", "F", "G"],
@@ -474,21 +417,18 @@ $matrix = [
     "2" => ["C"],
     "3" => ["A", "B", "D"] */
 
-function factorial($n)
-{
+function factorial2($n) {
     if ($n - 1 == 0) {
         return $n;
     }
     return $n * factorial($n - 1);
 }
 // print_r(factorial(5)); // 5! => 5*4*3*2*1=120
-function q1($n)
-{
+function q1($n) {
     return (abs($n - 100) <= 10 or abs($n - 200) <= 10) ? true : false;
 }
 
-function isPrime($n)
-{
+function isPrime($n) {
     if ($n <= 1) return false;
     if ($n == 2) return true;
     if ($n % 2 == 0) return false;
@@ -498,8 +438,7 @@ function isPrime($n)
     return true;
 }
 // echo isPrime(19);
-function find_emirp($n)
-{
+function find_emirp($n) {
     $n = "$n";
     $items = [];
     for ($i = 2; $i < $n; $i++) {
@@ -516,8 +455,7 @@ function find_emirp($n)
 // print_r(find_emirp(10));
 // print_r(find_emirp(9999));
 
-function get_dividers($values, $powers)
-{
+function get_dividers($values, $powers) {
     $total = 1;
     $res = array();
     for ($i = 0; $i < sizeof($values); $i++) {
@@ -531,8 +469,7 @@ function get_dividers($values, $powers)
     return $res;
 }
 
-function persistence(int $num)
-{
+function persistence(int $num) {
     if (strlen("$num") == 1) {
         return 0;
     }
@@ -555,8 +492,7 @@ function persistence(int $num)
 }
 // print_r(persistence(999));
 // echo "\n";
-function rgb($r, $g, $b)
-{
+function rgb($r, $g, $b) {
     $deciColor = array($r, $g, $b);
     $hexa = '';
     $hexCode = array(
@@ -607,8 +543,7 @@ function rgb($r, $g, $b)
 // echo rgb(-500, 0, 0);
 
 
-function likes($names)
-{
+function likes($names) {
     switch (count($names)) {
         case 0:
             return 'no one likes this';
@@ -628,15 +563,13 @@ function likes($names)
 
 
 
-function countBits($n)
-{
+function countBits($n) {
     return array_count_values(str_split(strval(decbin($n))))[1];
 }
 // echo "This is\nan\nexample\nrow";
 // echo countBits(7);
 
-function findShort($str)
-{
+function findShort($str) {
     $minWord = strlen($str);
     $str = explode(" ", $str);
     foreach ($str as $word) {
@@ -646,8 +579,7 @@ function findShort($str)
 }
 // print_r(findShort("turns out random test cases are easier than writing out basic ones"));
 
-function duplicate_encode($word)
-{
+function duplicate_encode($word) {
     $word = str_split(strtolower($word));
     $charCount = array_count_values(($word));
     $res = "";
@@ -659,8 +591,7 @@ function duplicate_encode($word)
 // var_dump(duplicate_encode('din'));
 // var_dump(duplicate_encode('recede'));
 
-function format_duration($seconds)
-{
+function format_duration($seconds) {
     if ($seconds == 0) return "now";
     #################################
     $oneMinute = 60;
@@ -781,15 +712,13 @@ function format_duration($seconds)
 
 
 
-function Mumbling($s)
-{
+function Mumbling($s) {
     return implode("-", array_map(function ($index, $value) {
         return ucfirst(str_repeat($value, ($index + 1)));
     }, array_keys(str_split(strtolower($s))), str_split(strtolower($s))));
 }
 
-function find($integers)
-{
+function find($integers) {
     $odds = [];
     $evens = [];
     foreach ($integers as $value) {
@@ -800,8 +729,7 @@ function find($integers)
 
 // echo find([101, 101, 102]);
 
-function human_readable($seconds)
-{
+function human_readable($seconds) {
     $oneHour = 3600;
     $oneMinute = 60;
     $hoursCount = (floor($seconds / $oneHour));
@@ -813,8 +741,7 @@ function human_readable($seconds)
 // print_r(human_readable(359999));
 
 
-function generateHashtag($str)
-{
+function generateHashtag($str) {
     if (empty($str)) return false;
     $res = "";
     foreach (explode(" ", trim($str)) as $word) {
@@ -828,14 +755,12 @@ function generateHashtag($str)
 // echo strlen("#Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
 
-function alphanumeric(string $s): bool
-{
+function alphanumeric(string $s): bool {
     return ctype_alnum($s);
 }
 // var_dump(alphanumeric("            "));
 
-function uniqueInOrder($str)
-{
+function uniqueInOrder($str) {
     if (!is_array($str)) $str = str_split($str);
     if (sizeof($str) < 1) return [];
     if (sizeof($str) == 1) return $str;
@@ -849,8 +774,7 @@ function uniqueInOrder($str)
     return $ret;
 }
 // var_dump(uniqueInOrder([1, 2, 2, 3]));
-function basicOp($op, $val1, $val2)
-{
+function basicOp($op, $val1, $val2) {
     switch ($op) {
         case '+':
             return $val1 + $val2;
@@ -875,8 +799,7 @@ function basicOp($op, $val1, $val2)
 // echo "\n";
 // // var_dump(md5("123") == "202cb962ac59075b964b07152d234b70");
 //Don't echo anything, will take to much time
-function crack($hash)
-{
+function crack($hash) {
     for ($a = 0; $a < 10; $a++) {
         for ($b = 0; $b < 10; $b++) {
             for ($c = 0; $c < 10; $c++) {
@@ -895,8 +818,7 @@ function crack($hash)
 // echo ;
 // var_dump(crack(md5(strval(99999))));
 
-function is_prime($number)
-{
+function is_prime($number) {
     if ($number == 1) return false;
     if ($number == 2) return true;
     if ($number % 2 == 0) return false;
@@ -907,8 +829,7 @@ function is_prime($number)
     return true;
 }
 
-function numPrimorial($n)
-{
+function numPrimorial($n) {
     $res = 1;
     $i = 0;
     $num = 1;
@@ -938,15 +859,13 @@ function numPrimorial($n)
 // $execution_time = $end_time - $start_time;
 
 // echo "The function took " . $execution_time . " seconds to execute.";
-function longest($a, $b)
-{
+function longest($a, $b) {
     $res = (array_keys(array_count_values(str_split($a . $b))));
     sort($res);
     return implode($res);
 }
 // echo longest("aretheyhere", "yestheyarehere"); // aehrsty;
-function detect_pangram($string)
-{
+function detect_pangram($string) {
     $string = str_split(strtoupper($string));
     $alphabet = range("A", "Z");
     foreach ($alphabet as $char) {
@@ -959,8 +878,7 @@ function detect_pangram($string)
 
 // var_dump(detect_pangram("The quick brown fox jumps over the lazy dog"));
 
-function narcissistic(int $value): bool
-{
+function narcissistic(int $value): bool {
     $value = str_split("$value");
     $size = sizeof($value);
     $sum = 0;
@@ -971,8 +889,7 @@ function narcissistic(int $value): bool
 }
 // var_dump(narcissistic(153));
 // var_dump(range(1, 5));
-function tribonacci($signature, $n)
-{
+function tribonacci($signature, $n) {
     $res = [];
     if ($n == 0) return $res;
     $i = 0;
@@ -991,8 +908,7 @@ function tribonacci($signature, $n)
 }
 
 // print_r(tribonacci([1,1,1],10));
-function Xbonacci($s, $n)
-{
+function Xbonacci($s, $n) {
     if ($n == 0) return [];
     $size = sizeof($s);
     $res = [];
@@ -1013,8 +929,7 @@ function Xbonacci($s, $n)
 // print_r(Xbonacci([1, 1], 10));
 // print_r(Xbonacci([1, 1], 10));
 // print_r(Xbonacci([1, 1], 10));
-function SplitStrings($str)
-{
+function SplitStrings($str) {
     if (empty($str)) return array();
     $str = array_values(str_split($str, 2));
     foreach ($str as &$char) {
@@ -1023,8 +938,7 @@ function SplitStrings($str)
     return $str;
 }
 
-function dirReduce(&$arr)
-{
+function dirReduce(&$arr) {
     if (count($arr) == 0) return [];
     $opposites = [
         "NORTH" => "SOUTH",
@@ -1053,78 +967,65 @@ $directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
 // echo "<pre>";
 // print_r();
 // echo "</pre>";
-function mix($s1, $s2)
-{
-    $s1 = str_split(preg_replace('/[A-Z]/', '', str_replace([" ", ",", ".", "?"], "", $s1)));
-    $s2 = str_split(preg_replace('/[A-Z]/', '', str_replace([" ", ",", ".", "?"], "", $s2)));
+function mix($s1, $s2) {
+    $res = "";
+    $s1 = str_split(preg_replace("/[^a-z]/", "", $s1));
+    $s2 = str_split(preg_replace("/[^a-z]/", "", $s2));
     $s1Count = array_count_values($s1);
     $s2Count = array_count_values($s2);
-    return [$s1Count, $s2Count];
+    ksort($s1Count);
+    arsort($s1Count);
+    ksort($s2Count);
+    arsort($s2Count);
+    $letters = array_unique([...array_keys($s1Count), ...array_keys($s2Count)]);
+    sort($letters);
+    foreach ($s1Count as $char => $reps) {
+        if (in_array($char, $s2Count)) {
+        }
+    }
+    return $letters;
 }
 
-// print_r(mix("Are they here", "yes, they are here")); 
+// print_r(mix("Are the kids at home? aaaaa fffff", "Yes they are here! aaaaa fffff"));
 // 2:eeeee/2:yy/=:hh/=:rr
-function orderWeight($str)
-{
+function orderWeight($str) {
     $nums = explode(" ", $str);
     sort($nums);
-    $weights = [];
+    $weights = []; // all weights
     foreach ($nums as $value) {
-        // print_r(array_sum(str_split("$value")));
-        // echo "\n";
-        array_push($weights, array_sum(str_split("$value")));
+        // calc weight and add its value to a new dict
+        $weights["$value"] = array_sum(str_split("$value"));
     }
-    $res = array_combine($nums, $weights);
-    krsort($res);
-    asort($res);
-    // print_r($res);
-    // echo "\n";
-    // rsort($nums);
-    // sort($weights);
-    // print_r($nums);
+
+    asort($weights);
     $temp = [];
-    foreach (array_keys($res) as $value) {
+
+    foreach (array_keys($weights) as $value) {
         while (in_array($value, $nums)) {
             array_push($temp, $value);
             unset($nums[array_search($value, $nums)]);
         }
     }
-    // print_r($temp);
-    return implode(' ', array_keys($res));
+
+    for ($i = 0; $i < sizeof($temp); $i++) {
+        for ($j = ($i + 1); $j < sizeof($temp); $j++) {
+            $first = &$temp[$i];
+            $second = &$temp[$j];
+            if ($weights[$first] == $weights[$second]) {
+                if (strcmp(strval($second), strval($first)) < 0) {
+                    [$first, $second] = [$second, $first];
+                }
+            }
+        }
+    }
+    return implode(' ', ($temp));
 }
-// (orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
 // print_r(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
 //          sorted: "11 11 22 123 2000 9999 10003 1234000 44444444"
 //             out: "11 11 2000 10003 22 123 1234000 44444444 9999"
 //               w: "2  2  2     4     4   6    10     32      36"
 
-// print_r(orderWeight("56 65 74 100 99 68 86 180 90"));
-//                  "100 180 90 56 65 74 68 86 99"
-//                  "56 65 68 74 86 90 99 100 180"
-//                  "11 11 14 11 14 09 18 001 009"
-
-$x = [
-    "56" => 11,
-    "65" => 11,
-    "68" => 14,
-    "74" => 11,
-    "86" => 14,
-    "90" => 9,
-    "99" => 18,
-    "100" => 1,
-    "180" => 9,
-];
-// krsort($x);
-// asort($x);
-// print_r(($x));
-// $y = [strval(180), strval(90)];
-// sort($y);
-// sort($z);
-// print_r($y);
-// print_r($z);
-$z = [10, 2, 100, 22, 30];
-function lexicographical($arr)
-{
+function lexicographical($arr) {
     // Convert the numbers to strings
     $stringNumbers = array_map('strval', $arr);
     // Sort the array in lexicographical order
@@ -1133,8 +1034,7 @@ function lexicographical($arr)
 }
 // lexicographical($z);
 
-function sum_strings($a, $b)
-{
+function sum_strings($a, $b) {
     [$a, $b] = [strrev($a), strrev($b)];
     $res = "";
     $len = max(strlen($a), strlen($b)) + 1;
@@ -1185,8 +1085,7 @@ function sum_strings($a, $b)
 }
 // $x = sprintf('%0.0f', pow(2, 5000));
 // print_r(sum_strings("19", "1"));
-function sum_string($a, $b)
-{
+function sum_string($a, $b) {
     [$a, $b] = [strrev($a), strrev($b)];
     $res = "";
     $len = max(strlen($a), strlen($b)) + 1;
@@ -1242,8 +1141,7 @@ function sum_string($a, $b)
 // echo gettype($x);
 // echo str_replace(['a', 'e', 'i', 'o', 'u'], "", "this is awesome");
 
-function XO($s)
-{
+function XO($s) {
     $xos = ["0", "o", "x"];
     $s = str_split(strtolower($s));
     foreach (array_count_values($s) as $value => $count) {
@@ -1254,31 +1152,64 @@ function XO($s)
 }
 // print_r(XO('xoxXOoOXooXX'));
 
-function factorial($n){
-    if($n <=1) return 1;
+function factorial($n) {
+    if ($n <= 1) return 1;
     $f = 1;
-    for ($i = $n; $i >= 2; --$i){
+    for ($i = $n; $i >= 2; --$i) {
         $f *= $i;
     }
-    // echo $f;
     return $f;
 }
 
 // factorial(5);
 
-function calc_time(){
-   
+function calc_time() {
     // Start the timer
     $start_time = microtime(true);
-    
+
     // Call your function
     $result = (factorial(69));
-    
+
     // Stop the timer
     $end_time = microtime(true);
-    
-    // // Calculate the difference in microseconds
+
+    // Calculate the difference in microseconds
     $execution_time = $end_time - $start_time;
-    
+
     echo "The function took " . $execution_time . " seconds to execute.";
 }
+
+function removeNb($n) {
+    // echo $n . "\n";
+    $range = range(1, $n);
+    $total = array_sum($range);
+    $res = array();
+    foreach ($range as $first) {
+        $second = ($total % $first) + $first;
+        if (($total - ($first + $second)) == ($first * $second)) {
+            array_push($res, [$first, $second], [$second, $first]);
+        }
+    }
+    sort($res);
+    return $res;
+}
+
+// print_r(removeNb(101)); // 5151 => [[55, 91], [91, 55]]
+// print_r(removeNb(1000003)); // 351 => [[15, 21], [21, 15]]
+// echo (5151-91)%91;
+// echo (351-21-15)%21*15;
+// echo (5151%55)+55;
+
+function fibonacci($n) {
+    if ($n == 0) return [];
+    $sequence = [0, 1];
+    foreach (range(0, $n) as $index => $val) {
+        echo $index . " => " . $val . "\n";
+    }
+    while (sizeof($sequence) < $n) {
+        array_push($sequence, ($sequence[sizeof($sequence) - 1] + $sequence[sizeof($sequence) - 2]));
+    }
+    return $sequence;
+}
+// print_r(fibonacci(10));
+// productFib(4895) // [55, 89, true]

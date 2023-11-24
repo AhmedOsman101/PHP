@@ -1253,3 +1253,32 @@ function XO($s)
     }
 }
 // print_r(XO('xoxXOoOXooXX'));
+
+function factorial($n){
+    if($n <=1) return 1;
+    $f = 1;
+    for ($i = $n; $i >= 2; --$i){
+        $f *= $i;
+    }
+    // echo $f;
+    return $f;
+}
+
+// factorial(5);
+
+function calc_time(){
+   
+    // Start the timer
+    $start_time = microtime(true);
+    
+    // Call your function
+    $result = (factorial(69));
+    
+    // Stop the timer
+    $end_time = microtime(true);
+    
+    // // Calculate the difference in microseconds
+    $execution_time = $end_time - $start_time;
+    
+    echo "The function took " . $execution_time . " seconds to execute.";
+}

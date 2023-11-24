@@ -1046,7 +1046,7 @@ function dirReduce(&$arr)
     }
 }
 $directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
-print_r(dirReduce($directions)); // , ["WEST"]
+// print_r(dirReduce($directions)); // , ["WEST"]
 // $array = array('apple', 'orange', 'strawberry', 'blueberry', 'kiwi');
 // $array_without_strawberries = array_diff($array, array('strawberry'));
 // print_r($array_without_strawberries);

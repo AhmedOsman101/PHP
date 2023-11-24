@@ -1152,4 +1152,39 @@ function detect_pangram($string)
     return true;
 }
 
-var_dump(detect_pangram("The quick brown fox jumps over the lazy dog"));
+// var_dump(detect_pangram("The quick brown fox jumps over the lazy dog"));
+
+function narcissistic(int $value): bool
+{
+    $value = str_split("$value");
+    $size = sizeof($value);
+    $sum = 0;
+    foreach ($value as $num) {
+        $sum += pow($num, $size);
+    }
+    return $sum == (implode($value));
+}
+// var_dump(narcissistic(153));
+// var_dump(range(1, 5));
+function tribonacci($signature, $n)
+{
+    print_r($signature);
+    echo "\n$n\n";
+    $res = [];
+    if ($n == 0) return $res;
+    $i = 0;
+    while (true) {
+        if (sizeof($res) == $n) break;
+        if ($i <= 2) {
+            array_push($res, $signature[$i]);
+        } else if ($i == 3) {
+            array_push($res, array_sum($res));
+        } else {
+            array_push($res, array_sum([$res[$i - 3], $res[$i - 2], $res[$i - 1]]));
+        }
+        $i++;
+    }
+    return $res;
+}
+
+// print_r(tribonacci([1,1,1],10));

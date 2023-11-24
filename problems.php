@@ -600,7 +600,7 @@ function rgb($r, $g, $b)
         }
     }
     return $hexa;
-    // other solution:
+    // other Split Strings:
     // return dechex($r) . dechex($g) . dechex($b);
 }
 // echo rgb(1, 2, 1) . "\n";
@@ -1168,8 +1168,6 @@ function narcissistic(int $value): bool
 // var_dump(range(1, 5));
 function tribonacci($signature, $n)
 {
-    print_r($signature);
-    echo "\n$n\n";
     $res = [];
     if ($n == 0) return $res;
     $i = 0;
@@ -1188,3 +1186,39 @@ function tribonacci($signature, $n)
 }
 
 // print_r(tribonacci([1,1,1],10));
+function Xbonacci($s, $n)
+{
+    if ($n == 0) return [];
+    $size = sizeof($s);
+    $res = [];
+    for ($i = 0; $i < $n; $i++) {
+        echo "$i>";
+        if ($i < $size) {
+            array_push($res, $s[$i]);
+        } elseif ($i >= $size) {
+            array_push($res, array_sum(array_slice($res, $i - $size, $i)));
+        }
+    }
+    return $res;
+}
+
+// print_r(Xbonacci([1, 1], 10));
+// print_r(Xbonacci([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 20));
+// print_r(Xbonacci([1,2,3,4,5,6,7,8,9,0],9));
+// print_r(Xbonacci([1, 1], 10));
+// print_r(Xbonacci([1, 1], 10));
+// print_r(Xbonacci([1, 1], 10));
+function SplitStrings($str)
+{
+    if (empty($str)) return array();
+    $str = array_values(str_split($str, 2));
+    foreach ($str as &$char) {
+        $char = str_pad($char, 2, "_", STR_PAD_RIGHT);
+    }
+    return $str;
+}
+
+
+// echo "<pre>";
+// print_r();
+// echo "</pre>";

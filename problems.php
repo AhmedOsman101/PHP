@@ -879,7 +879,7 @@ function narcissistic(int $value): bool {
 }
 // var_dump(narcissistic(153));
 // var_dump(range(1, 5));
-function tribonacci($signature, $n) {
+function tribonacci($signature, $n, &$memo = []) {
     $res = [];
     if ($n == 0) return $res;
     $i = 0;
@@ -897,7 +897,7 @@ function tribonacci($signature, $n) {
     return $res;
 }
 
-// print_r(tribonacci([1,1,1],10));
+print_r(tribonacci([1, 1, 1], 10));
 function Xbonacci($s, $n) {
     if ($n == 0) return [];
     $size = sizeof($s);
@@ -1126,17 +1126,6 @@ function removeNb($n) {
 // echo (351-21-15)%21*15;
 // echo (5151%55)+55;
 
-// function fibonacci($n) {
-//     if ($n == 0) return [];
-//     $sequence = [0, 1];
-//     foreach (range(0, $n) as $index => $val) {
-//         echo $index . " => " . $val . "\n";
-//     }
-//     while (sizeof($sequence) < $n) {
-//         array_push($sequence, ($sequence[sizeof($sequence) - 1] + $sequence[sizeof($sequence) - 2]));
-//     }
-//     return $sequence;
-// }
 function fibonacci($n, &$memo = []) {
     // create a memo to store previous inputs with their outputs 
     // NOTE: pass the memo with reference(&) to edit the original one with each call
@@ -1147,6 +1136,20 @@ function fibonacci($n, &$memo = []) {
     $memo[$n] = fibonacci($n - 1, $memo) + fibonacci($n - 2, $memo); // else make a new key $n with the value of the recursive call to n-1&n-2 and pass your memo to them
     return $memo[$n];
 }
+function fibs_fizz_buzz($n) {
+    $res = [];
+    foreach (range(1, $n) as $numbers) {
+        if (fibonacci($numbers) % 3 == 0 and fibonacci($numbers) % 5 == 0) array_push($res, 'FizzBuzz');
+        elseif (fibonacci($numbers) % 3 == 0) array_push($res, 'Fizz');
+        elseif (fibonacci($numbers) % 5 == 0) array_push($res, 'Buzz');
+        else {
+            array_push($res, fibonacci($numbers));
+            print(fibonacci($numbers) . "\n");
+        }
+    }
+    return $res;
+}
+// print_r(fibs_fizz_buzz(20));
 // print_r(fibonacci(550));
 // productFib(4895) // [55, 89, true]
 function sumOfDivided($arr) {

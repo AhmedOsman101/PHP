@@ -1,3 +1,4 @@
+
 <?php
 function mostActive($customers) {
     $n = count($customers);
@@ -1268,3 +1269,9 @@ function gridTraveler_memo($m, $n, &$memo = []) {
 
 // var_export(gridTraveler_memo(18, 18));
 // var_export(gridTraveler_memo(1, 1));
+
+function twoSum($nums, $target) {
+    for ($i = 0; $i < sizeof($nums); $i++) {
+        if (in_array($target - $nums[$i], $nums) and $target - $nums[$i] != $nums[$i]) return [$i, array_search($target - $nums[$i], $nums)];
+    }
+}

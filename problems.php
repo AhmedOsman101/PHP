@@ -588,8 +588,8 @@ function duplicate_encode($word) {
     }
     return $res;
 }
-// var_dump(duplicate_encode('din'));
-// var_dump(duplicate_encode('recede'));
+// var_export(duplicate_encode('din'));
+// var_export(duplicate_encode('recede'));
 
 function format_duration($seconds) {
     if ($seconds == 0) return "now";
@@ -758,7 +758,7 @@ function generateHashtag($str) {
 function alphanumeric(string $s): bool {
     return ctype_alnum($s);
 }
-// var_dump(alphanumeric("            "));
+// var_export(alphanumeric("            "));
 
 function uniqueInOrder($str) {
     if (!is_array($str)) $str = str_split($str);
@@ -773,7 +773,7 @@ function uniqueInOrder($str) {
     }
     return $ret;
 }
-// var_dump(uniqueInOrder([1, 2, 2, 3]));
+// var_export(uniqueInOrder([1, 2, 2, 3]));
 function basicOp($op, $val1, $val2) {
     switch ($op) {
         case '+':
@@ -790,14 +790,14 @@ function basicOp($op, $val1, $val2) {
 }
 // basicOp('+', 4, 7);
 
-// var_dump(password_hash('123', ));
-// var_dump(md5("123"));
+// var_export(password_hash('123', ));
+// var_export(md5("123"));
 // echo "\n";
-// var_dump(md5("123"));
+// var_export(md5("123"));
 // echo "\n";
-// var_dump(md5("12345"));
+// var_export(md5("12345"));
 // echo "\n";
-// // var_dump(md5("123") == "202cb962ac59075b964b07152d234b70");
+// // var_export(md5("123") == "202cb962ac59075b964b07152d234b70");
 //Don't echo anything, will take to much time
 function crack($hash) {
     for ($a = 0; $a < 10; $a++) {
@@ -816,7 +816,7 @@ function crack($hash) {
     }
 }
 // echo ;
-// var_dump(crack(md5(strval(99999))));
+// var_export(crack(md5(strval(99999))));
 
 
 function numPrimorial($n) {
@@ -834,7 +834,7 @@ function numPrimorial($n) {
     }
     return $res;
 }
-// var_dump(numPrimorial(3));
+// var_export(numPrimorial(3));
 // echo isprime(3);
 //// Start the timer
 // $start_time = microtime(true);
@@ -866,7 +866,7 @@ function detect_pangram($string) {
     return true;
 }
 
-// var_dump(detect_pangram("The quick brown fox jumps over the lazy dog"));
+// var_export(detect_pangram("The quick brown fox jumps over the lazy dog"));
 
 function narcissistic(int $value): bool {
     $value = str_split("$value");
@@ -877,8 +877,8 @@ function narcissistic(int $value): bool {
     }
     return $sum == (implode($value));
 }
-// var_dump(narcissistic(153));
-// var_dump(range(1, 5));
+// var_export(narcissistic(153));
+// var_export(range(1, 5));
 function tribonacci($signature, $n) {
     $res = [];
     if ($n == 0) return $res;
@@ -1057,7 +1057,7 @@ function sum_strings($a, $b) {
 // echo ($a + $b) . "\n";
 
 
-// var_dump(5>3 xor 5>6); // false xor false => false, true xor false => true, true and true => false;
+// var_export(5>3 xor 5>6); // false xor false => false, true xor false => true, true and true => false;
 
 
 function XO($s) {
@@ -1124,31 +1124,7 @@ function removeNb($n) {
 // echo (351-21-15)%21*15;
 // echo (5151%55)+55;
 
-function fibonacci($n, &$memo = []) {
-    // create a memo to store previous inputs with their outputs 
-    // NOTE: pass the memo with reference(&) to edit the original one with each call
-    if (in_array($n, array_keys($memo)))
-        return $memo[$n]; // if the value already exists in the memo return it
-    if ($n <= 2)
-        return 1; // if not in memo and it's less than 3 return 1
-    $memo[$n] = fibonacci($n - 1, $memo) + fibonacci($n - 2, $memo); // else make a new key $n with the value of the recursive call to n-1&n-2 and pass your memo to them
-    return $memo[$n];
-}
-function fibs_fizz_buzz($n) {
-    $res = [];
-    foreach (range(1, $n) as $numbers) {
-        if (fibonacci($numbers) % 3 == 0 and fibonacci($numbers) % 5 == 0) array_push($res, 'FizzBuzz');
-        elseif (fibonacci($numbers) % 3 == 0) array_push($res, 'Fizz');
-        elseif (fibonacci($numbers) % 5 == 0) array_push($res, 'Buzz');
-        else {
-            array_push($res, fibonacci($numbers));
-            print(fibonacci($numbers) . "\n");
-        }
-    }
-    return $res;
-}
-// print_r(fibs_fizz_buzz(20));
-// print_r(fibonacci(550));
+
 // productFib(4895) // [55, 89, true]
 function sumOfDivided($arr) {
     $primes = [];
@@ -1183,21 +1159,112 @@ function sumOfDivided($arr) {
 // sumOfDivided([15, 21, 24, 30, -45]) => [[2, 54], [3, 45], [5, 0], [7, 21]];
 // $arr["2"] = 5;
 // array_splice($arr, 1, 0);
-function canSum($target, $nums, &$memo = []) {
+function fibonacci_memo($n, &$memo = []) {
+    // create a memo to store previous inputs with their outputs 
+    // NOTE: pass the memo with reference(&) to edit the original one with each call
+    if (in_array($n, array_keys($memo)))
+        return $memo[$n]; // if the value already exists in the memo return it
+    if ($n <= 2)
+        return 1; // if not in memo and it's less than 3 return 1
+    $memo[$n] = fibonacci_memo($n - 1, $memo) + fibonacci_memo($n - 2, $memo); // else make a new key $n with the value of the recursive call to n-1&n-2 and pass your memo to them
+    return $memo[$n];
+}
+
+// print_r(fibonacci_memo(550));
+function canSum_memo($target, $nums, &$memo = []) {
     if (in_array($target, $nums) or $target == 0) return true;
     if (in_array($target, array_keys($memo))) return $memo[$target];
     if ($target < 0) return false;
     foreach ($nums as $val) {
         $nextTarget = $target - $val;
-        if (canSum($nextTarget, $nums, $memo)) {
-            $memo[$nextTarget] = true;
-            return $memo[$nextTarget];
+        if (canSum_memo($nextTarget, $nums, $memo)) {
+            $memo[$target] = true;
+            return $memo[$target];
         }
     }
-    $memo[$nextTarget] = false;
-    return $memo[$nextTarget];
+    $memo[$target] = false;
+    return $memo[$target];
 }
 
-// var_dump(canSum(7, [5, 4, 3, 7]));
-// var_dump(canSum(31, [7, 9]));
-// var_export(canSum(300, [7, 14]));
+// var_export(canSum_memo(7, [5, 4, 3, 7]));
+// var_export(canSum_memo(31, [7, 9]));
+// var_export(canSum_memo(300, [7, 14]));
+// var_export(canSum_memo(3000, [7, 14]));
+
+function howSum_memo($target, $nums, &$memo = []) {
+    if ($target == 0) return [];
+    if ($target < 0) return null;
+    if (in_array($target, array_keys($memo))) return $memo[$target];
+    if (in_array($target, $nums)) return [$target];
+    foreach ($nums as $val) {
+        $nextTarget = $target - $val;
+        $res = howSum_memo($nextTarget, $nums, $memo);
+        if ($res) {
+            $memo[$target] = [...$res, $val];
+            return $memo[$target];
+        }
+    }
+    $memo[$target] = null;
+    return $memo[$target];
+}
+// var_export(howSum_memo(7, [2, 3])); // [3, 2, 2]
+// echo "\n";
+// var_export(howSum_memo(7, [5, 3, 4, 7])); // [7]
+// echo "\n";
+// var_export(howSum_memo(7, [5, 3])); // null
+// echo "\n";
+// var_export(howSum_memo(8, [2, 3, 5])); // [2, 2, 2, 2]
+// echo "\n";
+// var_export(howSum_memo(300000, [7, 14])); // null
+// echo "\n";
+// var_export(howSum_memo(3000000, [7, 14]));
+
+function fibs_fizz_buzz($n) {
+    $res = [];
+    foreach (range(1, $n) as $numbers) {
+        if (fibonacci_memo($numbers) % 3 == 0 and fibonacci_memo($numbers) % 5 == 0) array_push($res, 'FizzBuzz');
+        elseif (fibonacci_memo($numbers) % 3 == 0) array_push($res, 'Fizz');
+        elseif (fibonacci_memo($numbers) % 5 == 0) array_push($res, 'Buzz');
+        else {
+            array_push($res, fibonacci_memo($numbers));
+            print(fibonacci_memo($numbers) . "\n");
+        }
+    }
+    return $res;
+}
+// print_r(fibs_fizz_buzz(20));
+
+function fibonacci_tab1($n) {
+    $table = array_fill(0, $n + 1, 0);
+    $table[1] = 1;
+    for ($i = 0; $i <= $n; $i++) {
+        @$table[$i + 1] += $table[$i];
+        @$table[$i + 2] += $table[$i];
+    }
+    return $table[$n];
+}
+function fibonacci_tab2($n) {
+    $table = array_fill(0, $n + 1, 0);
+    $table[1] = 1;
+    for ($i = 0; $i <= $n; $i++) {
+        if ($i + 1 <= $n) $table[$i + 1] += $table[$i];
+        if ($i + 2 <= $n) $table[$i + 2] += $table[$i];
+    }
+    return $table[$n];
+}
+
+// var_export(fibonacci_tab1(500));
+// echo "\n";
+// var_export(fibonacci_tab2(500));
+
+function gridTraveler_memo($m, $n, &$memo = []) {
+    $key = "$m, $n";
+    if ($m == 0 or $n == 0) return 0;
+    if ($m == 1 and $n == 1) return 1;
+    if (in_array($key, array_keys($memo))) return $memo[$key];
+    $memo[$key] = gridTraveler_memo($m - 1, $n, $memo) + gridTraveler_memo($m, $n - 1, $memo);
+    return $memo[$key];
+}
+
+// var_export(gridTraveler_memo(18, 18));
+// var_export(gridTraveler_memo(1, 1));

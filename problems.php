@@ -1126,18 +1126,28 @@ function removeNb($n) {
 // echo (351-21-15)%21*15;
 // echo (5151%55)+55;
 
-function fibonacci($n) {
-    if ($n == 0) return [];
-    $sequence = [0, 1];
-    foreach (range(0, $n) as $index => $val) {
-        echo $index . " => " . $val . "\n";
-    }
-    while (sizeof($sequence) < $n) {
-        array_push($sequence, ($sequence[sizeof($sequence) - 1] + $sequence[sizeof($sequence) - 2]));
-    }
-    return $sequence;
+// function fibonacci($n) {
+//     if ($n == 0) return [];
+//     $sequence = [0, 1];
+//     foreach (range(0, $n) as $index => $val) {
+//         echo $index . " => " . $val . "\n";
+//     }
+//     while (sizeof($sequence) < $n) {
+//         array_push($sequence, ($sequence[sizeof($sequence) - 1] + $sequence[sizeof($sequence) - 2]));
+//     }
+//     return $sequence;
+// }
+function fibonacci($n, &$memo = []) {
+    // create a memo to store previous inputs with their outputs 
+    // NOTE: pass the memo with reference(&) to edit the original one with each call
+    if (in_array($n, array_keys($memo)))
+        return $memo[$n]; // if the value already exists in the memo return it
+    if ($n <= 2)
+        return 1; // if not in memo and it's less than 3 return 1
+    $memo[$n] = fibonacci($n - 1, $memo) + fibonacci($n - 2, $memo); // else make a new key $n with the value of the recursive call to n-1&n-2 and pass your memo to them
+    return $memo[$n];
 }
-// print_r(fibonacci(10));
+// print_r(fibonacci(550));
 // productFib(4895) // [55, 89, true]
 function sumOfDivided($arr) {
     $primes = [];

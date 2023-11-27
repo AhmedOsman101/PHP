@@ -879,7 +879,7 @@ function narcissistic(int $value): bool {
 }
 // var_dump(narcissistic(153));
 // var_dump(range(1, 5));
-function tribonacci($signature, $n, &$memo = []) {
+function tribonacci($signature, $n) {
     $res = [];
     if ($n == 0) return $res;
     $i = 0;
@@ -897,7 +897,7 @@ function tribonacci($signature, $n, &$memo = []) {
     return $res;
 }
 
-print_r(tribonacci([1, 1, 1], 10));
+// print_r(tribonacci([1, 1, 1], 1000));
 function Xbonacci($s, $n) {
     if ($n == 0) return [];
     $size = sizeof($s);
@@ -910,15 +910,13 @@ function Xbonacci($s, $n) {
             array_push($res, array_sum(array_slice($res, $i - $size, $i)));
         }
     }
+    echo "\n";
     return $res;
 }
 
 // print_r(Xbonacci([1, 1], 10));
 // print_r(Xbonacci([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 20));
-// print_r(Xbonacci([1,2,3,4,5,6,7,8,9,0],9));
-// print_r(Xbonacci([1, 1], 10));
-// print_r(Xbonacci([1, 1], 10));
-// print_r(Xbonacci([1, 1], 10));
+// print_r(Xbonacci([1,2,3,4,5,6,7,8,9,0],15));
 function SplitStrings($str) {
     if (empty($str)) return array();
     $str = array_values(str_split($str, 2));
@@ -1185,3 +1183,21 @@ function sumOfDivided($arr) {
 // sumOfDivided([15, 21, 24, 30, -45]) => [[2, 54], [3, 45], [5, 0], [7, 21]];
 // $arr["2"] = 5;
 // array_splice($arr, 1, 0);
+function canSum($target, $nums, &$memo = []) {
+    if (in_array($target, $nums) or $target == 0) return true;
+    if (in_array($target, array_keys($memo))) return $memo[$target];
+    if ($target < 0) return false;
+    foreach ($nums as $val) {
+        $nextTarget = $target - $val;
+        if (canSum($nextTarget, $nums, $memo)) {
+            $memo[$nextTarget] = true;
+            return $memo[$nextTarget];
+        }
+    }
+    $memo[$nextTarget] = false;
+    return $memo[$nextTarget];
+}
+
+// var_dump(canSum(7, [5, 4, 3, 7]));
+// var_dump(canSum(31, [7, 9]));
+// var_export(canSum(300, [7, 14]));

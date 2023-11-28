@@ -50,14 +50,14 @@ function pre_r($data) {
 function generateCards($info = []) {
     if (!empty($info)) {
         $res = "<div class='card w-25'><div class='card-body'>";
-        foreach (array_keys($info) as $data) {
-            if (empty($info[$data])) {
-                echo ("$data is empty");
+        foreach ($info as $key => $data) {
+            if (empty($data)) {
+                echo ("$key is empty");
                 return;
-            } else if ($data == "submit") continue;
+            } else if ($data == "Submit") continue;
             else {
-                $res .= "<h6 class='card-title'>$data:</h6>";
-                $res .= "<p class='card-text'>$info[$data]</p>";
+                $res .= "<h6 class='card-title'>$key:</h6>";
+                $res .= "<p class='card-text'>$data</p>";
             }
         }
         $res .= "</div></div>";

@@ -1275,3 +1275,24 @@ function twoSum($nums, $target) {
         if (in_array($target - $nums[$i], $nums) and $target - $nums[$i] != $nums[$i]) return [$i, array_search($target - $nums[$i], $nums)];
     }
 }
+// echo "Char | ASCII Code\n";
+// echo "-----|-----------\n";
+// for ($i = 32; $i <= 127; $i++) {
+//     echo chr($i) . "    | " . $i . "\n";
+// }
+
+function alphabet_position(string $s): string {
+    $s = str_split(strtolower(preg_replace('/[^a-zA-Z]/', "", $s)));
+    if (empty(implode($s))) return '';
+    $s = array_map(fn ($char) => ord($char) - 96, $s);
+    return implode(" ", $s);
+}
+$s = 'h8j9psWLdCOYt^?3*q-g2.po?UYp Lr2$ 8b5*?fT$?wHk8)8?koayXrLq%Hr&BCGIhUy9L!SnVZgJJ@UDR.iD#ffLw)wq?n?hlgYFEX@y0v,Iij8NBW9$UdKbpRizZ9^(8cGVRc&XPOvTmAWcLLt2LVHf5xs.c2lMXohAPQ%6uO$zu-WB,AnDl@fa%z@';
+// var_export(alphabet_position($s));
+function smallEnough($a, $limit) {
+    foreach ($a as $n) {
+        if ($a > $n) return false;
+    }
+    return true;
+}
+var_export(smallEnough([66, 101], 200));

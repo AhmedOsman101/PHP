@@ -1291,8 +1291,9 @@ $s = 'h8j9psWLdCOYt^?3*q-g2.po?UYp Lr2$ 8b5*?fT$?wHk8)8?koayXrLq%Hr&BCGIhUy9L!Sn
 // var_export(alphabet_position($s));
 function smallEnough($a, $limit) {
     foreach ($a as $n) {
-        if ($a > $n) return false;
+        if ($limit < $n) return false;
     }
     return true;
+    // return max($a) <= $limit;
 }
 var_export(smallEnough([66, 101], 200));

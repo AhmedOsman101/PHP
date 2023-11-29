@@ -1296,4 +1296,10 @@ function smallEnough($a, $limit) {
     return true;
     // return max($a) <= $limit;
 }
-var_export(smallEnough([66, 101], 200));
+// var_export(smallEnough([66, 101], 200));
+
+function sequence_sum(int $begin, int $end, int $step): int {
+    if ($step >= $end or $step >= $begin) return 0;
+    return $end < $begin ? 0 : array_sum(range($begin, $end, $step));
+}
+var_export(sequence_sum(17, 32, 18));

@@ -1263,7 +1263,6 @@ function twoSum($nums, $target) {
         if (in_array($target - $nums[$i], $nums) and $target - $nums[$i] != $nums[$i]) return [$i, array_search($target - $nums[$i], $nums)];
     }
 }
-<<<<<<< HEAD
 
 function removeDuplicates(&$nums) {
     return array_merge(array_unique($nums), array_fill(0, sizeof($nums) - sizeof(array_unique($nums)), "_"));
@@ -1271,8 +1270,8 @@ function removeDuplicates(&$nums) {
 
 $nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
 var_export(array_reverse($nums));
-var_export(removeDuplicates($nums)== [0, 1, 2, 3, 4, "_", "_", "_", "_", "_"]);
-=======
+var_export(removeDuplicates($nums) == [0, 1, 2, 3, 4, "_", "_", "_", "_", "_"]);
+
 // echo "Char | ASCII Code\n";
 // echo "-----|-----------\n";
 // for ($i = 32; $i <= 127; $i++) {
@@ -1301,4 +1300,3 @@ function sequence_sum(int $begin, int $end, int $step): int {
     return $end < $begin ? 0 : array_sum(range($begin, $end, $step));
 }
 var_export(sequence_sum(17, 32, 18));
->>>>>>> beabf0f9ca635a49da60959a7a683ceb5dfd9a9d

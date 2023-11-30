@@ -405,18 +405,6 @@ function highestRank($arr) {
     return max($maxValues);
 }
 // print_r(highestRank([10, 12, 12, 12, 3, 3, 3, 10, 2, 4]));
-function removeDuplicateIds($arr) {
-}
-$matrix = [
-    "1" => ["C", "F", "G"],
-    "2" => ["A", "B", "C"],
-    "3" => ["A", "B", "D"]
-];
-// print_r(removeDuplicateIds($matrix));
-/* output: 
-    "1" => ["F", "G"],
-    "2" => ["C"],
-    "3" => ["A", "B", "D"] */
 
 function factorial2($n) {
     if ($n - 1 == 0) {
@@ -911,7 +899,7 @@ function Xbonacci($s, $n) {
             array_push($res, array_sum(array_slice($res, $i - $size, $i)));
         }
     }
-    echo "\n";
+    // echo "\n";
     return $res;
 }
 
@@ -1275,3 +1263,11 @@ function twoSum($nums, $target) {
         if (in_array($target - $nums[$i], $nums) and $target - $nums[$i] != $nums[$i]) return [$i, array_search($target - $nums[$i], $nums)];
     }
 }
+
+function removeDuplicates(&$nums) {
+    return array_merge(array_unique($nums), array_fill(0, sizeof($nums) - sizeof(array_unique($nums)), "_"));
+}
+
+$nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+var_export(array_reverse($nums));
+var_export(removeDuplicates($nums)== [0, 1, 2, 3, 4, "_", "_", "_", "_", "_"]);

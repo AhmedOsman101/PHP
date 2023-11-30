@@ -1269,8 +1269,8 @@ function removeDuplicates(&$nums) {
 }
 
 $nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
-var_export(array_reverse($nums));
-var_export(removeDuplicates($nums) == [0, 1, 2, 3, 4, "_", "_", "_", "_", "_"]);
+// var_export(array_reverse($nums));
+// var_export(removeDuplicates($nums) == [0, 1, 2, 3, 4, "_", "_", "_", "_", "_"]);
 
 // echo "Char | ASCII Code\n";
 // echo "-----|-----------\n";
@@ -1299,4 +1299,4 @@ function sequence_sum(int $begin, int $end, int $step): int {
     if ($step >= $end or $step >= $begin) return 0;
     return $end < $begin ? 0 : array_sum(range($begin, $end, $step));
 }
-var_export(sequence_sum(17, 32, 18));
+// var_export(sequence_sum(17, 32, 18));

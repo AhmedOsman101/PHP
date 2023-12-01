@@ -1328,3 +1328,29 @@ var_export(snail([
     [7, 8, 9, 7]
 ]));
 */
+
+// function F(int $n, &$memo = [], &$memoM = []): int {
+//     if ($n <= 1) return 1;
+//     if (isset($memo[$n])) return $memo[$n];
+//     $memo[$n] = $n - M(F($n - 1), $memo);
+//     return $memo[$n];
+// }
+
+// function F(int $n, &$memo = []): int {
+//     if ($n <= 1) return 1;
+//     if (isset($memo[$n])) return $memo[$n];
+//     for ($i = $n - 1; $i >= 1; $i--) {
+//         $memo[$n] = $n - M($memo[$i], $memo);
+//     }
+//     return $memo[$n];
+// }
+function M(int $n, &$memoM = []): int {
+    if ($n <= 1) return 0;
+    if (isset($memoM[$n])) return $memoM[$n];
+    $memoM[$n] = $n - F(M($n - 1), $memoM);
+    return $memoM[$n];
+}
+
+var_export(M(1000));
+echo "\n";
+var_export(F(700));

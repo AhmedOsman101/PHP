@@ -163,55 +163,7 @@ function maxi($arr) {
     return $max;
 }
 
-function quickSort($arr, $mode) {
-    if (sizeof($arr) <= 1) {
-        return $arr;
-    }
-    $pointer = $arr[sizeof($arr) - 1];
-    $left = [];
-    $middle = [];
-    $right = [];
-    foreach ($arr as $val) {
-        if ($val < $pointer) {
-            array_push($left, $val);
-        } elseif ($val > $pointer) {
-            array_push($right, $val);
-        } else {
-            array_push($middle, $val);
-        }
-    }
-    if ($mode == "desc") {
-        return array_reverse(array_merge(quickSort($left, "asc"), $middle, quickSort($right, "asc")));
-    } elseif ($mode == "asc") {
-        return array_merge(quickSort($left, "asc"), $middle, quickSort($right, "asc"));
-    } else {
-        return "invalid input";
-    }
-}
 
-function selectionSort($arr, $mode) {
-    if ($mode == "desc") {
-        for ($i = 0; $i < sizeof($arr); $i++) {
-            for ($j = ($i + 1); $j < sizeof($arr); $j++) {
-                if ($arr[$j] > $arr[$i]) {
-                    [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
-                }
-            }
-        }
-    } elseif ($mode == "asc") {
-        for ($i = 0; $i < sizeof($arr); $i++) {
-            for ($j = ($i + 1); $j < sizeof($arr); $j++) {
-                if ($arr[$j] < $arr[$i]) {
-                    [$arr[$i], $arr[$j]] = [$arr[$j], $arr[$i]];
-                }
-            }
-        }
-    } else {
-        return "invalid input";
-    }
-
-    return $arr;
-}
 
 function reverse_words_order_and_swap_cases($str) {
     $str = explode(" ", $str);
@@ -1344,13 +1296,19 @@ var_export(snail([
 //     }
 //     return $memo[$n];
 // }
-function M(int $n, &$memoM = []): int {
-    if ($n <= 1) return 0;
-    if (isset($memoM[$n])) return $memoM[$n];
-    $memoM[$n] = $n - F(M($n - 1), $memoM);
-    return $memoM[$n];
+// function M(int $n, &$memoM = []): int {
+//     if ($n <= 1) return 0;
+//     if (isset($memoM[$n])) return $memoM[$n];
+//     $memoM[$n] = $n - F(M($n - 1), $memoM);
+//     return $memoM[$n];
+// }
+
+// var_export(M(1000));
+echo "\n";
+// var_export(F(700));
+
+function arr2bin($arr) {
+    return decbin(array_sum(array_filter($arr, fn($item) => +is_numeric($item))));
 }
 
-var_export(M(1000));
-echo "\n";
-var_export(F(700));
+echo arr2bin([true, true, 0, 15]);

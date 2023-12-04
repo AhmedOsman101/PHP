@@ -1307,9 +1307,23 @@ var_export(snail([
 echo "\n";
 // var_export(F(700));
 
-function arr2bin($arr) {
-    return decbin(array_sum(array_filter($arr, fn($item) => +is_numeric($item))));
+
+
+//  
+
+function permutations($s){
+    $res = [];
+    if (count($s) == 3) {
+        // array_push($res);
+    }
+    $sorted = false;
+    while (!$sorted) {
+        // array_push($res, permutations())
+    }
+
+
+    sort($res);
+    return $res;
 }
 
-echo arr2bin([true, true, 0, 15]);
-
+print_r(permutations(["cab", "abc", "cba"]));

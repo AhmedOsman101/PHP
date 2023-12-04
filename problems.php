@@ -1312,3 +1312,4 @@ function arr2bin($arr) {
 }
 
 echo arr2bin([true, true, 0, 15]);
+

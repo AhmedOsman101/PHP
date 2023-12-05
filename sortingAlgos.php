@@ -88,7 +88,7 @@ function shellSort(&$array) {
     return $array;
 }
 
-function quickSort($arr, $mode) {
+function quickSort($arr, $mode = "asc") {
     if (sizeof($arr) <= 1) {
         return $arr;
     }
@@ -114,7 +114,7 @@ function quickSort($arr, $mode) {
     }
 }
 
-function selectionSort(&$arr, $mode) {
+function selectionSort(&$arr, $mode = "asc") {
     for ($i = 0; $i < sizeof($arr); $i++) {
         for ($j = ($i + 1); $j < sizeof($arr); $j++) {
             if ($arr[$j] < $arr[$i]) {
@@ -123,11 +123,10 @@ function selectionSort(&$arr, $mode) {
         }
     }
     if (strtolower($mode) == "asc") return $arr;
-    elseif (strtolower($mode) == "desc") {
+    if (strtolower($mode) == "desc") {
         $arr = array_reverse($arr);
         return $arr;
     } else return "invalid input";
 }
 
 $arr = [9999, 5, 500, -500, 3, 50];
-

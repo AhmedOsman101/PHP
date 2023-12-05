@@ -4,7 +4,7 @@
  * Function to sort an array using selection sort algorithm.
  *
  * @param array $arr The array to be sorted
- * @param string $mode The sorting mode, either "asc" for ascending or "desc" for descending
+ * @param string $mode sorting mode "asc" for ascending or "desc" for descending
  * @return array The sorted array
  */
 function selectionSort(array &$arr, String $mode)
@@ -37,7 +37,7 @@ function selectionSort(array &$arr, String $mode)
 
     return $arr;
 }
-// selectionSort(['V' => "Aloooo", 'C' => "asdfh", 'B' => "fdad"], "asc");
+selectionSort(['V' => "Aloooo", 'C' => "asdfh", 'B' => "fdad"],);
 /**
  * Function to sort an associative array by key using selection sort algorithm.
  *

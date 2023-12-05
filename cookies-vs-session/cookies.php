@@ -22,3 +22,5 @@ else echo "I don't know your favorite meal <br>";
 echo "<pre>";
 var_export($_COOKIE);
 echo "</pre>";
+
+

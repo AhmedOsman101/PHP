@@ -9,13 +9,13 @@
 </head>
 
 <body>
-    Login succeed !
-    <a href="sessions.php">click me!</a> <br>
+    <center>
+        <h1>Login succeed !</h1>
+    </center>
+    <a href="sessions.php">click me!</a><br>
 </body>
 
 </html>
 <?php
-foreach ($_SESSION as $key => $value) {
-    echo $key . " => " . $value . "<br>";
-}
+foreach ($_SESSION as $key => $value) echo $key . " => " . $value . "<br>";
 ?>

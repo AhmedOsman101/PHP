@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <!-- <link rel="stylesheet" href="water.css\out\water.css"> -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="navbar.css" /> -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="main.css" />
 </head>
 
 <body>
-    <main>
+    <?php include_once("navbar.html") ?>
+    <center>
         <div class="form-container">
             <p class="title">Login</p>
             <form class="form" action="" method="post">
@@ -24,7 +24,7 @@
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="enter your password">
                     <div class="forgot">
-                        <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+                        <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                     </div>
                 </div>
                 <button class="sign">Sign in</button>
@@ -55,7 +55,7 @@
                 <a rel="noopener noreferrer" href="#" class="">Sign up</a>
             </p>
         </div>
-    </main>
+    </center>
     <?php include_once("footer.html") ?>
 </body>
 

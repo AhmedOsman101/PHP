@@ -5,13 +5,14 @@
 * {
 	text-transform: capitalize;
 	box-sizing: border-box;
-	margin: none;
-	padding: none;
+	margin: 0px;
+	padding: 0px;
 }
 
 /* form styles start */
 
 .form-container {
+	margin-top: 3rem;
 	width: 320px;
 	border-radius: 0.75rem;
 	background-color: rgba(17, 24, 39, 1);
@@ -63,13 +64,14 @@
 	line-height: 1rem;
 	color: rgba(156, 163, 175, 1);
 	margin: 8px 0 14px 0;
+	width: 98%;
 }
 
 .forgot a,
 .signup a {
 	color: rgba(243, 244, 246, 1);
 	text-decoration: none;
-	font-size: 154px;
+	font-size: 14px;
 	transition: all 350ms;
 }
 

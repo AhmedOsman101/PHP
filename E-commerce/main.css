@@ -1,6 +1,8 @@
 :root {
 	--purple: rgba(167, 139, 250, 1);
+	
 }
+/* {"color100":"#cae8ff","color200":"#a5d6ff","color300":"#79c0ff","color400":"#58a6ff","color500":"#388bfd","color600":"#1f6feb","color700":"#1158c7","color800":"#0d419d","color900":"#0c2d6b","color1000":"#051d4d"} */
 
 * {
 	text-transform: capitalize;

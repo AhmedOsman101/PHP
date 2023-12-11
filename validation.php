@@ -28,12 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // validate age
     if (empty($_POST["age"])) {
-        $ageErr = "Age is required";
+        $ageErr = "* Age is required";
     } else {
         $age = test_input($_POST["age"]);
         // check if age is a number
         if (!is_numeric($age)) {
-            $ageErr = "Invalid age";
+            $ageErr = "* Invalid age";
         }
     }
 }
@@ -65,15 +65,15 @@ function test_input($data) {
     <h2>PHP Form Validation Example</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="email">Email: </label><input type="text" name="email" />
-        <span class="error">*
+        <span class="error">
             <?php echo $emailErr; ?></span>
         <br />
         <label for="phone">Phone: </label><input type="text" name="phone" />
-        <span class="error">*
+        <span class="error">
             <?php echo $phoneErr; ?></span>
         <br />
         <label for="age">Age:</label> <input type="text" name="age" />
-        <span class="error">*
+        <span class="error">
             <?php echo $ageErr; ?></span>
         <br />
         <input type="submit" name="submit" value="Submit" />

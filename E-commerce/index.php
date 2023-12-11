@@ -7,6 +7,7 @@
     <title>Home</title>
     <link href="bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="main.css" />
 </head>
 
@@ -15,7 +16,7 @@
     <center>
         <div class="form-container">
             <p class="title">Login</p>
-            <form class="form" action="" method="post">
+            <form class="form" method="post">
                 <div class="input-group">
                     <label for="username">Username</label>
                     <input type="text" name="username" id="username" placeholder="enter your username">
@@ -27,7 +28,7 @@
                         <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                     </div>
                 </div>
-                <button class="sign">Sign in</button>
+                <input type="submit" value="sign-in" class="sign">
             </form>
             <div class="social-message">
                 <div class="line"></div>
@@ -56,7 +57,11 @@
             </p>
         </div>
     </center>
-    <?php include_once("footer.html") ?>
+    <?php
+
+$_POST["username"] = htmlspecialchars($_POST["username"]);
+    echo $_POST["username"];
+    include_once("footer.html") ?>
 </body>
 
 </html>

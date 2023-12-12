@@ -3,16 +3,15 @@
 }
 
 header {
-    display: flex;
-    justify-content: flex-end;
-    align-items: baseline;
-    padding: 30px 10%;
-    background-color: #212529;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    align-content: center;
-    z-index: 9999999;
+	display: flex;
+	justify-content: flex-end;
+	align-items: baseline;
+	padding: 30px 10%;
+	background-color: #24252a;
+	position: sticky;
+	top: 0;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	align-content: center;
 }
 
 .logo {

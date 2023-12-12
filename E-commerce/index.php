@@ -5,10 +5,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-    <link href="bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="footer.css" />
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
+    <link rel="stylesheet" href="./css/main.css" />
 </head>
 
 <body>
@@ -59,7 +59,7 @@
     </center>
     <?php
 
-$_POST["username"] = htmlspecialchars($_POST["username"]);
+    $_POST["username"] = htmlspecialchars($_POST["username"] ?? "");
     echo $_POST["username"];
     include_once("footer.html") ?>
 </body>

@@ -55,10 +55,8 @@ function generateCards($info = []) {
                 echo ("$key is empty");
                 return;
             } else if ($data == "Submit") continue;
-            else {
-                $res .= "<h6 class='card-title'>$key:</h6>";
-                $res .= "<p class='card-text'>$data</p>";
-            }
+            else 
+                $res .= "<h6 class='card-title'>$key:</h6>" . "<p class='card-text'>$data</p>";
         }
         $res .= "</div></div>";
         echo $res;

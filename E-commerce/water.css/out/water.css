@@ -545,93 +545,18 @@ button {
 }
 
 input[type="submit"] {
-    background-color: #d0cfcf;
-    background-color: var(--button-base);
     padding-right: 30px;
     padding-left: 30px;
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="submit"] {
-        background-color: #0c151c;
-        background-color: var(--button-base);
-    }
 }
 
 input[type="reset"] {
-    background-color: #d0cfcf;
-    background-color: var(--button-base);
     padding-right: 30px;
     padding-left: 30px;
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="reset"] {
-        background-color: #0c151c;
-        background-color: var(--button-base);
-    }
 }
 
 input[type="button"] {
-    background-color: #d0cfcf;
-    background-color: var(--button-base);
     padding-right: 30px;
     padding-left: 30px;
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="button"] {
-        background-color: #0c151c;
-        background-color: var(--button-base);
-    }
-}
-
-button:hover {
-    background: #9b9b9b;
-    background: var(--button-hover);
-}
-
-@media (prefers-color-scheme: dark) {
-    button:hover {
-        background: #040a0f;
-        background: var(--button-hover);
-    }
-}
-
-input[type="submit"]:hover {
-    background: #9b9b9b;
-    background: var(--button-hover);
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="submit"]:hover {
-        background: #040a0f;
-        background: var(--button-hover);
-    }
-}
-
-input[type="reset"]:hover {
-    background: #9b9b9b;
-    background: var(--button-hover);
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="reset"]:hover {
-        background: #040a0f;
-        background: var(--button-hover);
-    }
-}
-
-input[type="button"]:hover {
-    background: #9b9b9b;
-    background: var(--button-hover);
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="button"]:hover {
-        background: #040a0f;
-        background: var(--button-hover);
-    }
 }
 
 input[type="color"] {

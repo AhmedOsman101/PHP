@@ -53,14 +53,14 @@
                 </button>
             </div>
             <p class="signup">Don't have an account?
-                <a rel="noopener noreferrer" href="#" class="">Sign up</a>
+                <a rel="noopener noreferrer" href="#" class="">Sign In</a>
             </p>
         </div>
     </center>
     <?php
 
-    $_POST["username"] = htmlspecialchars($_POST["username"] ?? "");
-    echo $_POST["username"];
+    // $_POST["username"] = htmlspecialchars($_POST["username"] ?? "");
+    // echo $_POST["username"];
     include_once("footer.html") ?>
 </body>
 

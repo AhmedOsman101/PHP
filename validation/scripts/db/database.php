@@ -11,5 +11,6 @@ $mysql = new mysqli(
     password: $db_password
 );
 if ($mysql->connect_error) die("an error occured" . $mysql->connect_error);
-var_export($mysql);
+// var_export($mysql);
+// echo  "<br>";
 return $mysql;

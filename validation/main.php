@@ -12,7 +12,7 @@
 </head>
 
 <body>
-	<?php include_once("./components/navbar.html") ?>
+	<?php //include_once("./components/navbar.html") ?>
 	<main>
 		<?php include_once("./components/sign-up.html") ?>
 	</main>

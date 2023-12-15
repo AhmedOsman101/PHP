@@ -48,12 +48,12 @@ $sql = "INSERT INTO `customers`(`name`, `email`, `password`, `phone_number`, `Ge
         VALUES ( ? , ? , ? , ? , ? , ? , ? , ? )";
 
 $stmt = $mysql->stmt_init();
-
 if (!$stmt->prepare($sql)) die("SQL error: " . $mysql->error);
 
 
 
 var_export($_POST);
+echo "<br>";
 
 $stmt->bind_param(
     'ssssiiss',
@@ -67,9 +67,12 @@ $stmt->bind_param(
     $secondAddress
 );
 
-if ($stmt->execute()) echo "Success";
-else {
-    die($mysql->error . " " . $mysql->errno);
+try {
+    echo "</pre>";
+    $stmt->execute();
+    header("Location: ../components/sign-up-success.html");
+    exit;
+} catch (mysqli_sql_exception $e) {
+    if ($e->getCode() == 1062) die("This Email Already Exists");
+    else die("An error occurred: " . $e->getMessage());
 }
-
-echo "</pre>";

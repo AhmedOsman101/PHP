@@ -1,14 +1,21 @@
 <?php
-$db_host = "localhost";
-$db_name = "e-commerce";
-$db_user = "root";
-$db_password = "";
+require_once 'F:/Apps/xampp/htdocs/Othman/PHP/vendor/autoload.php';
+
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
+$db_host = $_ENV['DB_HOST'];
+$db_user = $_ENV['DB_USERNAME'];
+$db_password = $_ENV['DB_PASSWORD'];
+$db_name = $_ENV['DB_NAME'];
 
 $mysql = new mysqli(
     hostname: $db_host,
-    database: $db_name,
     username: $db_user,
-    password: $db_password
+    password: $db_password,
+    database: $db_name
 );
 if ($mysql->connect_error) die("an error occured" . $mysql->connect_error);
 // var_export($mysql);

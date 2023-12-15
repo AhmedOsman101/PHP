@@ -8,6 +8,7 @@
 	box-sizing: border-box;
 	margin: 0px;
 	padding: 0px;
+	text-decoration: none;
 }
 
 /* form styles start */
@@ -16,6 +17,7 @@ main {
 	display: grid;
 	place-content: center;
 	place-items: center;
+	margin-bottom: 5rem;
 }
 
 .form-container {
@@ -87,7 +89,7 @@ main {
 }
 
 .forgot a,
-.signup a {
+.sign-in a {
 	color: rgba(243, 244, 246, 1);
 	text-decoration: none;
 	font-size: 14px;
@@ -95,7 +97,7 @@ main {
 }
 
 .forgot a:hover,
-.signup a:hover {
+.sign-in a:hover {
 	color: var(--purple);
 }
 
@@ -163,7 +165,7 @@ main {
 	fill: var(--purple);
 }
 
-.signup {
+.sign-in {
 	text-align: center;
 	font-size: 0.75rem;
 	line-height: 1rem;

@@ -3,7 +3,7 @@
 	place-items: center;
 	gap: 24px;
 	width: 100%;
-	/* margin-bottom: 0.5rem; */
+	margin-left: 0.5rem;
 }
 
 .radio-button {

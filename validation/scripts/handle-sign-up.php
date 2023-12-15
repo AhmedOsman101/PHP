@@ -69,8 +69,7 @@ $stmt->bind_param(
 
 if ($stmt->execute()) echo "Success";
 else {
-    if ($mysql->errno === 1062) die("email already taken");
-    else die($mysql->error . " " . $mysql->errno);
+    die($mysql->error . " " . $mysql->errno);
 }
 
 echo "</pre>";

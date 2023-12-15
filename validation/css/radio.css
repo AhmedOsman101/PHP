@@ -2,7 +2,8 @@
 	display: flex;
 	place-items: center;
 	gap: 24px;
-	margin-top: 1rem 0;
+	width: 100%;
+	/* margin-bottom: 0.5rem; */
 }
 
 .radio-button {

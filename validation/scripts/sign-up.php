@@ -1,25 +1,76 @@
 <?php
+echo "<pre>";
+
+use GrahamCampbell\ResultType\Success;
+
 $mysql = require(__DIR__ . "/db/database.php");
+/* assign value if the $_POST array is not emtpy */
+foreach ($_POST as $key => $value) if (empty($value) && $key != "secondAddress") die("$key is required");
+foreach ($_POST as $key => $value) $$key = $value;
 
-if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) die("valid email is required");
-if (strlen($_POST["password"]) < 9) die("password is not valid");
+/* validate email */
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) die("valid email is required");
 
-if (isset($_POST['radio-group'])) {
-    $selected_gender = &$_POST['radio-group'];
-    if ($selected_gender == 'male') $selected_gender = true;
-    else if ($selected_gender == 'female') $selected_gender = false;
+/* validate password */
+if (strlen($password) < 8) die("Password must be at least 8 letters long");
+if (!preg_match("/[a-z]/i", $password)) die("Password must contain at least one letter");
+if (!preg_match("/[0-9]/", $password)) die("Password must contain at least one number");
+
+/* hashing password */
+$password_hash = password_hash($password, PASSWORD_DEFAULT);
+
+/* validate Gender */
+if (!empty($radio_group)) {
+    if ($radio_group == 'male') $radio_group = true;
+    else if ($radio_group == 'female') $radio_group = false;
+    else echo "Invalid gender selected.";
 } else echo "Please select a gender.";
 
-$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
+/* validate phone number */
+function validatePhoneNumber(&$phoneNumber) {
+    $pattern = '/^\+?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/';
+    $phoneNumber = str_replace(' ', '-', $phoneNumber);
+    if (preg_match($pattern, $phoneNumber)) return true;
+    else return false;
+}
 
+if (!validatePhoneNumber($phone)) die("The phone number is not valid.");
+
+/* validate age */
 if (
-    gettype($_POST["age"]) != "int"
-    || $_POST["age"] < 0
-    || 130 < $_POST["age"]
-)
-    die("Valid Age is Required");
+    gettype(+$age) != "integer"
+    || $age < 0
+    || $age > 130
+) die("Valid Age is Required");
 
-$sql = "INSERT INTO `customers`(`name`, `email`, `password`, `phone_number`, `Gender`, `age`, `address_1`, `address_2`, `created_at`, `updated_on`) 
-        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )";
+/* Inserting data with mysqli */
+$sql = "INSERT INTO `customers`(`name`, `email`, `password`, `phone_number`, `Gender`, `age`, `address_1`, `address_2`) 
+        VALUES ( ? , ? , ? , ? , ? , ? , ? , ? )";
+
+$stmt = $mysql->stmt_init();
+
+if (!$stmt->prepare($sql)) die("SQL error: " . $mysql->error);
+
+
 
 var_export($_POST);
+
+$stmt->bind_param(
+    'ssssiiss',
+    $username,
+    $email,
+    $password_hash,
+    $phone,
+    $radio_group,
+    $age,
+    $mainAddress,
+    $secondAddress
+);
+
+if ($stmt->execute()) echo "Success";
+else {
+    if ($mysql->errno === 1062) die("email already taken");
+    else die($mysql->error . " " . $mysql->errno);
+}
+
+echo "</pre>";

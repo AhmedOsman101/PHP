@@ -47,6 +47,10 @@ main {
 	padding: 0.5rem;
 }
 
+.input-group:has(#mainAddress) {
+	flex: 1 0 100%;
+}
+
 .input-group label {
 	display: block;
 	color: rgba(156, 163, 175, 1);

@@ -1,6 +1,6 @@
 <?php
 require_once 'F:/Apps/xampp/htdocs/Othman/PHP/vendor/autoload.php';
-
+echo "<pre>";
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -17,7 +17,9 @@ $mysql = new mysqli(
     password: $db_password,
     database: $db_name
 );
+
 if ($mysql->connect_error) die("an error occured" . $mysql->connect_error);
-// var_export($mysql);
+var_export($mysql);
 // echo  "<br>";
+echo "</pre>";
 return $mysql;

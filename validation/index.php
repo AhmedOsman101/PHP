@@ -1,6 +1,11 @@
 <?php
 session_start();
-// var_export($_SESSION);
+if (isset($_SESSION["user_Id"])) {
+    $mysql = require(__DIR__ . "/scripts/db/database.php");
+    $sql = sprintf("SELECT * FROM `customers` WHERE `id` = {$_SESSION['user_Id']} ");
+    $response = $mysql->query($sql);
+    $userData = $response->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,13 +28,15 @@ session_start();
 
 <body>
     <main>
-        <?php if (isset($_SESSION["user_Id"])): ?>
-            <h1>Logged In successfully</h1>
+        <?php if (isset($userData)): ?>
+            <h1> welcome
+                <?= htmlspecialchars($userData["name"]) ?>, how can i help you
+            </h1>
             <h2><a rel="noopener noreferrer" href="./scripts/logout.php">Logout</a>
             </h2>
         <?php else: ?>
-            <h1><a rel="noopener noreferrer" href="./scripts/login.php">Login</a> or <a
-                    rel="noopener noreferrer" href="./scripts/signup.php">sign-up</a>
+            <h1><a rel="noopener noreferrer" href="./scripts/login.php">Login</a> or <a rel="noopener noreferrer"
+                    href="./scripts/signup.php">sign-up</a>
             </h1>
         <?php endif; ?>
     </main>

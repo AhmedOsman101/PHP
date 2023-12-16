@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $userData = $response->fetch_assoc();
     if ($userData && password_verify($_POST["password"], $userData["password"])) {
         session_start();
+        session_regenerate_id();
         $_SESSION["user_Id"] = $userData["id"];
         header("Location: ../index.php");
         exit;

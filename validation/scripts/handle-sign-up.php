@@ -1,8 +1,6 @@
 <?php
 echo "<pre>";
 
-use GrahamCampbell\ResultType\Success;
-
 $mysql = require(__DIR__ . "/db/database.php");
 /* assign value if the $_POST array is not emtpy */
 foreach ($_POST as $key => $value) if (empty($value) && $key != "secondAddress") die("$key is required");

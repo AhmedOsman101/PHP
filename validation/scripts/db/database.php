@@ -19,7 +19,6 @@ $mysql = new mysqli(
 );
 
 if ($mysql->connect_error) die("an error occured" . $mysql->connect_error);
-var_export($mysql);
 // echo  "<br>";
 echo "</pre>";
 return $mysql;

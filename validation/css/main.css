@@ -1,0 +1,32 @@
+:root {
+	--purple: rgba(167, 139, 250, 1);
+}
+
+* {
+	text-transform: capitalize;
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	text-decoration: none;
+}
+main {
+	display: grid;
+	place-content: center;
+	place-items: center;
+	margin-bottom: 3rem;
+}
+
+a {
+	color: rgba(243, 244, 246, 1);
+	text-decoration: none;
+	transition: all 350ms;
+}
+
+a:hover {
+	color: var(--purple);
+}
+
+.sign:hover {
+	background-color: rgb(120, 79, 242);
+	color: rgba(243, 244, 246, 1);
+}

@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="../css/sign-up.css" />
 	<link rel="stylesheet" href="../css/radio.css" />
 	<link rel="stylesheet" href="../css/main.css" />
+	<script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+	<script defer src="../js/validation.js"></script>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
 	<main>
 		<div class="form-container">
 			<p class="title">Sign-Up</p>
-			<form class="form" method="post" novalidate
+			<form id="form" class="form" method="post" novalidate
 				action="http://localhost/Othman/php/validation/scripts/handle-sign-up.php">
 				<!-- username -->
 				<div class="input-group">
@@ -70,11 +72,10 @@
 					</div>
 				</div>
 				<!-- sign up -->
-				<input type="submit" value="sign-up" class="sign" />
+				<input type="submit" value="sign-up" class="sign" id="submit" />
 			</form>
 			<br />
-			<p class="sign-in"> Already have an account? <a rel="noopener noreferrer" href="login.php">Sign
-					In</a>
+			<p class="sign-in"> Already have an account? <a rel="noopener noreferrer" href="login.php">Sign In</a>
 			</p>
 		</div>
 	</main>

@@ -1,5 +1,5 @@
 <?php
-require_once 'F:/Apps/xampp/htdocs/Othman/PHP/vendor/autoload.php';
+require_once '../../../vendor/autoload.php';
 echo "<pre>";
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);

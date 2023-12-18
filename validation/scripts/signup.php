@@ -18,7 +18,7 @@
 		<div class="form-container">
 			<p class="title">Sign-Up</p>
 			<form class="form" method="post" novalidate
-				action="http://localhost/Othman/php/validation/scripts/handle-sign-up.php">
+				action="http://localhost/php/validation/scripts/handle-sign-up.php">
 				<!-- username -->
 				<div class="input-group">
 					<label for="username">Username</label>

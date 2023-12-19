@@ -7,8 +7,16 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $res = $db->insertFormData($_POST);
-    header("Location: index.php");
+    $script = <<<EOD
+        <script>
+            setTimeout(function() {
+                window.location.href = 'index.php';
+            }, 1000); // Redirect after 5 seconds
+        </script>
+    EOD;
+    echo $script;
 }
+
 
 
 
@@ -26,19 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <form method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" value="<?= $_POST["name"] ?? "" ?>" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="desc" required></textarea>
+                <input type="text" class="form-control" id="description" name="desc" value="<?= $_POST["desc"] ?? "" ?>" required>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>
-                <input type="number" class="form-control" id="price" name="price" required>
+                <input type="number" class="form-control" id="price" name="price" value="<?= $_POST["price"] ?? "" ?>" required>
             </div>
             <div class="mb-3">
                 <?php if (isset($res)) : ?>
                     <span class='text-success'>Added Successfully</span>
+                    <?php exit ?>
                 <?php endif ?>
             </div>
             <input type="submit" class="btn btn-primary" value="Add Item">

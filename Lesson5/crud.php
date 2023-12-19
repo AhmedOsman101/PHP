@@ -19,7 +19,7 @@ $mysql = $db->getConnection();
 $product = new Product(
     "Iphone",
     "15000",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste accusantium tempora totam ratione odit commodi. Veniam ab totam earum asperiores laudantium, temporibus quos qui, ea quidem nisi nobis repudiandae. Non!"
+    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
 );
 
 // $db->getData("products");

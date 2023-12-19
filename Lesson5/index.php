@@ -1,6 +1,6 @@
 <?php
 try {
-    $mysql = require(__DIR__ . "/db.php");
+    $mysql = require(__DIR__ . "/crud.php");
 } catch (\Throwable $e) {
     echo "ERROR Occurred: {$e->getMessage()} in line: {$e->getLine()}";
 }

@@ -6,7 +6,7 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $res = $db->insertFormData($_POST);
+    $res = $db->insertData("products", $_POST);
     $script = <<<EOD
         <script>
             setTimeout(function() {

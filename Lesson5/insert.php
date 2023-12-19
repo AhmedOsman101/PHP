@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html data-bs-theme="dark">
 
 <head>
-    <title>CRUD Operations [insert]</title>
+    <title>CRUD Operations [Create]</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <input type="text" class="form-control" id="description" name="desc" value="<?= $_POST["desc"] ?? "" ?>" required>
+                <input type="text" class="form-control" id="description" name="description" value="<?= $_POST["description"] ?? "" ?>" required>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Price</label>

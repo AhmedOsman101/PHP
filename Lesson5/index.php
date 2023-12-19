@@ -5,14 +5,12 @@ try {
     echo "<pre>ERROR Occurred: {$e->getMessage()} <br> in line: {$e->getLine()}</pre>";
 }
 $data = $db->getData("products");
-function insertRow() {
-}
 ?>
 <!DOCTYPE html>
 <html data-bs-theme="dark">
 
 <head>
-    <title>CRUD Operations</title>
+    <title>CRUD Operations [Read]</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>

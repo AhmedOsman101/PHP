@@ -27,9 +27,10 @@ class Database {
         return $this->mysql;
     }
 
-    public function getData($table) {
+    public function getData($table, $id = NULL) {
         try {
-            $sql = "SELECT * FROM `$table`";
+            $sql = $id === null ?
+                "SELECT * FROM `$table`" : "SELECT * FROM `$table` WHERE id=$id";
             $response = $this->getConnection()->query($sql);
             $userData = $response->fetch_all(MYSQLI_ASSOC);
             // var_export($userData);
@@ -41,7 +42,7 @@ class Database {
     public function insertData($table, $data) {
         try {
             $sql = "INSERT INTO `$table`(`name`, `price`, `description`) 
-                VALUES ( '{$data["name"]}' , {$data["price"]} , '{$data["desc"]}' )";
+                VALUES ( '{$data["name"]}' , {$data["price"]} , '{$data["description"]}' )";
             $this->getConnection()->query($sql);
             return true;
         } catch (\Throwable $e) {
@@ -52,7 +53,7 @@ class Database {
         try {
             foreach ($data as $key => $value) $$key = $value;
             $sql = "INSERT INTO `products`(`name`, `price`, `description`) 
-                    VALUES ( '{$name}' , '{$price}' , '{$desc}' )";
+                    VALUES ( '{$name}' , '{$price}' , '{$description}' )";
             $this->getConnection()->query($sql);
             return true;
         } catch (\Throwable $e) {
@@ -72,7 +73,7 @@ class Database {
         try {
             foreach ($data as $key => $value) $$key = $value;
             $sql = " UPDATE `products` 
-            SET `name`='{$name}',`price`='{$price}',`description`='{$desc}' 
+            SET `name`='{$name}',`price`='{$price}',`description`='{$description}' 
             WHERE `id` = $id";
             $this->getConnection()->query($sql);
             return true;

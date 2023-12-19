@@ -37,10 +37,12 @@ class Database {
             return ("An error occurred: " . $e->getMessage());
         }
     }
-    public function insertData($table, $object) {
+    public function insertData($table, $data) {
+        foreach ($data as $key => $value) $$key = $value;
+
         try {
             $sql = "INSERT INTO `$table`(`name`, `price`, `description`) 
-                VALUES ( '{$object->getName()}' , '{$object->getPrice()}' , '{$object->getDescription()}' )";
+                VALUES ( '{$data->getName()}' , '{$data->getPrice()}' , '{$data->getDescription()}' )";
             $this->getConnection()->query($sql);
             return true;
         } catch (mysqli_sql_exception $e) {

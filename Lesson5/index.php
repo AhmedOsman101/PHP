@@ -1,6 +1,6 @@
 <?php
-// $mysql = require(__DIR__ . "/db/database.php");
-echo "<pre>";
+
+// echo "<pre>";
 spl_autoload_register(function ($class) {
     require(__DIR__ . DIRECTORY_SEPARATOR . "scripts" . DIRECTORY_SEPARATOR . "$class.php");
 });
@@ -22,6 +22,6 @@ $product = new Product(
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste accusantium tempora totam ratione odit commodi. Veniam ab totam earum asperiores laudantium, temporibus quos qui, ea quidem nisi nobis repudiandae. Non!"
 );
 
-$db->getData("products");
-$db->insertData("products", $product);
-echo "</pre>";
+// $db->getData("products");
+// $db->insertData("products", $product);
+// echo "</pre>";

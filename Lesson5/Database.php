@@ -12,15 +12,20 @@ class Database {
         $this->db_user = $db_data['DB_USERNAME'];
         $this->db_password = $db_data['DB_PASSWORD'];
         $this->db_name = $db_data['DB_NAME'];
-        $this->mysql = new mysqli(
-            hostname: $this->db_host,
-            username: $this->db_user,
-            password: $this->db_password,
-            database: $this->db_name
-        );
+        try {
+            $this->mysql = new mysqli(
+                hostname: $this->db_host,
+                username: $this->db_user,
+                password: $this->db_password,
+                database: $this->db_name
+            );
 
-        if ($this->mysql->connect_error)
-            die("an error occurred" . $this->mysql->connect_error);
+            if ($this->mysql->connect_error) {
+                throw new Error("Connection failed: " . $this->mysql->connect_error);
+            }
+        } catch (\Throwable $e) {
+            throw new Error("An error occurred: " . $e->getMessage());
+        }
     }
 
     public function getConnection() {
@@ -29,24 +34,32 @@ class Database {
 
     public function getData($table, $id = NULL) {
         try {
-            $sql = $id === null ?
-                "SELECT * FROM `$table`" : "SELECT * FROM `$table` WHERE id=$id";
-            $response = $this->getConnection()->query($sql);
-            $userData = $response->fetch_all(MYSQLI_ASSOC);
-            // var_export($userData);
+            if ($id === null) {
+                $sql = "SELECT * FROM `$table`";
+                $stmt = $this->getConnection()->prepare($sql);
+            } else {
+                $sql = "SELECT * FROM `$table` WHERE id=?";
+                $stmt = $this->getConnection()->prepare($sql);
+                $stmt->bind_param("i", $id);
+            }
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $userData = $result->fetch_all(MYSQLI_ASSOC);
             return $userData;
         } catch (\Throwable $e) {
-            return ("An error occurred: " . $e->getMessage());
+            throw new Error("An error occurred: " . $e->getMessage());
         }
     }
+
     public function insertData($table, $data) {
         try {
-            $sql = "INSERT INTO `$table`(`name`, `price`, `description`) 
-                VALUES ( '{$data["name"]}' , {$data["price"]} , '{$data["description"]}' )";
-            $this->getConnection()->query($sql);
-            return true;
+            $sql = "INSERT INTO `$table`(`name`, `price`, `description`) VALUES (?, ?, ?)";
+            $stmt = $this->getConnection()->prepare($sql);
+            $stmt->bind_param("sis", $data["name"], $data["price"], $data["description"]);
+            $stmt->execute();
+            return;
         } catch (\Throwable $e) {
-            return ("An error occurred: " . $e->getMessage());
+            throw new Error("An error occurred: " . $e->getMessage());
         }
     }
     public function insertFormData(array $data) {
@@ -57,16 +70,17 @@ class Database {
             $this->getConnection()->query($sql);
             return true;
         } catch (\Throwable $e) {
-            echo ("An error occurred: " . $e->getMessage());
+            throw new Error("An error occurred: " . $e->getMessage());
         }
     }
     public function deleteData($id) {
         try {
             $sql = "DELETE FROM `products` WHERE `id` = $id";
-            $this->getConnection()->query($sql);
+            // $this->getConnection()->query($sql);
+            $this->getConnection()->execute_query($sql); // php 8.2 and above
             return true;
         } catch (\Throwable $e) {
-            echo ("An error occurred: " . $e->getMessage());
+            throw new Error("An error occurred: " . $e->getMessage());
         }
     }
     public function updateData($id, array $data) {
@@ -78,7 +92,7 @@ class Database {
             $this->getConnection()->query($sql);
             return true;
         } catch (\Throwable $e) {
-            echo ("An error occurred: " . $e->getMessage());
+            throw new Error("An error occurred: " . $e->getMessage());
         }
     }
 }

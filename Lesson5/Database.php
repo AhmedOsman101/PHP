@@ -62,17 +62,6 @@ class Database {
             throw new Error("An error occurred: " . $e->getMessage());
         }
     }
-    public function insertFormData(array $data) {
-        try {
-            foreach ($data as $key => $value) $$key = $value;
-            $sql = "INSERT INTO `products`(`name`, `price`, `description`) 
-                    VALUES ( '{$name}' , '{$price}' , '{$description}' )";
-            $this->getConnection()->query($sql);
-            return true;
-        } catch (\Throwable $e) {
-            throw new Error("An error occurred: " . $e->getMessage());
-        }
-    }
     public function deleteData($id) {
         try {
             $sql = "DELETE FROM `products` WHERE `id` = $id";

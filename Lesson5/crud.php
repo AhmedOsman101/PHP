@@ -21,7 +21,7 @@ $product = new Product(
     "15000",
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
 );
-
+return $mysql;
 // $db->getData("products");
 // $db->insertData("products", $product);
 // echo "</pre>";

@@ -33,23 +33,50 @@ class Database {
             $userData = $response->fetch_all(MYSQLI_ASSOC);
             // var_export($userData);
             return $userData;
-        } catch (mysqli_sql_exception $e) {
+        } catch (\Throwable $e) {
             return ("An error occurred: " . $e->getMessage());
         }
     }
     public function insertData($table, $data) {
-        foreach ($data as $key => $value) $$key = $value;
         try {
             $sql = "INSERT INTO `$table`(`name`, `price`, `description`) 
-                VALUES ( '{$data->getName()}' , '{$data->getPrice()}' , '{$data->getDescription()}' )";
+                VALUES ( '{$data["name"]}' , {$data["price"]} , '{$data["desc"]}' )";
             $this->getConnection()->query($sql);
             return true;
-        } catch (mysqli_sql_exception $e) {
+        } catch (\Throwable $e) {
             return ("An error occurred: " . $e->getMessage());
         }
     }
-    public function insertFormData() {
-
+    public function insertFormData(array $data) {
+        try {
+            foreach ($data as $key => $value) $$key = $value;
+            $sql = "INSERT INTO `products`(`name`, `price`, `description`) 
+                    VALUES ( '{$name}' , '{$price}' , '{$desc}' )";
+            $this->getConnection()->query($sql);
+            return true;
+        } catch (\Throwable $e) {
+            echo ("An error occurred: " . $e->getMessage());
+        }
     }
-        
+    public function deleteData($id) {
+        try {
+            $sql = "DELETE FROM `products` WHERE `id` = $id";
+            $this->getConnection()->query($sql);
+            return true;
+        } catch (\Throwable $e) {
+            echo ("An error occurred: " . $e->getMessage());
+        }
+    }
+    public function updateData($id, array $data) {
+        try {
+            foreach ($data as $key => $value) $$key = $value;
+            $sql = " UPDATE `products` 
+            SET `name`='{$name}',`price`='{$price}',`description`='{$desc}' 
+            WHERE `id` = $id";
+            $this->getConnection()->query($sql);
+            return true;
+        } catch (\Throwable $e) {
+            echo ("An error occurred: " . $e->getMessage());
+        }
+    }
 }

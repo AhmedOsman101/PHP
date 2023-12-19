@@ -6,7 +6,7 @@ try {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $res = $db->updateData($id, $_POST);
+    $res = $db->insertFormData($_POST);
     header("Location: ../index.php");
 }
 

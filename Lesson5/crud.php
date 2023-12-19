@@ -2,7 +2,7 @@
 
 // echo "<pre>";
 spl_autoload_register(function ($class) {
-    require(__DIR__ . DIRECTORY_SEPARATOR . "scripts" . DIRECTORY_SEPARATOR . "$class.php");
+    require("$class.php");  
 });
 
 $db_data = [
@@ -16,11 +16,6 @@ $db = new Database($db_data);
 $mysql = $db->getConnection();
 
 
-$product = new Product(
-    "Iphone",
-    "15000",
-    "Lorem ipsum dolor sit amet consectetur, adipisicing elit."
-);
 return $mysql;
 // $db->getData("products");
 // $db->insertData("products", $product);

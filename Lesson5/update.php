@@ -1,13 +1,13 @@
 <?php
 try {
-    $mysql = require("/xampp/htdocs/PHP/Lesson5/Crud.php");
+    $mysql = require("crud.php");
 } catch (\Throwable $e) {
     echo "ERROR Occurred: {$e->getMessage()} in line: {$e->getLine()}";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $res = $db->insertFormData($_POST);
-    header("Location: ../index.php");
+    $res = $db->updateData($id, $_POST);
+    header("Location: index.php");
 }
 
 

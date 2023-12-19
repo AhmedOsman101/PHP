@@ -1,13 +1,13 @@
 <?php
 try {
-    $mysql = require("/xampp/htdocs/PHP/Lesson5/Crud.php");
+    $mysql = require("crud.php");
 } catch (\Throwable $e) {
     echo "ERROR Occurred: {$e->getMessage()} in line: {$e->getLine()}";
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $res = $db->updateData($id, $_POST);
-    header("Location: ../index.php");
+    $res = $db->insertFormData($_POST);
+    header("Location: index.php");
 }
 
 
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="number" class="form-control" id="price" name="price" required>
             </div>
             <div class="mb-3">
-                <?php if (isset($res)): ?>
+                <?php if (isset($res)) : ?>
                     <span class='text-success'>Added Successfully</span>
                 <?php endif ?>
             </div>

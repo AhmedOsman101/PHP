@@ -1,56 +1,27 @@
 <?php
-class User {
-    public $name;
-    public $email;
-    private $password;
-    private $password_hash;
-    public function __construct($name, $password, $email) {
-        $this->name = $name;
-        $this->password = $password;
-        $this->email = $email;
-        $this->password_hash = password_hash($this->password, PASSWORD_DEFAULT);
-    }
-    public function getName() {
-        return $this->name;
-    }
-    public function setName($name) {
-        $this->name = $name;
-    }
-    public function getEmail() {
-        return $this->email;
-    }
-    public function setEmail($email) {
-        $this->email = $email;
-    }
-    public function getPassword() {
-        return $this->password;
-    }
-    public function setPassword($password) {
-        $this->password = $password;
-    }
-    public function getPasswordHash() {
-        return $this->password_hash;
-    }
-    public function setPasswordHash($password) {
-        $this->password_hash = password_hash($password, PASSWORD_DEFAULT);
-    }
-}
+// $mysql = require(__DIR__ . "/db/database.php");
+echo "<pre>";
+spl_autoload_register(function ($class) {
+    require(__DIR__ . DIRECTORY_SEPARATOR . "scripts" . DIRECTORY_SEPARATOR . "$class.php");
+});
 
-abstract class main {
-    abstract public function login($param1, $param2);
-}
+$db_data = [
+    "DB_HOST" => "localhost",
+    "DB_USERNAME" => "root",
+    "DB_PASSWORD" => "",
+    "DB_NAME" => "CRUD",
+];
 
-class Customer extends main {
-    function login($email, $password) {
-        if ($login && $password) return true;
-    }
-}
+$db = new Database($db_data);
+$mysql = $db->getConnection();
 
 
-$user1 = new User("Othman", 12345, "Othman@example.com");
-var_export($user1->getName());
-echo "\n <br>";
-var_export($user1->getEmail());
-echo "\n <br>";
-var_export($user1->getPassword());
-echo "\n <br>";
+$product = new Product(
+    "Iphone",
+    "15000",
+    "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste accusantium tempora totam ratione odit commodi. Veniam ab totam earum asperiores laudantium, temporibus quos qui, ea quidem nisi nobis repudiandae. Non!"
+);
+
+$db->getData("products");
+$db->insertData("products", $product);
+echo "</pre>";

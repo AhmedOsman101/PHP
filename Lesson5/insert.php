@@ -16,11 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     EOD;
     echo $script;
 }
-
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html data-bs-theme="dark">
 

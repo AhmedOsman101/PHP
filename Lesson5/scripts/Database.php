@@ -39,7 +39,6 @@ class Database {
     }
     public function insertData($table, $data) {
         foreach ($data as $key => $value) $$key = $value;
-
         try {
             $sql = "INSERT INTO `$table`(`name`, `price`, `description`) 
                 VALUES ( '{$data->getName()}' , '{$data->getPrice()}' , '{$data->getDescription()}' )";
@@ -49,4 +48,8 @@ class Database {
             return ("An error occurred: " . $e->getMessage());
         }
     }
+    public function insertFormData() {
+
+    }
+        
 }

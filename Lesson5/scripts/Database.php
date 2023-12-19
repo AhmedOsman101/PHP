@@ -19,7 +19,8 @@ class Database {
             database: $this->db_name
         );
 
-        if ($this->mysql->connect_error) die("an error occured" . $this->mysql->connect_error);
+        if ($this->mysql->connect_error)
+            die("an error occurred" . $this->mysql->connect_error);
     }
 
     public function getConnection() {

@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <div class="container my-5">
-
         <form method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -38,14 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="number" class="form-control" id="price" name="price" required>
             </div>
             <div class="mb-3">
-                <?php if (isset($res)) : ?>
+                <?php if (isset($res)): ?>
                     <span class='text-success'>Added Successfully</span>
                 <?php endif ?>
             </div>
             <input type="submit" class="btn btn-primary" value="Add Item">
-
-
-
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

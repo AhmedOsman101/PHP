@@ -38,7 +38,8 @@ function insertRow() {
                     $id = $item["id"];
                     echo "<tr>";
                     foreach ($item as $key => $value) {
-                        if ($key == "created_at" || $key == "updated_on") continue;
+                        if ($key == "created_at" || $key == "updated_on")
+                            continue;
                         echo "<td>$value</td>";
                     }
                     echo <<<_END
@@ -68,9 +69,7 @@ function insertRow() {
                     <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    Are you sure you want to proceed?
-                </div>
+                <div class="modal-body"> Are you sure you want to proceed? </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <a id="deleteConfirmBtn" class="btn btn-danger">Delete</a>

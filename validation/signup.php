@@ -5,27 +5,21 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Sign-Up</title>
-	<link rel="stylesheet" href="../css/water.css" />
-	<link rel="stylesheet" href="../css/navbar.css" />
-	<link rel="stylesheet" href="../css/sign-up.css" />
-	<link rel="stylesheet" href="../css/radio.css" />
-	<link rel="stylesheet" href="../css/main.css" />
-	<script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-	<script defer src="../js/validation.js"></script>
+	<link rel="stylesheet" href="./css/water.css" />
+	<link rel="stylesheet" href="./css/navbar.css" />
+	<link rel="stylesheet" href="./css/sign-up.css" />
+	<link rel="stylesheet" href="./css/radio.css" />
+	<link rel="stylesheet" href="./css/main.css" />
+	<!-- <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+	<script defer src="./js/validation.js"></script> -->
 </head>
 
 <body>
-	<?php include_once("../components/navbar.html") ?>
+	<?php include_once("./components/navbar.html") ?>
 	<main>
 		<div class="form-container">
 			<p class="title">Sign-Up</p>
-<<<<<<< HEAD
-			<form id="form" class="form" method="post" novalidate
-				action="handle-sign-up.php">
-=======
-			<form class="form" method="post" novalidate
-				action="handle-sign-up.php">
->>>>>>> a1bf17577aeec873c53b9411255eea911aec6369
+			<form id="form" class="form" method="post" novalidate action="handle-sign-up.php">
 				<!-- username -->
 				<div class="input-group">
 					<label for="username">Username</label>
@@ -54,8 +48,7 @@
 				<!-- address 2 -->
 				<div class="input-group">
 					<label for="secondAddress">Second Address</label>
-					<input type="text" name="secondAddress" id="secondAddress"
-						placeholder="enter your second Address" />
+					<input type="text" name="secondAddress" id="secondAddress" placeholder="enter your second Address" />
 				</div>
 				<!-- age -->
 				<div class="input-group">
@@ -84,7 +77,7 @@
 			</p>
 		</div>
 	</main>
-	<script type="text/javascript" src="../js/mobile.js"></script>
+	<script type="text/javascript" src="./js/mobile.js"></script>
 </body>
 
 </html>

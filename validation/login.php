@@ -2,7 +2,7 @@
 echo "<pre>";
 $is_Invalid = false;
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $mysql = require(__DIR__ . "/db/database.php");
+    $mysql = require("Database.php");
     $sql = sprintf(
         "SELECT * FROM `customers` WHERE `email` = '%s' ",
         $mysql->real_escape_string($_POST["email"])
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         session_start();
         session_regenerate_id();
         $_SESSION["user_Id"] = $userData["id"];
-        header("Location: ../index.php");
+        header("Location: index.php");
         exit;
     }
     $is_Invalid = true;
@@ -28,10 +28,10 @@ echo "</pre>";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/water.css" />
-    <link rel="stylesheet" href="../css/sign-up.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="./css/water.css" />
+    <link rel="stylesheet" href="./css/sign-up.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
     <style>
         .input-group {
             font-size: 0.875rem;
@@ -47,7 +47,7 @@ echo "</pre>";
 
 <body>
     <main>
-        <?php include_once("../components/navbar.html");?>
+        <?php include_once("./components/navbar.html");?>
         <?php if ($is_Invalid): ?>
             <h3 style="color:red;margin-bottom:-2rem;"><em></em>Login Failed!</em></h3>
         <?php endif ?>
@@ -70,7 +70,7 @@ echo "</pre>";
             </form>
             <br />
             <p class="sign-in"> doesn't have an account? <a rel="noopener noreferrer"
-                    href="./signup.php">sign-up</a>
+                    href="signup.php">sign-up</a>
             </p>
         </div>
     </main>

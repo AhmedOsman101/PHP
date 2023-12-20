@@ -1,0 +1,12 @@
+Bootstrap 4 shopping cart with credit card payment form:
+https://bbbootstrap.com/snippets/bootstrap-shopping-cart-credit-card-payment-form-28547121
+
+Bootstrap 4 product invoice card:
+https://bbbootstrap.com/snippets/bootstrap-product-invoice-card-14183634
+
+BOOTSTRAP FOOTER BOTTOM:
+https://bootstrapious.com/p/bootstrap-footer-bottom
+
+searcbar: 
+https://bbbootstrap.com/snippets/full-screen/bootstrap-search-box-input-icons-inside-88211241
+

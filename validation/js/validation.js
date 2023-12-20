@@ -42,4 +42,4 @@ validation
 			},
 			errorMessage: "Age cannot have a Negative nor decimal value",
 		},
-	]);
+	]).onSuccess;

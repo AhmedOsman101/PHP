@@ -1,7 +1,7 @@
 <?php
 echo "<pre>";
 
-$mysql = require(__DIR__ . "/db/database.php");
+$mysql = require("Database.php");
 /* assign value if the $_POST array is not emtpy */
 foreach ($_POST as $key => $value) if (empty($value) && $key != "secondAddress") die("$key is required");
 foreach ($_POST as $key => $value) $$key = $value;
@@ -68,7 +68,7 @@ $stmt->bind_param(
 try {
     echo "</pre>";
     $stmt->execute();
-    header("Location: ../components/sign-up-success.html");
+    header("Location: ./components/sign-up-success.html");
     exit;
 } catch (mysqli_sql_exception $e) {
     if ($e->getCode() == 1062) die("This Email Already Exists");

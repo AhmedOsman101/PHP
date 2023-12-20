@@ -1101,17 +1101,15 @@ function sumOfDivided($arr) {
 // $arr["2"] = 5;
 // array_splice($arr, 1, 0);
 function fibonacci_memo($n, &$memo = []) {
-    // create a memo to store previous inputs with their outputs 
-    // NOTE: pass the memo with reference(&) to edit the original one with each call
-    if (in_array($n, array_keys($memo)))
-        return $memo[$n]; // if the value already exists in the memo return it
-    if ($n <= 2)
-        return 1; // if not in memo and it's less than 3 return 1
-    $memo[$n] = fibonacci_memo($n - 1, $memo) + fibonacci_memo($n - 2, $memo); // else make a new key $n with the value of the recursive call to n-1&n-2 and pass your memo to them
+    if (in_array($n, array_keys($memo))) return $memo[$n]; 
+    if ($n <= 2) return 1; 
+    $memo[$n] = fibonacci_memo($n - 1, $memo) + fibonacci_memo($n - 2, $memo); 
     return $memo[$n];
 }
 
-// print_r(fibonacci_memo(550));
+print_r(fibonacci_memo(10));
+
+
 function canSum_memo($target, $nums, &$memo = []) {
     if (in_array($target, $nums) or $target == 0) return true;
     if (in_array($target, array_keys($memo))) return $memo[$target];

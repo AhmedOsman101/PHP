@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="./css/sign-up.css" />
 	<link rel="stylesheet" href="./css/radio.css" />
 	<link rel="stylesheet" href="./css/main.css" />
-	<!-- <script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-	<script defer src="./js/validation.js"></script> -->
+	<script defer src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+	<script defer src="./js/validation.js"></script>
 </head>
 
 <body>

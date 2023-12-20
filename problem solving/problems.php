@@ -144,26 +144,18 @@ function challenge($s) {
 }
 
 function mini($arr) {
-    $min = 0;
-    foreach ($arr as $item) {
-        if ($item < $min) {
-            $min = $item;
-        }
-    }
-    return $min;
-}
-// echo min([1, 5, 8, 0, -1, 5]);
-function maxi($arr) {
-    $max = null;
-    foreach ($arr as $item) {
-        if ($item > $max) {
-            $max = $item;
-        }
-    }
+    $max = 0;
+    foreach ($arr as $item) if ($item < $max) $max = $item;
     return $max;
 }
-
-
+function maxi($arr) {
+    $max = null;
+    foreach ($arr as $item) if ($item > $max) $max = $item;
+    return $max;
+}
+echo mini([-1, -5, -8, 0, -1, -5]);
+echo "\n";
+echo maxi([-1, -5, -8, 0, -1, -5]);
 
 function reverse_words_order_and_swap_cases($str) {
     $str = explode(" ", $str);
@@ -1101,9 +1093,9 @@ function sumOfDivided($arr) {
 // $arr["2"] = 5;
 // array_splice($arr, 1, 0);
 function fibonacci_memo($n, &$memo = []) {
-    if (in_array($n, array_keys($memo))) return $memo[$n]; 
-    if ($n <= 2) return 1; 
-    $memo[$n] = fibonacci_memo($n - 1, $memo) + fibonacci_memo($n - 2, $memo); 
+    if (in_array($n, array_keys($memo))) return $memo[$n];
+    if ($n <= 2) return 1;
+    $memo[$n] = fibonacci_memo($n - 1, $memo) + fibonacci_memo($n - 2, $memo);
     return $memo[$n];
 }
 
@@ -1324,3 +1316,26 @@ function permutations($s) {
 }
 
 // print_r(permutations(["cab", "abc", "cba"]));
+
+function missingNumber($start, $end, $arr) {
+    return array_diff(range($start, $end), $arr);
+}
+
+function removeZeros(string $str) {
+    $result = "";
+    $found = false;
+    for ($i = 0; $i < strlen($str); $i++) { # loop from index 0 to length of the string - 1
+        $item = $str[$i]; # $item is holding the number at the current position
+        # if we found a number other than 0, set $found variable to true
+        if ($item != 0) $found = true;
+        # if $found is true, that means we skipped all the zeros on the left
+        if ($found) $result .= $item; # add the remaining numbers to the $result variable
+    }
+    return $result;
+}
+
+function primeNum($num) {
+    $result = "{$num} is prime";
+    for ($i = 2; $i < $num; $i++) if ($num % $i == 0) return false;
+    return true;
+}

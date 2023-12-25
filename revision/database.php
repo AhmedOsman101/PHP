@@ -21,6 +21,7 @@ class Database {
             if ($this->CONNECTION->connect_error) {
                 header('HTTP/1.1 500 ERROR', true, 500);
                 return json_encode([
+                    "Status" => 500,
                     "ERROR" => "Connection failed: " . $this->mysql->connect_error
                 ], JSON_PRETTY_PRINT);
             }

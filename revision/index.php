@@ -5,7 +5,10 @@ spl_autoload_register(function ($class) {
     require_once("$class.php");
 });
 
-$db = new Database("localhost", "root", "crud", "");
+$env = parse_ini_file('.env');
+foreach ($env as $key => $value) $$key = $value;
+
+$db = new Database($DB_HOST, $DB_USER, $DB_NAME, $DB_PASSWORD);
 
 $data = json_decode(file_get_contents('php://input'), true);
 switch ($_SERVER['REQUEST_METHOD']) {

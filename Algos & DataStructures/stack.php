@@ -1,22 +1,24 @@
 
 
 <?php
-/**
- * Stack class to implement a basic stack data structure.
- *
- * Provides methods to check if stack is empty, push items onto stack, pop items
- * off stack, peek at top item, and get full stack array.
- *
- * Uses PHP arrays to store stack data.
- */
+
+/*
+* Stack class to implement a basic stack data structure. Provides methods to
+* push, pop, peek, get size, check if empty, search and get entire stack. Uses
+* PHP arrays to store stack.
+*/
 
 class Stack {
     public $stack = [];
 
-    public function GetStack(): array {
+    public function Get(): array {
         return $this->stack;
     }
-    public function Empty(): bool {
+
+    public function Size(): int {
+        return sizeOf($this->stack);
+    }
+    public function IsEmpty(): bool {
         return empty($this->stack);
     }
 
@@ -31,13 +33,18 @@ class Stack {
     public function Peek() {
         return $this->stack[0] ? $this->stack[0] : null;
     }
+
+    public function Search($item): int {
+        if (!in_array($item, $this->stack)) return -1;
+        else return array_search($item, $this->stack);
+    }
 }
 
 
 
 $stack = new Stack();
 
-// var_export($stack->Empty());
+// var_export($stack->IsEmpty());
 // echo "\n";
 
 $stack->Push("item1");
@@ -45,17 +52,26 @@ $stack->Push("item2");
 $stack->Push("item3");
 $stack->Push("item4");
 
-// var_export($stack->GetStack());
+// var_export($stack->Get());
+// echo "\n";
+
+// var_export($stack->Size());
 // echo "\n";
 
 // var_export($stack->Pop());
 // echo "\n";
 
-// var_export($stack->GetStack());
+// var_export($stack->Get());
 // echo "\n";
 
 // var_export($stack->Peek());
 // echo "\n";
 
-// var_export($stack->GetStack());
+// var_export($stack->Get());
+// echo "\n";
+
+// var_export($stack->Search("item5"));
+// echo "\n";
+
+// var_export($stack->Search("item2"));
 // echo "\n";

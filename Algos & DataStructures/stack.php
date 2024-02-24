@@ -97,14 +97,15 @@ class Stack {
 
 
 // $stack = new Stack(["item0"]);
+$stack = new Stack();
 
 // var_export($stack->IsEmpty());
 // echo "\n";
 
-// $stack->Push("item1");
-// $stack->Push("item2");
-// $stack->Push("item3");
-// $stack->Push("item4");
+$stack->Push("item1");
+$stack->Push("item2");
+$stack->Push("item3");
+$stack->Push("item4");
 
 // var_export($stack->Get());
 // echo "\n";

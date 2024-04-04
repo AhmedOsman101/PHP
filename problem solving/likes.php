@@ -14,3 +14,5 @@ function likes($names) {
                 . ' others like this';
             return $res;
     }
+}
+print_r(likes(['Alex', 'Jacob', 'Mark', 'Max']));

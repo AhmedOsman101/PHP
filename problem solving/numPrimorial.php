@@ -1,4 +1,5 @@
 <?php
+require 'isPrime.php';
 function numPrimorial($n) {
     $res = 1;
     $i = 0;
@@ -9,3 +10,9 @@ function numPrimorial($n) {
             $num++;
             $i++;
         } else {
+            $num++;
+        }
+    }
+    return $res;
+}
+var_export(numPrimorial(3));

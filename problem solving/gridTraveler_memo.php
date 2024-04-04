@@ -7,3 +7,6 @@ function gridTraveler_memo($m, $n, &$memo = []) {
     $memo[$key] = gridTraveler_memo($m - 1, $n, $memo) + gridTraveler_memo($m, $n - 1, $memo);
     return $memo[$key];
 }
+
+var_export(gridTraveler_memo(18, 18));
+var_export(gridTraveler_memo(1, 1));

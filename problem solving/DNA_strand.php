@@ -19,4 +19,5 @@ function DNA_strand($dna) {
                 break;
         }
     }
+    return implode($dna);
 }

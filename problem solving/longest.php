@@ -4,3 +4,4 @@ function longest($a, $b) {
     sort($res);
     return implode($res);
 }
+echo longest("aretheyhere", "yestheyarehere"); // aehrsty;

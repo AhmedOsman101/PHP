@@ -14,3 +14,9 @@ function mix($s1, $s2) {
     foreach ($s1Count as $char => $reps) {
         if (in_array($char, $s2Count)) {
         }
+    }
+    return $letters;
+}
+
+print_r(mix("Are the kids at home? aaaaa fffff", "Yes they are here! aaaaa fffff"));
+// 2:eeeee/2:yy/=:hh/=:rr

@@ -1,5 +1,4 @@
 <?php
-include "fibonacci_memo.php";
 function fibs_fizz_buzz($n) {
     $res = [];
     foreach (range(1, $n) as $numbers) {
@@ -8,8 +7,9 @@ function fibs_fizz_buzz($n) {
         elseif (fibonacci_memo($numbers) % 5 == 0) array_push($res, 'Buzz');
         else {
             array_push($res, fibonacci_memo($numbers));
+            print(fibonacci_memo($numbers) . "\n");
         }
     }
-    return implode("\n", $res);
+    return $res;
 }
-print_r(fibs_fizz_buzz(40));
+print_r(fibs_fizz_buzz(20));

@@ -6,3 +6,6 @@ function onlyDuplicates($str) {
         if ($count[$str[$i]] > 1) {
             $res .= $str[$i];
         }
+    }
+    return $res;
+}

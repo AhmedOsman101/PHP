@@ -6,3 +6,6 @@ function narcissistic(int $value): bool {
     foreach ($value as $num) {
         $sum += pow($num, $size);
     }
+    return $sum == (implode($value));
+}
+var_export(narcissistic(153));

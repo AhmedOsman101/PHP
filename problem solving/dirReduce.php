@@ -15,6 +15,10 @@ function dirReduce(&$arr) {
                 $arr = array_values($arr);
                 return dirReduce($arr);
             }
+        } else {
+            return $arr;
         }
     }
 }
+$directions = ["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"];
+print_r(dirReduce($directions)); // ["WEST"]

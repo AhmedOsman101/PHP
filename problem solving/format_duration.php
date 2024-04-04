@@ -42,7 +42,9 @@ function format_duration($seconds) {
             $yearsCount = "$yearsCount years";
             break;
     }
+
     #################################
+
     switch ($daysCount) {
         case 1:
             $daysCount = "$daysCount day";
@@ -66,7 +68,7 @@ function format_duration($seconds) {
             $hoursCount = "$hoursCount hours";
             break;
     }
-    #################################
+    ################################# 
     switch ($minutesCount) {
         case 1:
             $minutesCount = "$minutesCount minute";
@@ -78,7 +80,7 @@ function format_duration($seconds) {
             $minutesCount = "$minutesCount minutes";
             break;
     }
-    #################################
+    ################################# 
     switch ($seconds) {
         case 1:
             $seconds = "$seconds second";
@@ -114,5 +116,6 @@ function format_duration($seconds) {
     return $finalRes;
 }
 
-// print_r(format_duration(31626060));
-// format_duration(121);
+print_r(format_duration(31626060));
+echo "\n";
+print_r(format_duration(121));

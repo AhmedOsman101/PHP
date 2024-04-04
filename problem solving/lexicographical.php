@@ -6,3 +6,4 @@ function lexicographical($arr) {
     sort($stringNumbers);
     print_r($stringNumbers);
 }
+lexicographical("abc");

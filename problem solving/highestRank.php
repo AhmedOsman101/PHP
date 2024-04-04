@@ -10,3 +10,4 @@ function highestRank($arr) {
     }
     return max($maxValues);
 }
+print_r(highestRank([10, 12, 12, 12, 3, 3, 3, 10, 2, 4]));

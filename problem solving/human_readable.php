@@ -7,3 +7,4 @@ function human_readable($seconds) {
     $seconds = floor($seconds) % 60;
     return ($hoursCount < 10 ? "0$hoursCount:" : "$hoursCount:") . ($minutesCount < 10 ? "0$minutesCount:" : "$minutesCount:") . ($seconds < 10 ? "0$seconds" : "$seconds");
 }
+print_r(human_readable(359999));

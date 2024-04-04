@@ -6,3 +6,9 @@ function moveZeros(array $arr): array {
         if ($arr[$i] === 0 or $arr[$i] === floatval(0.0)) {
             $right[] = 0;
         } else {
+            $left[] = $arr[$i];
+        }
+    }
+    return array_merge($left, $right);
+} 
+var_export(moveZeros([9, 0.0, null, 0, 9, 1, 2, 0, 1, 0, 1, 0.0, 3, 0, 1, 9, 0, 0, 0, 0, 9]));

@@ -5,3 +5,5 @@ function SplitStrings($str) {
     foreach ($str as &$char) {
         $char = str_pad($char, 2, "_", STR_PAD_RIGHT);
     }
+    return $str;
+}

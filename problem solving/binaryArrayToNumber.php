@@ -7,4 +7,5 @@ function binaryArrayToNumber($arr) {
         $res += $arr[$i] * $multiplier;
         $multiplier *= 2;
     }
+    return $res;
 }

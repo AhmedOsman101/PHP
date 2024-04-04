@@ -24,3 +24,27 @@ function rgb($r, $g, $b) {
         if ($val >= 255) {
             $hexa .= "FF";
         } elseif (0 >= $val) {
+            $hexa .= "00";
+        } else if ($val <= 15) {
+            $hexa .= "0{$hexCode[$val]}";
+        } else {
+            $temp = '';
+            while (true) {
+                if (($val / 16) > 0) {
+                    echo $val . ": first\n";
+                    $temp .= $hexCode[$val % 16];
+                    $val = intval($val / 16);
+                    echo $val . ": second\n";
+                } else {
+                    break;
+                }
+            }
+            $hexa .= strrev($temp);
+        }
+    }
+    return '#' . $hexa;
+    // other Split Strings:
+    // return dechex($r) . dechex($g) . dechex($b);
+}
+echo rgb(1, 2, 1) . "\n";
+echo rgb(-500, 0, 0);

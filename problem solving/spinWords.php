@@ -5,3 +5,6 @@ function spinWords(string $str): string {
         if (strlen($word) >= 5) {
             $word = strrev($word);
         }
+    }
+    return implode(" ", $str);
+}

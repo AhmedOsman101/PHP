@@ -6,3 +6,6 @@ function toCamelCase($str) {
             unset($str[$i]);
             $str[$i + 1] = strtoupper($str[$i + 1]);
         }
+    }
+    return implode($str);
+}

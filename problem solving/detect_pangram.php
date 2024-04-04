@@ -7,4 +7,7 @@ function detect_pangram($string) {
             return false;
         }
     }
+    return true;
 }
+
+var_export(detect_pangram("The quick brown fox jumps over the lazy dog"));

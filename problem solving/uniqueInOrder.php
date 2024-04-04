@@ -9,3 +9,7 @@ function uniqueInOrder($str) {
         if ($str[$i] != $ret[sizeof($ret) - 1]) {
             array_push($ret, $str[$i]);
         }
+    }
+    return $ret;
+} 
+var_export(uniqueInOrder([1, 2, 2, 3]));

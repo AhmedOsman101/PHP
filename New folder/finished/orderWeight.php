@@ -1,5 +1,4 @@
 <?php
-
 function orderWeight($str) {
     $nums = explode(" ", $str);
     sort($nums);
@@ -32,7 +31,7 @@ function orderWeight($str) {
     }
     return implode(' ', ($temp));
 }
-// print_r(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
+print_r(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
 //          sorted: "11 11 22 123 2000 9999 10003 1234000 44444444"
 //             out: "11 11 2000 10003 22 123 1234000 44444444 9999"
 //               w: "2  2  2     4     4   6    10     32      36"

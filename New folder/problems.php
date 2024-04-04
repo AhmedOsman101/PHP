@@ -1,9 +1,4 @@
 <?php
-
-
-
-
-
 function spinWords(string $str): string {
     $str = explode(" ", $str);
     foreach ($str as &$word) {

@@ -5,3 +5,5 @@ return $prev;
 });
 return $total % 2 == 0 ? "even" : "odd";
 }
+
+// print_r(odd_or_even([0]));

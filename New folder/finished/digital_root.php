@@ -7,3 +7,5 @@ for ($i = 0; $i < count($number); $i++) { $res +=$number[$i]; } $number=$res; if
     return $number;
     }
     }
+    // print_r(digital_root(1236));
+    

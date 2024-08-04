@@ -28,8 +28,7 @@ if (!empty($radio_group)) {
 function validatePhoneNumber(&$phoneNumber) {
     $pattern = '/^\+?([0-9]{1,3})\)?[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,4})[-. ]?([0-9]{1,9})$/';
     $phoneNumber = str_replace(' ', '-', $phoneNumber);
-    if (preg_match($pattern, $phoneNumber)) return true;
-    else return false;
+    return preg_match($pattern, $phoneNumber);
 }
 
 if (!validatePhoneNumber($phone)) die("The phone number is not valid.");

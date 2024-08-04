@@ -1,5 +1,5 @@
 <?php
-echo "<pre>";
+
 $is_Invalid = false;
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $mysql = require("Database.php");
@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $is_Invalid = true;
 }
 
-echo "</pre>";
 ?>
 <!DOCTYPE html>
 <html lang="en">

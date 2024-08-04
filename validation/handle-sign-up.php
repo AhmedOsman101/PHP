@@ -1,5 +1,4 @@
 <?php
-echo "<pre>";
 
 $mysql = require("Database.php");
 /* assign value if the $_POST array is not emtpy */
@@ -47,11 +46,6 @@ $sql = "INSERT INTO `customers`(`name`, `email`, `password`, `phone_number`, `Ge
 $stmt = $mysql->stmt_init();
 if (!$stmt->prepare($sql)) die("SQL error: " . $mysql->error);
 
-
-
-var_export($_POST);
-echo "<br>";
-
 $stmt->bind_param(
     'ssssiiss',
     $username,
@@ -65,7 +59,6 @@ $stmt->bind_param(
 );
 
 try {
-    echo "</pre>";
     $stmt->execute();
     header("Location: ./components/sign-up-success.html");
     exit;

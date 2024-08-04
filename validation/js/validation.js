@@ -38,9 +38,9 @@ validation
         {
             validator: (value) => {
                 const n = Number(value);
-                return Number.isInteger(n) && n > 0 && n < 150;
+                return Number.isInteger(n) && n > 0 && n < 100;
             },
-            errorMessage: "Age must be a positive integer and less than 150",
+            errorMessage: "Age must be a positive integer and less than 100",
         },
     ])
     .onSuccess(() => {

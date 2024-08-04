@@ -2,7 +2,7 @@
 session_start();
 if (isset($_SESSION["user_Id"])) {
     $mysql = require("Database.php");
-    $sql = sprintf("SELECT * FROM `customers` WHERE `id` = {$_SESSION['user_Id']} ");
+    $sql = sprintf("SELECT * FROM `customers` WHERE `id` = %s",  $_SESSION['user_Id']);
     $response = $mysql->query($sql);
     $userData = $response->fetch_assoc();
 }

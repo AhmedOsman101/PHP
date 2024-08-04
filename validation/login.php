@@ -48,7 +48,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     <main>
         <?php include_once("./components/navbar.html");?>
         <?php if ($is_Invalid): ?>
-            <h3 style="color:red;margin-bottom:-2rem;"><em></em>Login Failed!</em></h3>
+            <h3 style="color:red;margin-bottom:-2rem;">
+							<em>Login Failed!</em>
+						</h3>
         <?php endif ?>
         <div class="form-container">
             <p class="title">Login</p>

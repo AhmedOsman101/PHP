@@ -36,8 +36,8 @@ if (!validatePhoneNumber($phone)) die("The phone number is not valid.");
 /* validate age */
 if (
     gettype(+$age) != "integer"
-    || $age < 0
-    || $age > 130
+    || $age < 1
+    || $age > 100
 ) die("Valid Age is Required");
 
 /* Inserting data with mysqli */
